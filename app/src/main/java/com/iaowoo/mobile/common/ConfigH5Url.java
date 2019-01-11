@@ -9,6 +9,14 @@ import com.plp.underlying.networkframwork.UtilsOkHttpAll;
 public class ConfigH5Url {
 
     /**
+     * 商品详情图文详情
+     * /product_details.html
+     * //生产https://sp.iaowoo.com/product_details.html  测试:https://test-sp.iaowoo.com/product_details.html
+     */
+    public static String GOODES_IMAGE_PAGE = UtilsOkHttpAll.GOODES_IMAGE_PAGE;
+    /******************************************************/
+
+    /**
      * h5页面服务器域名
      */
     public static String HTTP_H5 = UtilsOkHttpAll.HTTP_H5;
@@ -214,14 +222,6 @@ public class ConfigH5Url {
         LogPrint.printError("跳转路径：" + Url);
         return Url;
     }
-
-    /**
-     * 商品详情图文详情
-     * /product_details.html
-     * //生产https://sp.iaowoo.com/product_details.html  测试:https://test-sp.iaowoo.com/product_details.html
-     */
-    public static String GOODES_IMAGE_PAGE = "https://sp.iaowoo.com/product_details.html";
-    /******************************************************/
 
 
     /*************************************************************Weex*******************************************************************************/

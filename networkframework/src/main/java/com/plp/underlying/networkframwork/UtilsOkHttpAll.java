@@ -20,6 +20,11 @@ public class UtilsOkHttpAll {
      */
     public static String WEEX_HTTP;
 
+    /**
+     * 商品详情图文详情
+     */
+    public static String GOODES_IMAGE_PAGE;
+
     static {
         switch (ENV_TYPE) {
             case 0:
@@ -27,19 +32,22 @@ public class UtilsOkHttpAll {
 //                HTTP_BASE = "http://172.16.4.8:9989";
                 HTTP_BASE = "https://dev-api.iaowoo.com";
                 HTTP_H5 = "https://dev-m.iaowoo.com";
-                WEEX_HTTP = "https://test-files.shbs008.com/static/weex";
+                WEEX_HTTP = "https://ihw-files-test.oss-cn-hangzhou.aliyuncs.com/front-page/weex";
+                GOODES_IMAGE_PAGE = "https://test-sp.iaowoo.com/product_details.html";
                 break;
 
             case 1:
                 HTTP_BASE = "https://test-api.iaowoo.com";
                 HTTP_H5 = "https://test-m.iaowoo.com";
-                WEEX_HTTP = "https://test-files.shbs008.com/static/weex";
+                WEEX_HTTP = "https://ihw-files-test.oss-cn-hangzhou.aliyuncs.com/front-page/weex";
+                GOODES_IMAGE_PAGE = "https://test-sp.iaowoo.com/product_details.html";
                 break;
 
             case 2:
                 HTTP_BASE = "https://api.iaowoo.com";
                 HTTP_H5 = "https://m.iaowoo.com";
-                WEEX_HTTP = "https://test-files.shbs008.com/static/weex";
+                WEEX_HTTP = "https://ihw-files-test.oss-cn-hangzhou.aliyuncs.com/front-page/weex";
+                GOODES_IMAGE_PAGE = "https://sp.iaowoo.com/product_details.html";
                 break;
         }
     }
