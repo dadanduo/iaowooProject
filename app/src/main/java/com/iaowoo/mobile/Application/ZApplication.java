@@ -35,6 +35,7 @@ import com.iaowoo.mobile.im.RedPacketMessage;
 import com.iaowoo.mobile.im.RedPacketProvider;
 import com.lidroid.xutils.HttpUtils;
 import com.plp.underlying.networkframwork.OkhttpManager;
+import com.plp.underlying.networkframwork.UtilsOkHttpAll;
 import com.qiyukf.unicorn.api.OnBotEventListener;
 import com.qiyukf.unicorn.api.StatusBarNotificationConfig;
 import com.qiyukf.unicorn.api.UICustomization;
@@ -70,6 +71,7 @@ import io.rong.imlib.RongIMClient;
 public class ZApplication extends Application {
     /**
      * 解决极光bug
+     *
      * @param base
      */
     @Override
@@ -79,9 +81,9 @@ public class ZApplication extends Application {
     }
 
     /**
-     *是否为发布状态  true:发布模式（线上环境）  false:debug模式（测试环境）
+     * 是否为发布状态  true:发布模式（线上环境）  false:debug模式（测试环境）
      */
-    public static  boolean isRelease=true;
+    public static boolean isRelease = UtilsOkHttpAll.ENV_TYPE == 2;
     /**
      * gson解析
      */
@@ -93,41 +95,41 @@ public class ZApplication extends Application {
     /**
      * xutils网络请求模块
      */
-    private  HttpUtils http;
+    private HttpUtils http;
 
-    public static int ALL_TAG=0;
+    public static int ALL_TAG = 0;
 
-    public static int ALL_TAG_I=0;
+    public static int ALL_TAG_I = 0;
 
 
     /**
      * 比对是否是商家二维码的字段
      */
-    public static  String SCAN_SHOP_NAME="shbs008.com";
+    public static String SCAN_SHOP_NAME = "shbs008.com";
     /**
-     *是否显示沉淀状态栏
+     * 是否显示沉淀状态栏
      */
-    public  final static boolean isShowHide=true;
+    public final static boolean isShowHide = true;
     /**
-     *极光推送registerid
+     * 极光推送registerid
      */
-    public  static String REGISTERID="";
+    public static String REGISTERID = "";
     /**
-     *账号被其他设备登陆通知code
+     * 账号被其他设备登陆通知code
      */
-    public  final static String CODE="10101";
+    public final static String CODE = "10101";
     /**
-     *账号失效
+     * 账号失效
      */
-    public  final static String CODE_LOSE="10102";
+    public final static String CODE_LOSE = "10102";
     /**
      * 二维码扫描提示文字
      */
-    public final  static  String CODE_TEXT="对准二维码到框内即可扫描";
+    public final static String CODE_TEXT = "对准二维码到框内即可扫描";
     /**
      * weex页面
      */
-    public static  final  String BC_ACTION_RENDER_NET_JS="http://192.168.1.254:8081/dist/js//views/order/index.js";
+    public static final String BC_ACTION_RENDER_NET_JS = "http://192.168.1.254:8081/dist/js//views/order/index.js";
     /**
      * weex本地页面
      */
@@ -135,11 +137,11 @@ public class ZApplication extends Application {
     /**
      * 图片的缓存路径
      */
-    public static  String PATHURL="";
+    public static String PATHURL = "";
 
-    public static  String DB="";
+    public static String DB = "";
 
-    public static  final  String SEARCH_TAG="searchs";
+    public static final String SEARCH_TAG = "searchs";
 
     private RefWatcher refWatcher;
 
@@ -156,10 +158,11 @@ public class ZApplication extends Application {
      */
     public static final String DATABASE_NAME = "PLP_NEW.db";
 
-    public static String JSLib="js_Libs";
+    public static String JSLib = "js_Libs";
 
 
     public Stack<Activity> mList = new Stack<>();
+
     //    private RefWatcher refWatcher;
     public static ZApplication getInstance() {
         return zApplication;
@@ -168,35 +171,39 @@ public class ZApplication extends Application {
     /**
      * @return
      */
-    public  HttpUtils getHttp() {
+    public HttpUtils getHttp() {
         return http;
     }
 
     /**
      * 将启动的进程添加进入list中
+     *
      * @param activity
      */
-    public void addActivity(Activity activity){
+    public void addActivity(Activity activity) {
         mList.add(activity);
     }
+
     /**
-     *将list中的activity全部销毁
+     * 将list中的activity全部销毁
      */
-    public void exit(){
-        for(Activity activity:mList){
-            if (activity != null){
+    public void exit() {
+        for (Activity activity : mList) {
+            if (activity != null) {
                 activity.finish();
             }
         }
     }
+
     /**
-     *杀进程
+     * 杀进程
      */
     @Override
     public void onLowMemory() {
         super.onLowMemory();
         LogPrint.printError("杀进程");
     }
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -205,8 +212,8 @@ public class ZApplication extends Application {
         // LitePal数据库初始化
         LitePal.initialize(this);
         //weex配置
-        InitConfig config=new InitConfig.Builder().setImgAdapter(new ImageAdapter()).build();
-        WXSDKEngine.initialize(this,config);
+        InitConfig config = new InitConfig.Builder().setImgAdapter(new ImageAdapter()).build();
+        WXSDKEngine.initialize(this, config);
         /**********************************************weex交互注册start*********************************************/
         try {
             WXSDKEngine.registerModule("PPWxEventModule", PPWxEventModule.class);
@@ -221,11 +228,11 @@ public class ZApplication extends Application {
         //新版本
         //初始化sharedPreferences
         zApplication = this;
-        context=this.getApplicationContext();
-        gson=new Gson();
-        http=new HttpUtils();
+        context = this.getApplicationContext();
+        gson = new Gson();
+        http = new HttpUtils();
         x.Ext.init(this);
-        SD_PATH=this.getExternalCacheDir()+"/plp_db";
+        SD_PATH = this.getExternalCacheDir() + "/plp_db";
         /**************************************************单列开启*******************************************/
         //shrefr存储
         PrefManager.getInstance();
@@ -244,31 +251,31 @@ public class ZApplication extends Application {
         if (!cacheDir.exists()) {
             cacheDir.mkdirs();
             LogPrint.printError("路径:" + cacheDir.getAbsolutePath());
-            PATHURL=cacheDir.getAbsolutePath();
+            PATHURL = cacheDir.getAbsolutePath();
         }
 
-        File cacheDirDB= SingleOverAll.getInstance().getDiskCacheDir(this, "db");
+        File cacheDirDB = SingleOverAll.getInstance().getDiskCacheDir(this, "db");
         if (!cacheDirDB.exists()) {
             cacheDirDB.mkdirs();
-            LogPrint.printError("路径数据库:" +cacheDirDB.getAbsolutePath());
-            DB=cacheDirDB.getAbsolutePath();
+            LogPrint.printError("路径数据库:" + cacheDirDB.getAbsolutePath());
+            DB = cacheDirDB.getAbsolutePath();
         }
         //开启debug模式，方便定位错误，具体错误检查方式可以查看http://dev.umeng.com/social/android/quick-integration的报错必看，正式发布，请关闭该模式
-        if(isRelease) {
-            Config.DEBUG=false;
-            ConfigFlag.IS_DEBUG=false;
-            ConfigFlag.ISSHWODILOGO=false;
+        if (isRelease) {
+            Config.DEBUG = false;
+            ConfigFlag.IS_DEBUG = false;
+            ConfigFlag.ISSHWODILOGO = false;
             //极光推送初始化
-            JPushInterface.setDebugMode(false); 	// 设置开启日志,发布时请关闭日志
+            JPushInterface.setDebugMode(false);    // 设置开启日志,发布时请关闭日志
             //um 统计初始化
             UMConfigure.setLogEnabled(false);
             x.Ext.setDebug(false); //输出debug日志，开启会影响性能
-        }else{
-            Config.DEBUG=true;
-            ConfigFlag.IS_DEBUG=true;
-            ConfigFlag.ISSHWODILOGO=true;
+        } else {
+            Config.DEBUG = true;
+            ConfigFlag.IS_DEBUG = true;
+            ConfigFlag.ISSHWODILOGO = true;
             //极光推送初始化
-            JPushInterface.setDebugMode(true); 	// 设置开启日志,发布时请关闭日志
+            JPushInterface.setDebugMode(true);    // 设置开启日志,发布时请关闭日志
             //um 统计初始化
             UMConfigure.setLogEnabled(true);
             x.Ext.setDebug(true); //输出debug日志，开启会影响性能
@@ -277,84 +284,93 @@ public class ZApplication extends Application {
             //初始化捕获异常
 //            CrashHanlder.getInstance().init(this);
         }
-        JPushInterface.init(this);     		// 初始化 JPush
+        JPushInterface.init(this);            // 初始化 JPush
         REGISTERID = JPushInterface.getRegistrationID(this);
-        LogPrint.printError("1099"+ "run:--------->registrationId： "+REGISTERID );
+        LogPrint.printError("1099" + "run:--------->registrationId： " + REGISTERID);
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES. M){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             // Android 6.0 及以上的系统上，需要去请求一些用到的权限，JPush SDK 用到的一些需要请求如下权限，因为需要这些权限使统计更加精准，功能更加丰富，建议开发者调用。
             JPushInterface.requestPermission(this);
         }
-        UMConfigure.init(this,UMConfigure.DEVICE_TYPE_PHONE,"");
+        UMConfigure.init(this, UMConfigure.DEVICE_TYPE_PHONE, "");
         //对应平台没有安装的时候跳转转到应用商店下载
         Config.isJumptoAppStore = true;
 
         //微信分享
-        PlatformConfig.setWeixin(ConfigAppkey.WEIXIN_APP_ID,ConfigAppkey.WEIXIN_APP_SECRET);
+        PlatformConfig.setWeixin(ConfigAppkey.WEIXIN_APP_ID, ConfigAppkey.WEIXIN_APP_SECRET);
         //QQ分享
         PlatformConfig.setQQZone(ConfigAppkey.QQ_APP_ID, ConfigAppkey.QQ_APP_KEY);
         //新浪微博分享(第三个参数为回调地址)
-        PlatformConfig.setSinaWeibo(ConfigAppkey.SINAWEIBO_APP_KEY, ConfigAppkey.SINAWEIBO_APP_SECRET,ConfigAppkey.SINAWEIBO_REDIRECT_URL);
+        PlatformConfig.setSinaWeibo(ConfigAppkey.SINAWEIBO_APP_KEY, ConfigAppkey.SINAWEIBO_APP_SECRET, ConfigAppkey.SINAWEIBO_REDIRECT_URL);
 
         //初始化捕获异常
 //        CrashHanlder.getInstance().init(this);
         // appKey七鱼客服
-        Unicorn.init(this,ConfigAppkey.QIYU, options(ConfigH5Url.ImageUrl), new GlideImageLoader(this));
+        Unicorn.init(this, ConfigAppkey.QIYU, options(ConfigH5Url.ImageUrl), new GlideImageLoader(this));
         registerActivityLifecycleCallbacks(new ActivityLifecycleCallbacks() {
             @Override
             public void onActivityCreated(Activity activity, Bundle savedInstanceState) {
 
             }
+
             @Override
             public void onActivityStarted(Activity activity) {
 
             }
+
             @Override
             public void onActivityResumed(Activity activity) {
                 MyActivityManager.getInstance().setCurrentActivity(activity);
             }
+
             @Override
             public void onActivityPaused(Activity activity) {
             }
+
             @Override
             public void onActivityStopped(Activity activity) {
             }
+
             @Override
             public void onActivitySaveInstanceState(Activity activity, Bundle outState) {
             }
+
             @Override
             public void onActivityDestroyed(Activity activity) {
             }
         });
 
-      if(!TextUtils.isEmpty(PrefManager.getInstance().getToken())){
-          LogPrint.printError("你需要的token:"+PrefManager.getInstance().getToken());
-          String passwordtwo=UtilsAll.encryptionPasswordString("18011009889123456");
-          LogPrint.printError("加密测试:"+passwordtwo);
-      }
+        if (!TextUtils.isEmpty(PrefManager.getInstance().getToken())) {
+            LogPrint.printError("你需要的token:" + PrefManager.getInstance().getToken());
+            String passwordtwo = UtilsAll.encryptionPasswordString("18011009889123456");
+            LogPrint.printError("加密测试:" + passwordtwo);
+        }
 
     }
 
     /**
      * 获取全局的context
+     *
      * @return 返回全局context对象
      */
-    public static Context getContext(){
+    public static Context getContext() {
         return context;
     }
+
     /**
      * 七鱼配置
      * 如果返回值为null，则全部使用默认参数。
+     *
      * @return
      */
-    public  YSFOptions options(String image) {
+    public YSFOptions options(String image) {
         YSFOptions options = new YSFOptions();
         options.statusBarNotificationConfig = new StatusBarNotificationConfig();
 //      options.statusBarNotificationConfig.notificationSmallIconId = R.mipmap.head_portrait;
-        options.uiCustomization=new UICustomization();
-        options.uiCustomization.rightAvatar=image;
+        options.uiCustomization = new UICustomization();
+        options.uiCustomization.rightAvatar = image;
         //标题居中
-        options.uiCustomization.titleCenter=true;
+        options.uiCustomization.titleCenter = true;
         options.onBotEventListener = new OnBotEventListener() {
             @Override
             public boolean onUrlClick(Context context, String url) {
@@ -363,9 +379,10 @@ public class ZApplication extends Application {
                 return true;
             }
         };
-        ConfigFlag.ysfOptions=options;
+        ConfigFlag.ysfOptions = options;
         return options;
     }
+
     /**
      * 内存泄漏检测
      */
@@ -409,7 +426,7 @@ public class ZApplication extends Application {
         @Override
         public void onChanged(ConnectionStatus connectionStatus) {
 
-            switch (connectionStatus){
+            switch (connectionStatus) {
 
                 case CONNECTED://连接成功。
 
