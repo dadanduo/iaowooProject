@@ -27,6 +27,7 @@ public class UtilsOkHttpAll {
 //                HTTP_BASE = "http://172.16.4.8:9989";
                 HTTP_BASE = "https://dev-api.iaowoo.com";
                 HTTP_H5 = "https://dev-m.iaowoo.com";
+                WEEX_HTTP = "https://test-files.shbs008.com/static/weex";
                 break;
 
             case 1:
@@ -38,7 +39,7 @@ public class UtilsOkHttpAll {
             case 2:
                 HTTP_BASE = "https://api.iaowoo.com";
                 HTTP_H5 = "https://m.iaowoo.com";
-                WEEX_HTTP = "";
+                WEEX_HTTP = "https://test-files.shbs008.com/static/weex";
                 break;
         }
     }
