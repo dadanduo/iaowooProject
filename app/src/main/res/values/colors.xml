@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#fff</color>
+    <color name="colorPrimaryDark">#fff</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="colorselect">#F30E41</color>
+    <color name="colornoselect">#e8e8e8</color>
+    <color name="colortabletxt">#999999</color>
+    <color name="colortablebg">#333333</color>
+    <color name="colorwhite">#ffffff</color>
+    <color name="colortransparent">#00000000</color>
+    <color name="colorBlack">#000000</color>
+    <color name="tab_unselect">#c9c9c9</color>
+    <color name="halftrantion">#99000000</color>
+    <color name="hui">#ABABAB</color>
+    <color name="red">#FF0000</color>
+    <color name="line">#f0f0f0</color>
+    <color name="huise">#DCDCDC</color>
+    <color name="code">#767676</color>
+    <color name="marge_3333">#333333</color>
+    <color name="txt_666666">#666666</color>
+    <color name="main">#D43228</color>
+    <color name="qianhuise">#f5f5f5</color>
+    <color name="andoridMain">#D85A56</color>
+    <color name="andoridUpdate">#D85A56</color>
+    <color name="andoridHead">#FFFFFF</color>
+    <color name="my_image">#E2632C</color>
+
+    <!-- Screens background color-->
+    <color name="bg_screen1">#f64c73</color>
+    <color name="bg_screen2">#20d2bb</color>
+    <color name="bg_screen3">#3395ff</color>
+    <color name="bg_screen4">#c873f4</color>
+    <color name="bg_screen5">#f59825</color>
+
+    <!-- dots inactive colors -->
+    <color name="dot_dark_screen1">#d1395c</color>
+    <color name="dot_dark_screen2">#14a895</color>
+    <color name="dot_dark_screen3">#2278d4</color>
+    <color name="dot_dark_screen4">#a854d4</color>
+    <color name="dot_dark_screen5">#f57f17</color>
+    <!-- dots active colors -->
+    <color name="dot_light_screen1">#f98da5</color>
+    <color name="dot_light_screen2">#8cf9eb</color>
+    <color name="dot_light_screen3">#93c6fd</color>
+    <color name="dot_light_screen4">#e4b5fc</color>
+    <color name="dot_light_screen5">#fbc02d</color>
+
+    <array name="array_dot_active">
+        <item>@color/dot_light_screen1</item>
+        <item>@color/dot_light_screen2</item>
+        <item>@color/dot_light_screen3</item>
+        <item>@color/dot_light_screen4</item>
+        <item>@color/dot_light_screen5</item>
+    </array>
+
+    <array name="array_dot_inactive">
+        <item>@color/dot_dark_screen1</item>
+        <item>@color/dot_dark_screen2</item>
+        <item>@color/dot_dark_screen3</item>
+        <item>@color/dot_dark_screen4</item>
+        <item>@color/dot_dark_screen5</item>
+    </array>
+
+
+    <color name="gray">#eeeeee</color>
+    <color name="white">#FFFFFF</color>
+    <color name="ok_btm">#F4AF4E</color>
+    <color name="black">#000000</color>
+
+    <color name="huiclassinfo">#f2f2f2</color>
+
+    <color name="font_gray_b">#d4d4d3</color>
+
+    <color name="font_tab_1">#42369a</color>
+    <color name="font_tab_0">#b1b1b1</color>
+
+
+    <color name="font_common_1">#424242</color>
+    <color name="font_common_2">#a1a1a1</color>
+    <color name="font_blue">#42369a</color>
+
+    <color name="font_green">#00cccc</color>
+
+    <color name="commom_background">#f3f3f3</color>
+    <color name="itemDocrationColor">#b8baba</color>
+    <color name="tables">#e95050</color>
+    <color name="tablesSelect">#333333</color>
+    <color name="tablesNoSelect">#333333</color>
+    <color name="huisef_5">#f5f5f5</color>
+
+
+    <!-- *********************SwipeRefreshLayout进度条颜色********************* -->
+    <color name="swiperefresh_color_1">#5DB5F4</color>
+    <color name="swiperefresh_color_2">#e95050</color>
+    <color name="swiperefresh_color_3">#00cccc</color>
+    <color name="swiperefresh_color_4">#42369a</color>
+
+    <!-- ************自定义WRecyclerview************ -->
+    <color name="wrecyclerview_footer_bg_color">#ffffff</color>
+    <color name="wrecyclerview_footer_hint_text_color">#70747E</color>
+    <color name="wrecyclerview_footer_loading_text_color">#ABB1BD</color>
+    <color name="wrecyclerview_divider_color">#eeeeee</color>
+
+
+
+    <color name="indicatorNormalColor">#D3D3D3</color>
+    <color name="indicatorFocusColor">#d43d3d</color>
+
+    <color name="blue_2bbbe6">#2BBBE6</color>
+    <color name="color_222222">#222222</color>
+
+
+
+    <color name="text_color">#353535</color>
+    <color name="perk_type_click_color">#656795</color>
+</resources>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <!--<android.support.v4.widget.SwipeRefreshLayout-->
+        <!--android:id="@+id/video_swiperefreshlayout_list"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:background="@color/white"-->
+        <!--android:layout_marginBottom="@dimen/dp_50"-->
+        <!--android:layout_height="wrap_content">-->
+    <LinearLayout
+        android:id="@+id/top"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#f0eff4"
+        android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:background="@color/white"
+            android:layout_height="@dimen/dp_52">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/pp_show"
+                android:textColor="#333333"
+                android:layout_centerInParent="true"
+                android:textSize="17sp"
+                />
+
+        </RelativeLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#eeeeee"/>
+
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+        android:id="@+id/list_swiperefreshlayout"
+        android:layout_width="match_parent"
+        android:background="@color/white"
+        app:srlPrimaryColor="@color/hui"
+        android:layout_height="match_parent">
+
+        <com.scwang.smartrefresh.layout.header.ClassicsHeader
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:srlPrimaryColor="@color/colorPrimary"
+            app:srlAccentColor="@color/hui"
+            app:srlDrawableSize="@dimen/dp_30"
+            app:srlDrawableProgress="@drawable/animation_loading_frame"/>
+
+            <com.iaowoo.mobile.Ui.classification.View.recyclerview.WRecyclerView
+                android:id="@+id/video_list_recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:cacheColorHint="#00000000"
+                android:divider="@null"
+                android:background="#f0eff4"
+                android:listSelector="#00000000"
+                android:scrollbarThumbVertical="@drawable/scrollbar_vertical_thumb"
+                />
+
+        <com.scwang.smartrefresh.layout.footer.ClassicsFooter
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    <!--</android.support.v4.widget.SwipeRefreshLayout>-->
+
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
+    </LinearLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/video_bg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:visibility="gone"
+        >
+        <RelativeLayout
+            android:id="@+id/top_video"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_52">
+            <RelativeLayout
+                android:id="@+id/back_return"
+                android:layout_width="@dimen/dp_30"
+                android:visibility="gone"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/dp_12">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:src="@mipmap/retrun"/>
+            </RelativeLayout>
+            <TextView
+                android:id="@+id/show_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/pp_show"
+                android:textColor="@color/hui"
+                android:layout_centerInParent="true"
+                android:textSize="17sp"
+                />
+
+        </RelativeLayout>
+    </RelativeLayout>
+</LinearLayout>

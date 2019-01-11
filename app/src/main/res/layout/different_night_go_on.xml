@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:hedgehog="http://schemas.android.com/apk/res-auto"
+    >
+    <com.amap.api.maps.MapView
+        android:id="@+id/map_shop"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </com.amap.api.maps.MapView>
+    <RelativeLayout
+        android:id="@+id/choose_shop_one"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_gravity="bottom"
+        android:background="@drawable/choosemerchats"
+        android:visibility="gone"
+        >
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_centerInParent="true"
+            >
+            <View
+                android:layout_width="30dp"
+                android:layout_height="2dp"
+                android:layout_gravity="center"
+                android:background="@color/font_common_2"/>
+            <TextView
+                android:id="@+id/text_shop_one"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18dp"
+                android:layout_marginTop="@dimen/ordinary"
+                android:text=""/>
+        </LinearLayout>
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:id="@+id/shopItems"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:visibility="gone"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/shop_name_de"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="@dimen/dp_14"
+            android:layout_marginTop="@dimen/dp_14"
+            android:layout_height="wrap_content"
+            android:text=""/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <com.hedgehog.ratingbar.RatingBar
+                android:id="@+id/ratingbar_map"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/ordinary"
+                hedgehog:clickable="true"
+                hedgehog:halfstart="true"
+                hedgehog:starCount="5"
+                hedgehog:starEmpty="@mipmap/star_empty"
+                hedgehog:starFill="@mipmap/star_full"
+                hedgehog:starHalf="@mipmap/star_half"
+                hedgehog:starImageHeight="50dp"
+                hedgehog:starImageWidth="20dp"
+                hedgehog:starImagePadding="5dp"/>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/km"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimary"
+                    android:layout_alignParentRight="true"
+                    android:layout_margin="@dimen/ordinary"
+                    android:text="1.02km"/>
+            </RelativeLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/ordinary"
+            android:layout_marginTop="@dimen/dp_5"
+
+            />
+
+        <TextView
+            android:id="@+id/phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/ordinary"
+            android:layout_marginTop="@dimen/dp_5"
+            />
+
+        <TextView
+            android:id="@+id/time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/ordinary"
+            android:layout_marginTop="@dimen/dp_5"
+           />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="@dimen/dp_5"
+            android:background="@color/qianhuise"
+            />
+
+        <RelativeLayout
+            android:id="@+id/lookMore"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_45">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="查看该商户更多信息"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+
+
+    <LinearLayout
+        android:id="@+id/show_go_on"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginLeft="@dimen/ordinary"
+        android:layout_marginRight="@dimen/ordinary"
+        android:visibility="gone"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/choose_shop"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:background="@drawable/choosemerchats"
+            >
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_centerInParent="true"
+                >
+                <View
+                    android:layout_width="30dp"
+                    android:layout_height="2dp"
+                    android:layout_gravity="center"
+                    android:background="@color/font_common_2"/>
+                <TextView
+                    android:id="@+id/text_shop"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18dp"
+                    android:layout_marginTop="@dimen/ordinary"
+                    android:text=""/>
+            </LinearLayout>
+        </RelativeLayout>
+        <LinearLayout
+            android:id="@+id/shoplistview"
+            android:layout_width="match_parent"
+            android:background="@color/white"
+            android:layout_height="@dimen/dp_250">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/shop_recycle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            </android.support.v7.widget.RecyclerView>
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
+        android:background="@color/colortransparent"
+        android:orientation="horizontal"
+        >
+
+        <RelativeLayout
+            android:id="@+id/close_map"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:alpha="0.8"
+            android:layout_marginLeft="@dimen/ordinary"
+            android:background="@color/white">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:background="@mipmap/retrun"/>
+
+        </RelativeLayout>
+        <LinearLayout
+            android:id="@+id/search_go"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:alpha="0.8"
+            android:background="@drawable/search"
+            android:layout_marginLeft="@dimen/ordinary"
+            android:layout_marginRight="@dimen/ordinary"
+            >
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginRight="@dimen/ordinary"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/ordinary"
+                android:visibility="gone"
+                android:background="@drawable/search_icon"/>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="附近商户"
+                    />
+            </RelativeLayout>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</FrameLayout>

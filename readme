@@ -1,0 +1,108 @@
+代码结构
+app/src/main/assets资源文件
+   /plp_cities.db :铺连铺城市数据库
+
+app/src/main/java/com.iaowoo.mobile/alapi    :支付宝支付
+
+app/src/main/java/com.iaowoo.mobile/Application/ZApplication:   应用程序入口
+
+app/src/main/java/com.iaowoo.mobile/common   配置
+  /ConfigAppkey           appkey配置
+  /ConfiFlag              常用配置
+  /ConfigH5Url            H5接口配置
+  /UtilsOkHttpAll         所有后台接口配置
+
+app/src/main/java/com.iaowoo.mobile/Controller/Single： 单列管理
+  /PrefManager:  使用SharedPreferences存储管理
+  /SingleOverAll: 全局单列
+  /XutilsDBManage: 数据管理单列
+
+app/src/main/java/com.iaowoo.mobile/CrashError 自定义错误日志的捕获（只会在debug版本打开ZApplication中的isRelease设置为false即可）
+
+
+app/src/main/java/com.iaowoo.mobile/EvenBus: evetBus 通知实体类
+
+app/src/main/java/com.iaowoo.mobile/H5toAndroid android原生和H5交互
+   /modle                  h5与原生交互需要的实体类
+   /Webset                 webview的一些配置和交互方法
+
+app/src/main/java/com.iaowoo.mobile/interfaceCallback   主项目的一些接口定义
+
+app/src/main/java/com.iaowoo.mobile/J_push   极光推送
+  /J_edit: 对消息过滤处理
+  /J_Two_Edit: 中奖消息实体
+  /MyReceiver:接受消息广播接收器
+
+app/src/main/java/com.iaowoo.mobile/overlay  地图规划（暂时不需要）
+
+app/src/main/java/com.iaowoo.mobile/Rx  RxJAVA+retrofit2+mvp(后期会一步一步改成这种开发模式)
+
+app/src/main/java/com/meShare/mobiel/ScottMap:高德地图定位和逆地理编码的一些封装
+
+app/src/main/java/com.iaowoo.mobile/Ui:      activity,adapter,Fragment,model,view,presenter主要业务实现
+     /classification/Activtiy:
+                    / AboutOurActivtiy:关于我们
+                    /BaseActivity:父activity
+                    /BaseBufferActivity:对黄油刀进行封装可以直接使用继承BaseActivity
+                    /BaseUpDownActicity: 对上拉刷新，下拉加载，以及recycleView进行了封装:可以直接使用继承于BaseActivity
+                    /CityAcitivity:城市选择页面
+                    /ClassificationActivity:分类页面
+                    /CodeDetailsActicity:商户二维码页面
+                    /DifferentIndustryAllianceActivity:异业联盟页面
+                    /ForgetPasswordActivity:忘记密码页面
+                    /GoodsDetailsActivtiy:商品详情页面
+                    /HomePagerAcitvity:主页面
+                    /ImagerPagerActivity:图片浏览页面
+                    /LoginActivity:登录页面
+                    /MessageActivity:消息页面
+                    /NewPersonActivity:七鱼客服网页版（已经废弃）
+                    /PhotoActivty:相机拍照，图册选择页面
+                    /ScanActivity:扫一扫页面
+                    /ScanActivity:扫一扫结果页面
+                    /SearchOneActivity:搜索第一个页面
+                    /SearchTwoActicity:搜索第二个页面
+                    /SetttingActivity:设置页面
+                    /SettingPasswordActivity:设置密码页面（或者修改密码）
+                    /ShopActivity:全球集市原生页面（Acitvity）
+                    /SingupAcitvity:注册页面
+                    /SplashActivity:闪屏页面
+                    /TestActicity:测试页面（没啥卵用）
+                    /TitleAcitivity:带title页面的封装继承于BaseActivity
+                    /UseguideActivity: 用户条约(活动)(注册协议)公用
+                    /VideoListActivity:小视频列表页面
+                    /VideoPlaybackActivity:小视频播放页面
+                    /WebviewActivity:webview交互页面
+                    /WelcomActivity:这里是引导页面
+     /Adapter :所有adapter，每个类都有详细的注释
+     /BroadcaseReceiverClass:这是对广播封装成全局的
+     /Fragment:所有的fragment
+                   /BaseBufferFragment:对fragment中黄油刀进行封装继承与BaseFragment.
+                   /BaseFragment:父Fragment
+                   /ChinaGoodsFragment:中国好物fragment
+                   /EearthFragment:全球集市fragment
+                   /HomeFragment：首页fragment
+                   /MyFragment:我的fragment
+                   /ShopAddFragment:商家联盟fragment
+     /Model：所有业务的实体类
+     /Presenter: 所有业务中的Presenter层数据获取都在这里
+     /View：自定义控件全部在这里
+
+
+
+app/src/main/java/com.iaowoo.mobile/umeng  友盟统计配置以及集成
+
+app/src/main/java/com.iaowoo.mobile/Utils   工具类
+
+app/src/main/java/com.iaowoo.mobile/Weex：weex集成以后会用到
+
+app/src/main/java/com.iaowoo.mobile/wxapi  微信支付
+
+
+lib: ijk：主要是小视频播放集成的哔哩哔哩开源的ijkPalyer后面会实现直播功能
+     library:主要是图片轮播的封装
+     networkframework:对okhttp进行了封装，所有接口处理都在这里
+
+
+     build.gradle中集成的第三方控件均有备注自己去看
+
+

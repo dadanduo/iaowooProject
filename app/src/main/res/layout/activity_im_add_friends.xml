@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f0f0f6"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/search_edit"
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:paddingRight="14dp"
+        android:paddingLeft="14dp"
+        android:layout_marginTop="@dimen/dp_14"
+        android:drawableLeft="@mipmap/search_icon"
+        android:drawablePadding="@dimen/dp_12"
+        android:background="@color/white"
+        android:hint="请输入好友id或者手机号"
+        android:maxLines="1"/>
+
+    <LinearLayout
+        android:id="@+id/search_result"
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:layout_marginTop="1dp"
+        android:background="#fff"
+        android:orientation="horizontal"
+        android:visibility="gone"
+        android:paddingLeft="@dimen/dp_14"
+        android:paddingRight="@dimen/dp_14">
+
+        <com.iaowoo.mobile.Ui.classification.View.im.SelectableRoundedImageView
+            android:id="@+id/search_header"
+            android:layout_width="@dimen/dp_40"
+            android:layout_height="@dimen/dp_40"
+            android:scaleType="centerCrop"
+            android:layout_gravity="center_vertical"
+            app:sriv_left_bottom_corner_radius="3dip"
+            app:sriv_left_top_corner_radius="3dip"
+            app:sriv_right_bottom_corner_radius="3dip"
+            app:sriv_right_top_corner_radius="3dip" />
+
+        <TextView
+            android:id="@+id/search_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:maxLines="1"
+            android:textSize="18sp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:background="@mipmap/grey_arrow" />
+
+    </LinearLayout>
+</LinearLayout>

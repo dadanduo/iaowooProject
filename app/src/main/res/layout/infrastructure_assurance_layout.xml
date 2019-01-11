@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/shop_all_baozhang">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="510dp"
+        android:layout_gravity="bottom"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="基础保障"
+                android:layout_marginTop="@dimen/dp_21"
+                android:textColor="#333333"
+                android:textSize="14sp"
+                android:layout_centerInParent="true"
+                />
+        </RelativeLayout>
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_bao_z"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+        </android.support.v7.widget.RecyclerView>
+
+    </LinearLayout>
+    <Button
+        android:id="@+id/ok_layout_btm"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_37"
+        android:background="@mipmap/determine_gradient_bt"
+        android:text="完成"
+        android:textColor="@color/white"
+        android:layout_marginBottom="@dimen/dp_11"
+        android:layout_marginLeft="@dimen/dp_17"
+        android:layout_marginRight="@dimen/dp_17"
+        android:layout_gravity="bottom"
+        android:textSize="16sp"
+        />
+</FrameLayout>

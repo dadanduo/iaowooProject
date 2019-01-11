@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:id="@+id/comments_all"
+    android:layout_height="match_parent">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_gravity="bottom"
+        android:background="@drawable/shape_corner_up"
+        android:layout_height="468dp">
+
+
+        <TextView
+            android:id="@+id/no_have_comments"
+            android:layout_width="wrap_content"
+            android:visibility="gone"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:layout_gravity="center"
+            android:text="没有更多的评论~~~"/>
+        <RelativeLayout
+            android:id="@+id/close"
+            android:layout_width="@dimen/dp_50"
+            android:layout_gravity="right"
+            android:layout_height="@dimen/dp_50">
+            <ImageView
+                android:layout_width="@dimen/dp_10"
+                android:layout_height="@dimen/dp_10"
+                android:layout_centerInParent="true"
+                android:src="@mipmap/comment_close_icon"/>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/title_comments"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/white"
+                android:textSize="11sp"
+                android:layout_margin="@dimen/dp_8"
+                />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyler_comments"
+                android:layout_width="match_parent"
+                android:layout_height="368dp"
+                android:layout_marginBottom="@dimen/dp_42">
+
+            </android.support.v7.widget.RecyclerView>
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="@drawable/shape_liu_xia"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/comments_go"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_42">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="留下你的精彩评论吧"
+                    android:textSize="12sp"
+                    android:layout_marginLeft="@dimen/dp_16"
+                    android:layout_centerVertical="true"
+                    android:textColor="@color/white"/>
+                <ImageView
+                    android:id="@+id/send"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/black_send_icon"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/dp_14"
+                    android:layout_alignParentRight="true"
+                    />
+
+            </RelativeLayout>
+        </LinearLayout>
+    </FrameLayout>
+
+</FrameLayout>

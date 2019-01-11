@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/white">
+
+        <include layout="@layout/immersionandroid"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:background="@color/white"
+            android:layout_height="@dimen/dp_52">
+            <RelativeLayout
+                android:id="@+id/back_search_two"
+                android:layout_width="@dimen/dp_50"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginLeft="@dimen/dp_12"
+                    android:src="@mipmap/retrun"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/dp_50"
+                android:layout_marginTop="@dimen/dp_11"
+                android:layout_marginBottom="@dimen/dp_11"
+                android:layout_marginRight="@dimen/dp_50"
+                android:background="@drawable/searches"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="18dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/dp_10"
+                    android:layout_marginTop="@dimen/dp_10"
+                    android:layout_marginBottom="@dimen/dp_10"
+                    android:src="@drawable/search_icon"/>
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_weight="8"
+                    android:layout_margin="@dimen/dp_2"
+                    android:background="#ffffff"
+                    android:layout_height="wrap_content">
+
+
+
+                    <com.iaowoo.mobile.Ui.classification.View.EditText_Phone
+                        android:id="@+id/et_search_two"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:hint="请输入您想搜索的商品"
+                        android:textSize="@dimen/dp_12"
+                        android:imeOptions="actionSearch"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/dp_12"
+                        android:textColor="@color/marge_3333"
+                        android:textColorHint="#b9b9b9"/>
+
+                </RelativeLayout>
+            </LinearLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/search_two"
+                android:layout_width="@dimen/dp_50"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/dp_16"
+                    android:layout_centerInParent="true"
+                    android:textColor="@color/white"
+                    android:text="搜索"/>
+
+            </RelativeLayout>
+        </RelativeLayout>
+        <com.scwang.smartrefresh.layout.SmartRefreshLayout
+            android:id="@+id/list_swiperefreshlayout"
+            android:layout_width="match_parent"
+            android:background="@color/white"
+            app:srlAccentColor="@color/andoridMain"
+            app:srlPrimaryColor="@color/hui"
+            app:srlClassicsSpinnerStyle="Translate"
+            app:srlEnablePreviewInEditMode="true"
+            android:layout_height="match_parent">
+
+            <com.scwang.smartrefresh.layout.header.ClassicsHeader
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:srlPrimaryColor="@color/colorPrimary"
+                app:srlAccentColor="@color/hui"
+                app:srlDrawableSize="@dimen/dp_30"
+                app:srlDrawableProgress="@drawable/animation_loading_frame"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+            <LinearLayout
+                android:id="@+id/title_conditions"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_45"
+                android:background="#f5f5f5"
+                android:orientation="horizontal">
+                <RelativeLayout
+                    android:id="@+id/zh"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+                    <TextView
+                        android:id="@+id/zhtxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:textColor="@color/txt_666666"
+                        android:text="综合"/>
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/xl"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+                    <TextView
+                        android:id="@+id/xltxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:textColor="@color/txt_666666"
+                        android:text="销量"/>
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/xp"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+                    <TextView
+                        android:id="@+id/xptxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:textColor="@color/txt_666666"
+                        android:text="新品"/>
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/jg"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+                    <TextView
+                        android:id="@+id/jgtxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:textColor="@color/txt_666666"
+                        android:text="价格"/>
+
+                    <ImageView
+                        android:id="@+id/jgimg"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="8dp"
+                        android:layout_centerVertical="true"
+                        android:src="@mipmap/price_default"/>
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/click_change"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_alignParentRight="true"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/imge_c"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:src="@mipmap/gray_list_block_icon" />
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/result_L"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#f5f5f5"
+                android:orientation="vertical">
+
+                <!--<android.support.v4.widget.SwipeRefreshLayout-->
+                <!--android:id="@+id/list_swiperefreshlayout_search"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent">-->
+
+                <com.iaowoo.mobile.Ui.classification.View.recyclerview.WRecyclerView
+                    android:id="@+id/recycler_view_search"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:cacheColorHint="#00000000"
+                    android:divider="@null"
+                    android:listSelector="#00000000"
+                    android:scrollbars="none"
+                    />
+                <!--</android.support.v4.widget.SwipeRefreshLayout>-->
+            </LinearLayout>
+            </LinearLayout>
+        </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/search_L"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:layout_marginTop="@dimen/dp_65"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="最近搜索"
+            android:textColor="@color/black"
+            android:layout_marginTop="@dimen/dp_15"
+            android:layout_marginLeft="@dimen/dp_19"
+            android:textSize="@dimen/dp_16"/>
+
+        <com.iaowoo.mobile.Ui.classification.View.SearchTipsGroupView
+            android:id="@+id/search_history"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/dp_10"
+            >
+
+
+        </com.iaowoo.mobile.Ui.classification.View.SearchTipsGroupView>
+    </LinearLayout>
+</FrameLayout>

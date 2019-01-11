@@ -1,0 +1,341 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas. android.com/tools"
+    package="com.iaowoo.mobile">
+
+    <supports-screens
+        android:smallScreens="true"
+        android:normalScreens="true"
+        android:largeScreens="true"
+        android:anyDensity="true" />
+
+    <!--*************************地图SDK（包含其搜索功能）需要的基础权限*************************-->
+    <!--允许程序打开网络套接字-->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!--允许程序设置内置sd卡的写权限-->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!--允许程序获取网络状态-->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!--允许程序访问WiFi网络信息-->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!--允许程序读写手机状态和身份-->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!--允许程序访问CellID或WiFi热点来获取粗略的位置-->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!--用于访问GPS定位-->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <!--用于获取wifi的获取权限，wifi信息会用来进行网络定位-->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <!--用于申请调用A-GPS模块-->
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS"/>
+    <!--用于申请获取蓝牙信息进行室内定位-->
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <!--定位权限-->
+    <uses-permission android:name="android.permission.INVALID_USER_KEY"/>
+    <!--扫描需要的权限-->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+    <!--显示bitmap需要的权限-->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
+    <!--图片选择权限-->
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <!--*****************************************极光推送**************************************-->
+    <!-- Required -->
+    <permission
+        android:name="com.iaowoo.mobile.permission.JPUSH_MESSAGE"
+        android:protectionLevel="signature" />
+
+    <!-- Required  一些系统要求的权限，如访问网络等-->
+    <uses-permission android:name="com.iaowoo.mobile.permission.JPUSH_MESSAGE" />
+    <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <!-- Optional for location -->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" /> <!-- 用于开启 debug 版本的应用在6.0 系统上 层叠窗口权限 -->
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <!--<uses-permission android:name="android.permission.GET_TASKS" />-->
+
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"/>
+
+    <!--高版本更新包适配-->
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
+
+    <!--<uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />-->
+    <!--<uses-permission android:name="android.permission.READ_APN_SETTINGS" />-->
+    <!--<uses-permission android:name="android.permission.RESTART_PACKAGES"/>-->
+    <!--<uses-permission android:name="android.permission.READ_LOGS" />-->
+    <!--<uses-permission android:name="android.permission.CHANGE_CONFIGURATION" />-->
+
+    <application
+        android:name="com.iaowoo.mobile.Application.ZApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/logo"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/fillet_logo"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name="com.iaowoo.mobile.Ui.classification.Activity.WelcomeActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <!--高德配置-->
+        <meta-data
+            android:name="com.amap.api.v2.apikey"
+            android:value="be0fd0c9ede74b39323b7de3f110b5cc">
+        </meta-data>
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.iaowoo.mobile.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <!--main页面-->
+        <activity android:name=".Ui.classification.Activity.HomePageActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|keyboardHidden"
+            android:launchMode="singleTask"/>
+        <!--异常抓取页面《debug模式下会开启》-->
+        <activity
+            android:name=".CrashError.CrashDialog"
+            android:configChanges="orientation|screenSize|smallestScreenSize|keyboard|keyboardHidden|navigation"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/alert_dialog" />
+        <!--闪屏页面-->
+        <activity android:name="com.iaowoo.mobile.Ui.classification.Activity.SplashActivity"  />
+        <!--登录页面-->
+        <activity android:name="com.iaowoo.mobile.Ui.classification.Activity.LoginActivity" />
+        <!--注册页面-->
+        <activity android:name="com.iaowoo.mobile.Ui.classification.Activity.SingupActivity" />
+        <!--忘记密码页面-->
+        <activity android:name="com.iaowoo.mobile.Ui.classification.Activity.ForgetPasswordActivity" />
+        <!--设置页面-->
+        <activity android:name="com.iaowoo.mobile.Ui.classification.Activity.SettingActivity" />
+        <!--带title的webview页面-->
+        <activity android:name=".Ui.classification.Activity.UseguideActivity"/>
+        <!--拍照或者相册图片选择页面-->
+        <activity android:name=".Ui.classification.Activity.PhotoActivity" />
+        <!--关于我们页面-->
+        <activity android:name=".Ui.classification.Activity.AboutOurActivity"/>
+        <!--七鱼客服聊天webview页面1.0.6版本之后已经废弃-->
+        <activity android:name=".Ui.classification.Activity.NewPersonActivity"/>
+        <!--设置密码页面-->
+        <activity android:name=".Ui.classification.Activity.SettingPasswordActivtiy"/>
+        <!--二维码扫描页面-->
+        <activity android:name=".Ui.classification.Activity.ScanActicvity"/>
+        <!--二维码扫描结果页面-->
+        <activity android:name=".Ui.classification.Activity.ScanActivityResult"/>
+        <!--商户二维码页面-->
+        <activity android:name=".Ui.classification.Activity.CodeDetailsActivity"/>
+        <!--深度链接页面-->
+        <activity android:name=".umeng.WBCallNewAppActivity"/>
+        <!--权限管理页面封装-->
+        <activity android:name=".Utils.PressionUtils.PermissionActivity"/>
+        <!--地图页面-->
+        <!--<activity android:name=".Ui.classification.Activity.DifferentIndustryAllianceActivity"/>-->
+        <!--分类页面-->
+        <activity android:name=".Ui.classification.Activity.ClassificationActivity"/>
+        <!--webview页面-->
+        <activity android:name=".Ui.classification.Activity.WebviewAcitvity" />
+        <!--城市选择页面-->
+        <!--<activity android:name=".Ui.classification.Activity.CityActivity"/>-->
+        <!--二级分类商品列表页面-->
+        <activity android:name=".Ui.classification.Activity.ShopActivity"/>
+        <!--消息通知页面-->
+        <activity android:name=".Ui.classification.Activity.MessageActivity"/>
+        <!--搜索第一个页面-->
+        <activity android:name=".Ui.classification.Activity.SearchOneActivity"
+            android:windowSoftInputMode="stateAlwaysVisible|adjustPan" />
+        <!--搜索第二个页面-->
+        <activity android:name=".Ui.classification.Activity.SearchTwoActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <!--商品详情页面-->
+        <activity android:name=".Ui.classification.Activity.GoodsDetailsActivity"
+            android:launchMode="standard"/>
+        <!--浏览图片详情页面-->
+        <activity android:name=".Ui.classification.Activity.ImagePagerActivity"/>
+        <!--视频播放器列表-->
+        <activity android:name=".Ui.classification.Activity.VideoListActivity"/>
+        <!--视频播放器-->
+        <activity android:name=".Ui.classification.Activity.VideoPlaybackActivity" />
+        <!--商+联盟-->
+        <!--<activity android:name=".Ui.classification.Activity.ShopAddActivity"/>-->
+        <!--账号切换-->
+        <activity android:name=".Ui.classification.Activity.SwitchNumberActivity"/>
+        <!--我的订单页面-->
+        <activity android:name=".Ui.classification.Activity.MyOrderActivtiy"/>
+        <!--支付成功页面-->
+        <activity android:name=".Ui.classification.Activity.PaySuccessfulActivity"/>
+        <!--设置支付密码页面-->
+        <activity android:name=".Ui.classification.Activity.SettingPayPasswordActivity"/>
+        <!--weex页面-->
+        <activity android:name=".Weex.WeexActicity"/>
+        <!--我的二维码页面-->
+        <activity android:name=".Ui.classification.Activity.MyTwoCodeActivity"/>
+
+        <!--<activity android:name="com.meShare.MainActivity"-->
+        <!--android:launchMode="singleTask"/>-->
+
+
+
+
+        <activity android:name="com.iaowoo.mobile.umeng.WBCallAppActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+
+                <data
+                    android:host="ecosphere.honeybee.com"
+                    android:scheme="shbs" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.alipay.sdk.app.H5PayActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:exported="false"
+            android:screenOrientation="behind" />
+
+        <activity
+            android:name="com.alipay.sdk.auth.AuthActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:exported="false"
+            android:screenOrientation="behind" />
+
+        <!-- 微信支付 -->
+        <activity
+            android:name="com.iaowoo.mobile.wxapi.WXPayEntryActivity"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+        <!-- 微信支付 end -->
+
+
+        <!--************************************友盟*******************************************-->
+        <!--微信分享-->
+        <activity
+            android:name=".wxapi.WXEntryActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <!--新浪微博-->
+
+        <!--qq精简版-->
+        <activity
+            android:name="com.umeng.qq.tencent.AuthActivity"
+            android:launchMode="singleTask"
+            android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="tencent1108010569" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.umeng.qq.tencent.AssistActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <!--分享编辑页-->
+        <activity
+            android:name="com.umeng.socialize.editorpage.ShareActivity"
+            android:excludeFromRecents="true"
+            android:theme="@style/Theme.UMDefault" />
+
+
+        <!--融云IM相关页面-->
+        <!--聚合会话列表-->
+        <activity
+            android:name=".Ui.classification.Activity.im.SubConversationListActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data
+                    android:host="com.iaowoo.mobile"
+                    android:pathPrefix="/subconversationlist"
+                    android:scheme="rong" />
+            </intent-filter>
+        </activity>
+
+        <!--会话界面-->
+        <activity
+            android:name=".Ui.classification.Activity.im.ConversationActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize">
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data
+                    android:host="com.iaowoo.mobile"
+                    android:pathPrefix="/conversation"
+                    android:scheme="rong" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".Ui.classification.Activity.im.ContactsActivity" />
+        <activity android:name=".Ui.classification.Activity.im.SelectFriendsActivity" />
+        <activity android:name=".Ui.classification.Activity.im.SearchFriendActivity" />
+        <activity android:name=".Ui.classification.Activity.im.IMSearchActivity" />
+        <activity android:name=".Ui.classification.Activity.im.GroupListActivity" />
+        <activity android:name=".Ui.classification.Activity.im.NewFriendListActivity" />
+        <activity android:name=".Ui.classification.Activity.im.UserDetailActivity" />
+        <activity android:name=".Ui.classification.Activity.im.SendSingleEnvelopesActivity" />
+        <activity android:name=".Ui.classification.Activity.im.SendGroupEnvelopesActivity" />
+        <activity android:name=".Ui.classification.Activity.im.PrivateChatDetailActivity" />
+        <!--<activity android:name=".Ui.classification.Activity.im.AMAPLocationActivity" />-->
+
+
+        <receiver
+            android:exported="true"
+            android:name=".im.MyNotificationReceiver">
+            <intent-filter>
+                <action android:name="io.rong.push.intent.MESSAGE_ARRIVED" />
+                <action android:name="io.rong.push.intent.MI_MESSAGE_ARRIVED" />
+                <action android:name="io.rong.push.intent.MESSAGE_CLICKED" />
+                <action android:name="io.rong.push.intent.MI_MESSAGE_CLICKED" />
+                <action android:name="io.rong.push.intent.THIRD_PARTY_PUSH_STATE" />
+            </intent-filter>
+        </receiver>
+        <!--融云IM相关页面-->
+        <!--*****************************************end******************************************-->
+
+
+        <!--*********************************极光推送配置******************************************-->
+        <!-- User defined.  For test only  用户自定义的广播接收器-->
+        <receiver
+            android:name="com.iaowoo.mobile.J_push.MyReceiver"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.REGISTRATION" /> <!--Required  用户注册SDK的intent-->
+                <action android:name="cn.jpush.android.intent.MESSAGE_RECEIVED" /> <!--Required  用户接收SDK消息的intent-->
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED" /> <!--Required  用户接收SDK通知栏信息的intent-->
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_OPENED" /> <!--Required  用户打开自定义通知栏的intent-->
+                <action android:name="cn.jpush.android.intent.CONNECTION" /><!-- 接收网络变化 连接/断开 since 1.6.3 -->
+                <category android:name="com.iaowoo.mobile" />
+            </intent-filter>
+        </receiver>
+        <!-- umeng -->
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="5c2da9d9f1f556b577000019"/>
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="${UMENG_CHANNEL_VALUE}"/>
+        <!--************************************end***********************************************-->
+    </application>
+</manifest>

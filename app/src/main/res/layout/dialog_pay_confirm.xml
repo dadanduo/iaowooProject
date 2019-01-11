@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="@dimen/dp_300"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/white_radius_bg">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_40">
+
+            <ImageView
+                android:id="@+id/iv_quit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingRight="@dimen/dp_10"
+                android:paddingLeft="@dimen/dp_10"
+                android:src="@mipmap/close_red_packet_icon"
+                android:layout_centerVertical="true"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="支付"
+                android:textSize="18sp"
+                android:textColor="#333333"/>
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#ffeeeeee"/>
+
+        <TextView
+            android:id="@+id/tv_total_amount"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:text="￥66.66"
+            android:textColor="#ff333333"
+            android:textSize="30sp"
+            android:gravity="center"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#ffeeeeee"/>
+
+        <LinearLayout
+            android:id="@+id/ll_select_pay_type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dp_14"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/tv_pay_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableLeft="@mipmap/pay_red_envelope_icon"
+                android:drawablePadding="@dimen/dp_10"
+                android:gravity="center_vertical"
+                android:text="红包"
+                android:textColor="#666666"
+                android:textSize="15sp"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/grey_arrow"/>
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#ffeeeeee"/>
+
+        <com.jungly.gridpasswordview.GridPasswordView
+            android:id="@+id/pswView"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="@dimen/dp_10"
+            android:layout_marginLeft="@dimen/dp_14"
+            android:layout_marginRight="@dimen/dp_14"
+            app:gpvTextColor="#2196F3"
+            app:gpvTextSize="25sp"
+            app:gpvLineColor="#2196F3"
+            app:gpvLineWidth="1dp"
+            app:gpvGridColor="#ffffff"
+            app:gpvPasswordLength="6"
+            app:gpvPasswordTransformation="*"
+            app:gpvPasswordType="numberPassword"/>
+
+        <Button
+            android:id="@+id/btn_confirm_pay"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_43"
+            android:background="@drawable/common_btn_selector"
+            android:layout_marginLeft="@dimen/dp_14"
+            android:layout_marginRight="@dimen/dp_14"
+            android:layout_marginTop="@dimen/dp_20"
+            android:layout_marginBottom="@dimen/dp_20"
+            android:enabled="false"
+            android:text="确认支付"
+            android:textColor="@color/white"
+            android:textSize="16sp"/>
+    </LinearLayout>
+</LinearLayout>

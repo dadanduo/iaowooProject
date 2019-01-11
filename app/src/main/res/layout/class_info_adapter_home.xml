@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/ico_classi_info"
+    android:layout_marginTop="@dimen/dp_12"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/text_my"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:textColor="#222222"
+        android:visibility="gone"
+        android:textSize="15sp"
+        />
+
+    <ImageView
+        android:id="@+id/image_class"
+        android:layout_width="@dimen/dp_63"
+        android:layout_gravity="center_horizontal"
+        android:visibility="gone"
+        android:layout_height="@dimen/dp_63"
+        />
+
+    <TextView
+        android:id="@+id/showText_class"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="10sp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/dp_7"
+        android:textColor="@color/marge_3333"/>
+</LinearLayout>

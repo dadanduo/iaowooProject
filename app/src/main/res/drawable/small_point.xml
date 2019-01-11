@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <!-- 圆角：设置圆角半径，同时设置五个属性，则Radius属性无效 -->
+    <corners
+        android:radius="20dp"
+    android:topLeftRadius="20dp"
+    android:topRightRadius="20dp"
+    android:bottomLeftRadius="20dp"
+    android:bottomRightRadius="20dp"/>
+
+    <!-- 渐变：当设置填充颜色后，无渐变效果。angle的值必须是45的倍数（包括0），仅在type="linear"有效，不然会报错。android:useLevel 这个属性不知道有什么用。 -->
+    <gradient
+        android:startColor="#cccccc"
+        android:centerColor="#cccccc"
+        android:endColor="#cccccc"
+        android:useLevel="true"
+        android:angle="45"
+        android:type="radial"
+        android:centerX="0"
+        android:centerY="0"
+        android:gradientRadius="90"/>
+
+    <!-- 间隔：设置四个方向上的间隔 -->
+    <padding
+        android:left="2dp"
+        android:top="2dp"
+        android:right="2dp"
+        android:bottom="2dp"/>
+
+    <!-- 大小：设置圆点大小，宽度和高度 -->
+    <size
+        android:width="50dp"
+        android:height="50dp"/>
+
+    <!-- 填充：设置填充的颜色 -->
+    <solid
+        android:color="#cccccc"/>
+
+    <!-- 描边：dashWidth和dashGap属性，只要其中一个设置为0dp，则边框为实现边框 -->
+    <stroke
+        android:width="0dp"
+    android:color="#cccccc"
+    android:dashWidth="1dp"
+    android:dashGap="2dp"/>
+
+</shape>

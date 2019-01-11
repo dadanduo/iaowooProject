@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.github.lzyzsd.jsbridge.BridgeWebView
+        android:id="@+id/scan_result"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        />
+
+    <LinearLayout
+        android:id="@+id/show_scan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/scan_result_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_15"
+            android:layout_gravity="center_horizontal"
+            android:includeFontPadding="false"
+            android:text="二维码"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="请扫描商户提供的二维码"
+            android:layout_marginTop="@dimen/login_height_magin"
+            android:layout_gravity="center"
+            />
+
+    </LinearLayout>
+    <include layout="@layout/nohavewifi"/>
+    <include layout="@layout/loading_plp"/>
+
+</FrameLayout>

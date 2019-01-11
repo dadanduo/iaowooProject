@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#000000">
+
+
+    <!--<android.support.v4.widget.SwipeRefreshLayout-->
+        <!--android:id="@+id/video_swiperefreshlayout"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content">-->
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+        android:id="@+id/list_swiperefreshlayout"
+        android:layout_width="match_parent"
+        android:background="@color/white"
+        app:srlAccentColor="@color/andoridMain"
+        app:srlPrimaryColor="@color/hui"
+        app:srlClassicsSpinnerStyle="Translate"
+        app:srlEnablePreviewInEditMode="true"
+        android:layout_height="match_parent">
+
+        <com.scwang.smartrefresh.layout.header.ClassicsHeader
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:srlPrimaryColor="@color/colorPrimary"
+            app:srlAccentColor="@color/hui"
+            app:srlDrawableSize="@dimen/dp_30"
+            app:srlDrawableProgress="@drawable/animation_loading_frame"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <com.iaowoo.mobile.Ui.classification.View.recyclerview.WRecyclerView
+                android:id="@+id/video_recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:cacheColorHint="#00000000"
+                android:divider="@null"
+                android:listSelector="#00000000"
+                android:scrollbarThumbVertical="@drawable/scrollbar_vertical_thumb"
+
+                />
+        </LinearLayout>
+    <!--</android.support.v4.widget.SwipeRefreshLayout>-->
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+    <RelativeLayout
+        android:id="@+id/back"
+        android:layout_width="@dimen/dp_50"
+        android:layout_marginTop="@dimen/dp_30"
+        android:layout_height="@dimen/dp_50">
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:src="@mipmap/video_back_icon"/>
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/pause_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        android:src="@mipmap/video_start_icon"/>
+</FrameLayout>

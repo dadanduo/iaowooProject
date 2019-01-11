@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/bg"
+    android:orientation="vertical"
+    >
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/dp_53"
+        android:background="@mipmap/gem_bunced">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="69dp"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="恭喜您"
+                android:layout_gravity="center_horizontal"
+                android:textColor="#ffffffff"
+                android:textSize="23sp"
+                />
+            <TextView
+                android:id="@+id/baoshiquan_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="获得3张宝石券"
+                android:textColor="#ffffffff"
+                android:textSize="23sp"
+                />
+        </LinearLayout>
+
+
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/zhidaole"
+        android:layout_width="134dp"
+        android:background="@drawable/ok_baoshiquan"
+        android:layout_gravity="center_horizontal"
+        android:layout_height="@dimen/dp_34">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="知道了"
+            android:textColor="#ffffff"
+            android:layout_centerInParent="true"
+            android:textSize="14sp"
+            />
+    </RelativeLayout>
+
+
+
+</LinearLayout>

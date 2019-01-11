@@ -1,0 +1,347 @@
+apply plugin: 'com.android.application'
+
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.iaowoo.mobile"
+        minSdkVersion 16
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0.0"
+        multiDexEnabled true
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        manifestPlaceholders = [UMENG_CHANNEL_VALUE: "aihaowoo"]
+
+
+//        ndk {
+//            //选择要添加的对应cpu类型的.so库。
+//            abiFilters "armeabi",
+//                    "armeabi-v7a",
+//                    "arm64-v8a",
+//                    "x86",
+//                    "x86_64",
+//                    "mips",
+//                    "mips64"
+//        }
+        ndk {
+            abiFilters "x86"
+            abiFilters "armeabi"
+            abiFilters "armeabi-v7a"
+        }
+
+        manifestPlaceholders = [
+                JPUSH_PKGNAME: applicationId,
+                JPUSH_APPKEY : "da773639800044da38c5094f", //JPush上注册的包名对应的appkey.
+                JPUSH_CHANNEL: "developer-default", //暂时填写默认值即可.
+        ]
+    }
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+    }
+
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+    //执行lint检查，有任何的错误或者警告提示，都会终止构建，我们可以将其关掉。
+    lintOptions {
+        abortOnError false
+    }
+    //解决修改资源文件导致无法打包的问题
+    aaptOptions {
+        cruncherEnabled = false
+        useNewCruncher = false
+    }
+    signingConfigs {
+        release {
+            keyAlias 'key0'
+            keyPassword '8889113'
+            storeFile file('signature.jks')
+            storePassword '8889113'
+            v2SigningEnabled true
+        }
+//        debug {
+//            keyAlias 'androiddebugkey'
+//            keyPassword 'android'
+//            storeFile file('C:/Users/mayn/.android/debug.keystore')
+//            storePassword 'android'
+//        }
+    }
+    buildTypes {
+        release {
+            signingConfig signingConfigs.release
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            useLibrary 'org.apache.http.legacy'
+            applicationVariants.all { variant ->
+                variant.outputs.all {
+                    def timeStamp = new Date().format('MMddHH');
+                    //plp_1.0.0_20180516.apk
+                    outputFileName = "${variant.productFlavors[0].name}_v${variant.versionName}_" + timeStamp + ".apk"
+                }
+            }
+        }
+        debug {
+            signingConfig signingConfigs.release
+            // 显示Log
+            buildConfigField "boolean", "LOG_DEBUG", "true"
+            debuggable true
+            zipAlignEnabled false
+            shrinkResources false
+            minifyEnabled false
+            applicationVariants.all { variant ->
+                variant.outputs.all {
+                    def timeStamp = new Date().format('MMddHH');
+                    //plp_baidu_1.0.0_20180516.apk
+                    outputFileName = "${variant.productFlavors[0].name}_v${variant.versionName}_" + timeStamp + ".apk"
+                }
+            }
+        }
+    }
+    flavorDimensions "default"
+    productFlavors {
+        xiaomi {
+        }
+        yingyongbao {
+        }
+        huawei {
+        }
+        oppo {
+        }
+        vivo {
+        }
+        meizu {
+        }
+        chuizi {
+        }
+        iaowoo {
+        }
+    }
+    productFlavors.all { flavor ->
+        flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]
+    }
+    buildToolsVersion '28.0.3'
+}
+
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support:appcompat-v7:+'
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    api project(':networkframework')
+    api project(':library')
+    api project(':ijk')
+    api project(':textbannerlibrary')
+    api project(':ninegrideview')
+    api project(':IMKit')
+    implementation 'com.google.code.gson:gson:2.6.2'
+    implementation 'com.amap.api:search:5.0.0'
+    implementation 'com.android.support:design:+'
+    implementation 'com.readystatesoftware.systembartint:systembartint:1.0.3'
+
+    /** ****************************解决极光bug *************************/
+    implementation 'com.android.support:multidex:1.0.3'
+
+    /** ************************************************************/
+
+    /** ****************************webview  *************************/
+    implementation 'com.github.lzyzsd:jsbridge:1.0.4'
+
+    /** ***********************************************************/
+
+    /** ****************************沉浸式状态栏  *********************/
+    implementation 'com.jaeger.statusbaruitl:library:1.0.0'
+
+    /** ***********************************************************/
+
+    /** ****************************改变状态栏颜色  *******************/
+    implementation 'com.githang:status-bar-compat:latest.integration'
+
+    /** ************************************************************/
+
+    /** ****************************图片加载  ************************/
+
+    //    implementation 'com.github.bumptech.glide:glide:4.0.0'
+    implementation 'com.github.bumptech.glide:glide:3.7.0'
+
+    /** ***********************************************************/
+
+    /** ****************************支付宝支付  **********************/
+    implementation files('libs/alipaySdk-20170623-proguard.jar')
+
+    /** **********************************************************/
+
+    /** ****************************分享  ****************************/
+    implementation files('libs/SocialSDK_QQ_Simplify.jar')
+    implementation files('libs/SocialSDK_Sina_Simplify.jar')
+    implementation files('libs/SocialSDK_WeChat_Simplify.jar')
+    implementation files('libs/commons-logging-1.2.jar')
+    implementation 'com.tencent.mm.opensdk:wechat-sdk-android-with-mta:+'
+
+    /** ***********************************************************/
+
+    /** ****************************router路由跳转  *****************/
+
+    //    implementation 'com.github.mzule.activityrouter:activityrouter:1.1.7'
+
+    //    implementation 'com.github.mzule.activityrouter:compiler:1.1.5'
+
+    /** **********************************************************/
+
+    /** ****************************极光推送  **********************/
+
+    // 此处以JPush 3.1.5 版本为例。
+    implementation 'cn.jiguang.sdk:jpush:3.1.5'
+
+    // 此处以JCore 1.2.1 版本为例。
+    implementation 'cn.jiguang.sdk:jcore:1.2.1'
+
+    /** ********************************************************/
+
+    /** ************************黄油刀   **********************/
+    implementation 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+
+    /** *********************************************************/
+
+    /** ************************内存泄漏检验工具   ******************/
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.5.1'
+    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.1'
+    testImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.1'
+
+    /** ***********************************************************/
+
+    /** ******************************地图  **************************/
+
+    //    implementation 'com.amap.api:location:latest.integration'
+
+    //    implementation 'com.amap.api:3dmap:5.0.0'
+
+    //    implementation 'com.amap.api:location:3.3.0'
+
+    /** ************************************************************/
+
+    /** ************************weex配置   **************************/
+    implementation 'com.alibaba:fastjson:1.1.45'
+    implementation 'com.squareup.picasso:picasso:2.5.2'
+    implementation 'com.taobao.android:weex_sdk:0.19.0.7@aar'
+
+    /** ************************************************************/
+
+    /** ******************************友盟  ***************************/
+    implementation 'com.umeng.sdk:common:1.5.0'
+    implementation 'com.umeng.sdk:analytics:7.5.0'
+    implementation 'com.umeng.sdk:debug:1.0.0'
+
+    /** *************************************************************/
+
+    /** **************************七鱼客服  **************************/
+    implementation 'com.qiyukf.unicorn:unicorn:4.6.0'
+
+    /** *************************************************************/
+
+    /** *****************************Xutils  ***************************/
+    implementation 'org.xutils:xutils:3.5.0'
+    implementation files('libs/xUtils-2.6.14.jar')
+
+    /** **************************************************************/
+
+    /** *****************************二维码扫码  ***********************/
+    implementation 'com.journeyapps:zxing-android-embedded:3.3.0'
+
+    /** **************************************************************/
+
+    /** *****************************评论小星星  ***********************/
+    implementation 'com.hedgehog.ratingbar:app:1.1.2'
+
+    /** **************************************************************/
+
+    /** *****************************图片轮播  ***********************/
+    implementation 'com.bigkoo:convenientbanner:2.0.5'
+
+    /** **************************************************************/
+
+    /** *****************************rx+retofit  ***********************/
+
+    //    implementation 'com.squareup.retrofit2:retrofit:2.1.0'
+
+    //    implementation 'com.squareup.retrofit2:converter-gson:2.1.0'
+
+    //    implementation 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
+
+    //    //日志拦截器
+
+    //    implementation 'com.squareup.okhttp3:logging-interceptor:3.5.0'
+
+    //    implementation 'org.ligboy.retrofit2:converter-fastjson-android:2.1.0'
+
+    /** **************************************************************/
+
+    /** *****************************okhttp  ***********************/
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.4.1'
+    implementation 'com.squareup.okhttp3:okhttp:3.6.0'
+    implementation 'com.squareup.okio:okio:1.11.0'
+
+    /** **************************************************************/
+
+    /** *************************发布/订阅事件总线机制  ********************/
+    implementation 'org.greenrobot:eventbus:3.0.0'
+
+    /** **************************************************************/
+    implementation 'com.makeramen:roundedimageview:2.3.0'
+    implementation 'com.android.support:cardview-v7:+'
+
+    /** *************************圆形控件Imageview  ********************/
+    implementation 'de.hdodenhof:circleimageview:2.1.0'
+
+    /** **************************************************************/
+    implementation 'com.commit451:PhotoView:1.2.4'
+
+    /** *************************1、图片加载2、视频缓存  ********************/
+    implementation 'com.facebook.fresco:fresco:1.10.0'
+    implementation 'com.danikula:videocache:2.7.1'
+
+    /** **************************************************************/
+
+    /** *************************粒子  ********************/
+
+    //    implementation 'com.plattysoft.leonids:LeonidsLib:1.3.1'
+
+    /** **************************************************************/
+
+    /** *************************svga播放player  ********************/
+    implementation 'com.github.yyued:SVGAPlayer-Android:2.1.9'
+
+    /** **************************************************************/
+
+    /** *************************时间选择器  ********************/
+    implementation 'com.contrarywind:Android-PickerView:4.1.6'
+
+    /** **************************************************************/
+
+    /** *************************刷新控件  ********************/
+
+    //1.1.0 API改动过大，老用户升级需谨慎
+    implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-18'
+    implementation 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.0-alpha-18'
+
+    //没有使用特殊Header，可以不加这行
+    implementation 'com.android.support:appcompat-v7:+'
+
+    //版本 23以上（必须）
+
+    /** **************************************************************/
+    implementation 'com.jungly:gridPasswordView:0.3'
+    implementation 'org.litepal.android:java:3.0.0'
+    implementation files('libs/commons-logging-1.2.jar')
+}

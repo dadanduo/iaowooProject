@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/shop_title"
+    android:background="@color/andoridMain"
+    android:orientation="vertical">
+    <RelativeLayout
+        android:id="@+id/shop_margin_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_52">
+        <RelativeLayout
+            android:id="@+id/retun_image"
+            android:layout_width="@dimen/dp_50"
+            android:layout_height="match_parent">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="@dimen/dp_12"
+            android:src="@mipmap/back_icon"/>
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/back_search_two"
+            android:layout_width="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp_5"
+                    android:visibility="gone"
+                    android:layout_gravity="center_vertical"
+                    android:src="@mipmap/location_icon"/>
+                <TextView
+                    android:id="@+id/location_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp_5"
+                    android:textSize="@dimen/dp_16"
+                    android:textColor="@color/white"
+                    />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/click_change"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+            <RelativeLayout
+                android:id="@+id/map"
+                android:layout_width="@dimen/dp_50"
+                android:layout_alignParentRight="true"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp_5"
+                    android:layout_centerInParent="true"
+                    android:src="@mipmap/switching_map_icon"/>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="@dimen/dp_8"
+            android:layout_marginLeft="@dimen/dp_80"
+            android:layout_marginBottom="@dimen/dp_8"
+            android:visibility="gone"
+            android:layout_marginRight="@dimen/dp_80"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:text="商+联盟"/>
+
+            <!--<ImageView-->
+                <!--android:layout_width="@dimen/dp_20"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_gravity="center_vertical"-->
+                <!--android:layout_marginTop="@dimen/dp_10"-->
+                <!--android:layout_marginLeft="@dimen/dp_12"-->
+                <!--android:layout_marginBottom="@dimen/dp_10"-->
+                <!--android:src="@drawable/search_icon"/>-->
+            <!--<RelativeLayout-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_marginRight="15dp"-->
+                <!--android:layout_weight="8"-->
+                <!--android:layout_marginLeft="@dimen/dp_10"-->
+                <!--android:background="#ffffff"-->
+                <!--android:layout_height="wrap_content">-->
+
+
+
+                <!--<com.iaowoo.mobile.Ui.classification.View.EditText_Phone-->
+                    <!--android:id="@+id/et_map_s_j_l_m"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:background="@null"-->
+                    <!--android:hint="请输入您想搜索的店铺"-->
+                    <!--android:textSize="@dimen/dp_12"-->
+                    <!--android:imeOptions="actionSearch"-->
+                    <!--android:cursorVisible="false"-->
+                    <!--android:maxLines="1"-->
+                    <!--android:singleLine="true"-->
+                    <!--android:layout_centerVertical="true"-->
+                    <!--android:textColor="#b9b9b9"-->
+                    <!--android:textColorHint="#b9b9b9"/>-->
+
+            <!--</RelativeLayout>-->
+        </RelativeLayout>
+    </RelativeLayout>
+
+
+</LinearLayout>

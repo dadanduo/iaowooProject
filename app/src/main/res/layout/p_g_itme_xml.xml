@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:background="@mipmap/background"
+        android:layout_height="wrap_content">
+
+        <!--<com.example.library.banner.BannerLayout-->
+            <!--android:id="@+id/recycler_ver"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="@dimen/dp_144"-->
+            <!--android:layout_marginTop="@dimen/dp_5"-->
+            <!--android:layout_marginBottom="@dimen/dp_5"-->
+            <!--android:layout_gravity="center"-->
+            <!--app:autoPlaying="true"-->
+            <!--app:centerScale="1"-->
+            <!--app:itemSpace="10"-->
+            <!--app:moveSpeed="1"/>-->
+
+        <RelativeLayout
+            android:id="@+id/recycler_ver_r"
+            android:layout_width="@dimen/dp_340"
+            android:layout_height="@dimen/dp_165"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/dp_18"
+            android:layout_marginRight="@dimen/dp_18"
+            android:elevation="8dp"
+            android:background="@drawable/allboild"
+            >
+
+            <!--<com.iaowoo.mobile.Ui.classification.View.viewpager.GalleryCycleImageView-->
+                <!--android:id="@+id/recycler_ver"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="@dimen/dp_155"-->
+                <!--android:clipChildren="false"-->
+                <!--android:layout_centerInParent="true"-->
+                <!--app:viewPagerHeight="160dp"-->
+                <!--app:indicatorFocusColor="@color/indicatorFocusColor"-->
+                <!--app:indicatorNormalColor="@color/indicatorNormalColor"-->
+                <!--app:indicatorSize="8dp"-->
+                <!--app:duration="3000"-->
+                <!--app:pageMargin="10dp"/>-->
+
+
+        <com.bigkoo.convenientbanner.ConvenientBanner
+            android:id="@+id/recycler_ver"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_155"
+            android:layout_centerInParent="true"
+            android:layout_margin="@dimen/dp_1"
+
+            />
+        </RelativeLayout>
+
+    </FrameLayout>
+
+    <ImageView
+        android:id="@+id/goods_station"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:background="#f5f5f5"
+        android:layout_marginTop="@dimen/dp_12"
+        android:layout_height="@dimen/dp_40"
+        >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@mipmap/recommended_for_you"/>
+
+
+    </RelativeLayout>
+
+
+</LinearLayout>

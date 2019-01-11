@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    android:orientation="vertical">
+    <include layout="@layout/immersionandroid"/>
+
+    <LinearLayout
+        android:id="@+id/top_show"
+        android:layout_width="match_parent"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:id="@+id/back_re"
+            android:visibility="gone"
+            android:layout_width="@dimen/dp_40"
+            android:layout_height="match_parent">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@mipmap/retrun"/>
+
+        </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/search_classinfo_click"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="@dimen/dp_14"
+        android:layout_marginRight="@dimen/dp_14"
+        android:layout_marginTop="@dimen/dp_8"
+        android:layout_marginBottom="@dimen/dp_8"
+        android:background="@drawable/searche_classinfo"
+        android:layout_height="@dimen/dp_28">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="在这里输入您想查找的商品"
+            android:layout_centerVertical="true"
+            android:textColor="#babac0"
+            android:layout_marginLeft="@dimen/dp_16"
+            android:textSize="12sp"
+            />
+
+
+        <ImageView
+            android:layout_width="@dimen/dp_15"
+            android:layout_height="@dimen/dp_15"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/dp_9"
+            android:src="@mipmap/search_icon"/>
+
+    </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/left_recycle"
+            android:layout_width="@dimen/dp_82"
+            android:layout_height="match_parent">
+
+        </android.support.v7.widget.RecyclerView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.scwang.smartrefresh.layout.SmartRefreshLayout
+                android:id="@+id/list_swiperefreshlayout"
+                android:layout_width="match_parent"
+                android:background="@color/white"
+                app:srlAccentColor="@color/andoridMain"
+                app:srlPrimaryColor="@color/hui"
+                app:srlClassicsSpinnerStyle="Translate"
+                app:srlEnablePreviewInEditMode="true"
+                android:layout_height="match_parent">
+
+            <com.scwang.smartrefresh.layout.header.ClassicsHeader
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:srlPrimaryColor="@color/colorPrimary"
+                app:srlAccentColor="@color/hui"
+                app:srlDrawableSize="@dimen/dp_30"
+                app:srlDrawableProgress="@drawable/animation_loading_frame"/>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/right_recycle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </android.support.v7.widget.RecyclerView>
+            </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    
+
+</LinearLayout>

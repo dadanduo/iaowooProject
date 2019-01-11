@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/im_red_peak_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/bg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@mipmap/open_red_packet_bg">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_50">
+            <RelativeLayout
+                android:id="@+id/rl_close"
+                android:layout_width="@dimen/dp_50"
+                android:layout_height="match_parent"
+                android:layout_marginRight="@dimen/dp_16"
+                android:layout_gravity="right">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:src="@mipmap/black_close_icon" />
+            </RelativeLayout>
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:paddingTop="@dimen/dp_40">
+
+            <ImageView
+                android:id="@+id/tv_red_peak_sender_avatar"
+                android:layout_width="@dimen/dp_48"
+                android:layout_height="@dimen/dp_48"
+                android:src="@mipmap/head_portrait"/>
+
+            <TextView
+                android:id="@+id/tv_red_peak_sender"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="王二蛋"
+                android:textColor="#fff3e0b6"
+                android:textSize="20sp"
+                android:layout_marginTop="10dp"/>
+
+            <TextView
+                android:id="@+id/tv_red_peak_tip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="给你发了一个红包"
+                android:textColor="#fff3e0b6"
+                android:textSize="14sp"
+                android:layout_marginTop="@dimen/dp_6"/>
+
+            <TextView
+                android:id="@+id/tv_red_peak_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="恭喜发财，大吉大利"
+                android:textColor="#fff3e0b6"
+                android:textSize="22sp"
+                android:layout_marginTop="@dimen/dp_20" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/open_re_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true">
+            <ImageView
+                android:id="@+id/open_red"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_150"
+                android:background="@mipmap/icon_open_red_packet1" />
+        </RelativeLayout>
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/red_layout_h"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_gravity="bottom"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/red_money"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="@dimen/dp_33"
+                android:textSize="@dimen/dp_33"/>
+        </LinearLayout>
+    </RelativeLayout>
+</FrameLayout>

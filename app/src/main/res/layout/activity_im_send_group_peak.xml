@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F0F0F0">
+
+    <TextView
+        android:id="@+id/tv_top_tip"
+        android:layout_width="match_parent"
+        android:layout_height="28dp"
+        android:layout_alignParentTop="true"
+        android:text="红包总金额不可超过20000元"
+        android:textColor="#ffe94f4f"
+        android:textSize="13sp"
+        android:background="#ffe6cc9b"
+        android:gravity="center"
+        android:visibility="gone"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="@dimen/dp_14"
+        android:paddingRight="@dimen/dp_14"
+        android:orientation="vertical"
+        android:layout_below="@+id/tv_top_tip"
+        android:layout_above="@+id/tv_bottom_tip">
+
+        <LinearLayout
+            android:id="@+id/ll_amount_layout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_50"
+            android:paddingLeft="@dimen/dp_10"
+            android:paddingRight="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dp_10"
+            android:background="@drawable/white_radius_bg"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_peak_amount_icon"
+                style="@style/text_black_15"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginRight="@dimen/dp_10"
+                android:gravity="center_vertical"
+                android:text="总金额" />
+
+            <EditText
+                style="@style/text_black_15"
+                android:id="@+id/et_amount"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@null"
+                android:maxLength="6"
+                android:gravity="right|center_vertical"
+                android:inputType="numberDecimal"
+                android:hint="0.00"/>
+
+            <TextView
+                style="@style/text_black_15"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/dp_10"
+                android:gravity="center_vertical"
+                android:text="元" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_peak_type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/peck_nomal_to_lucky"
+            android:textColor="#ff777777"
+            android:textSize="12sp"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginTop="7dp" />
+
+        <LinearLayout
+            android:id="@+id/ll_peak_num_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_10"
+            android:paddingLeft="@dimen/dp_10"
+            android:paddingRight="@dimen/dp_10"
+            android:background="@drawable/white_radius_bg"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/text_black_15"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginRight="@dimen/dp_10"
+                android:gravity="center_vertical"
+                android:text="红包个数" />
+
+            <EditText
+                style="@style/text_black_15"
+                android:id="@+id/et_peak_num"
+                android:layout_width="0dip"
+                android:layout_height="@dimen/dp_48"
+                android:layout_weight="1"
+                android:background="@null"
+                android:maxLength="3"
+                android:gravity="right|center_vertical"
+                android:inputType="number"
+                android:hint="填写个数" />
+
+            <TextView
+                style="@style/text_black_15"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/dp_10"
+                android:gravity="center_vertical"
+                android:text="个" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_group_member_num"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="本群共8人"
+            android:textColor="#ff777777"
+            android:textSize="12sp"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginTop="7dp"
+            android:visibility="gone"/>
+
+        <EditText
+            style="@style/text_black_15"
+            android:id="@+id/et_peak_message"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_64"
+            android:gravity="left"
+            android:layout_marginTop="@dimen/dp_16"
+            android:padding="@dimen/dp_10"
+            android:background="@drawable/white_radius_bg"
+            android:hint="恭喜发财，大吉大利"
+            android:textColorHint="#BBBBBB"
+            android:maxLength="25" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_26"
+            android:layout_marginBottom="@dimen/dp_26"
+            android:gravity="center">
+
+            <TextView
+                style="@style/text_black_44"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textSize="30sp"
+                android:text="￥" />
+
+            <TextView
+                style="@style/text_black_44"
+                android:id="@+id/tv_amount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="0.00" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_sure"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_43"
+            android:background="@drawable/common_btn_selector"
+            android:enabled="false"
+            android:layout_marginLeft="@dimen/dp_26"
+            android:layout_marginRight="@dimen/dp_26"
+            android:text="塞钱进红包"
+            android:textColor="@color/white"
+            android:textSize="16sp"/>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_bottom_tip"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_40"
+        android:gravity="center"
+        android:text="@string/peck_bottom_tip"
+        android:textColor="#ff888888"
+        android:textSize="13sp"
+        android:layout_alignParentBottom="true" />
+</RelativeLayout>

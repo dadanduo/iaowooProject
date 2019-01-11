@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/dp_14"
+    android:layout_marginLeft="@dimen/dp_3"
+    android:layout_marginRight="@dimen/dp_3"
+    android:id="@+id/item_list_click"
+    android:background="@mipmap/video_black_mask"
+
+    >
+
+
+        <com.opensource.svgaplayer.SVGAImageView
+            android:id="@+id/svga_Image"
+            android:layout_height="@dimen/dp_220"
+            android:layout_width="match_parent"
+            android:scaleType="fitCenter"
+            android:visibility="gone"
+            app:antiAlias="false"/>
+        <com.iaowoo.mobile.Ui.classification.View.CustomRoundAngleImageView
+            android:id="@+id/top_image"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_235"
+            android:scaleType="centerCrop"
+            />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="13sp"
+                android:layout_marginLeft="@dimen/dp_12"
+                android:maxLines="2"
+                />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_marginBottom="@dimen/dp_5"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/head_image_item"
+                        android:layout_width="@dimen/dp_17"
+                        android:layout_marginLeft="@dimen/dp_11"
+                        android:layout_height="@dimen/dp_17" />
+                    <TextView
+                        android:id="@+id/id_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/white"
+                        android:maxLines="1"
+                        android:maxEms="6"
+                        android:layout_marginLeft="@dimen/dp_10"
+                        android:layout_marginRight="@dimen/dp_20"
+                        android:textSize="12sp"
+                        />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/give_love_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="@dimen/dp_8"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/give_like_icon"
+                        />
+                    <TextView
+                        android:id="@+id/give_number"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dp_4"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
+                        />
+
+                </LinearLayout>
+            </RelativeLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+</FrameLayout>

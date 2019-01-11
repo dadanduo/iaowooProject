@@ -1,0 +1,136 @@
+<resources>
+    <string name="app_name">爱好物</string>
+    <string name="app_copyright">Copyright © 2019年</string>
+    <string name="company_name">江苏玄浩电子商务有限公司</string>
+    <string name="title_activity_welcome">Home Screen</string>
+    <string name="next">进入主页面</string>
+    <string name="skip">SKIP</string>
+    <string name="start">GOT IT</string>
+
+    <string name="slide_1_title">Lonely</string>
+    <string name="slide_2_title">Meet</string>
+    <string name="slide_3_title">Fall in love at first sight</string>
+    <string name="slide_4_title">Both fall in love</string>
+    <string name="slide_5_title">Together forever</string>
+    <string name="home">首页</string>
+    <string name="all_buy">拼购</string>
+    <string name="shopCar">购物车</string>
+    <string name="share">共享</string>
+    <string name="my">我的</string>
+    <string name="goon">出行</string>
+    <string name="service">服务</string>
+    <string name="residence">居所</string>
+
+    <string name="setting">设置</string>
+    <string name="forgetpassword">忘记密码</string>
+
+
+    <string name="load_more">正在加载更多...</string>
+    <string name="load_finished">加载完成!</string>
+    <string name="pull_to_refresh">下拉可以刷新</string>
+    <string name="release_to_refresh">释放可以刷新数据</string>
+    <string name="refreshing">正在刷新数据...</string>
+
+    <string name="play_again">play again</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="detal">明细</string>
+    <string name="down_text">正在下载</string>
+    <string name="new_version">发现新版本</string>
+    <string name="new_v_c">新版本正在努力更新中，请稍等~</string>
+
+
+    <string name="pp_show">好物视界</string>
+
+
+
+
+    <!-- ************自定义WRecyclerview************ -->
+    <string name="wrecyclerview_footer_hint_normal"></string>
+    <string name="wrecyclerview_footer_hint_ready">上拉加载更多</string>
+    <string name="wrecyclerview_footer_hint_loading">正在拼命加载中&#8230;</string>
+
+
+    <!--融云IM-->
+    <string name="de_actionbar_myacc">"个人账号"</string>
+    <string name="de_actionbar_sub_group">"群组"</string>
+    <string name="de_actionbar_sub_private">"我的私人会话"</string>
+    <string name="de_actionbar_sub_discussion">"我的讨论组"</string>
+    <string name="de_actionbar_sub_system">"系统消息"</string>
+    <string name="de_actionbar_sub_defult">"聊天"</string>
+    <string name="de_actionbar_set_public">"公众号"</string>
+    <string name="de_actionbar_system">"系统消息"</string>
+    <string name="no_friends">暂无好友</string>
+    <string name="search">搜索</string>
+    <string name="new_friends">新的朋友</string>
+    <string name="group">群组</string>
+    <string name="public_service">公众号</string>
+    <string name="chatroom">聊天室</string>
+    <string name="groups">群聊</string>
+    <string name="private_chat">发起聊天</string>
+    <string name="group_chat">创建群组</string>
+    <string name="add_contacts">添加好友</string>
+    <string name="add_select_group">创建群组</string>
+
+    <string name="ac_search_friend">联系人</string>
+    <string name="ac_search_group">群组</string>
+    <string name="ac_search_chatting_records">聊天记录</string>
+    <string name="ac_search_more_friend">查看更多联系人</string>
+    <string name="ac_search_more_group">查看更多群组</string>
+    <string name="ac_search_more_chatting_records">查看更多聊天记录</string>
+    <string name="ac_new_friend_list_no_data">暂无数据</string>
+    <string name="Search">搜索</string>
+    <string name="fr_group_list_not_join_the_group">暂未加入群组</string>
+    <string name="ac_group_list_group_number">%1$d个群组</string>
+
+
+    <string name="group_info">群组信息</string>
+    <string name="group_member_size">全部群成员</string>
+    <string name="group_name">群名称</string>
+    <string name="confirm_quit_group">确认退出群组?</string>
+    <string name="confirm_dismiss_group">确认解散群组?</string>
+    <string name="clean_history">是否清除会话聊天记录?</string>
+    <string name="all_group_member">全部群成员</string>
+    <string name="group_announcement">群公告</string>
+    <string name="group_member_online_status">群成员在线状态</string>
+    <string name="search_message">查找聊天记录</string>
+    <string name="group_portrait">群头像</string>
+    <string name="group_code">群二维码</string>
+    <string name="set_top">会话置顶</string>
+    <string name="message_notice">消息免打扰</string>
+    <string name="clean_message">清除聊天记录</string>
+    <string name="send_message">发起聊天</string>
+    <string name="quit_group">删除并退出</string>
+    <string name="dismiss_group">解散并退出</string>
+    <string name="user_details">用户详情</string>
+    <string name="black_state">黑名单状态</string>
+    <string name="setdisplayname">设置备注</string>
+    <string name="start_chat">发起会话</string>
+    <string name="add_friend">加为好友</string>
+    <string name="delete_friend">删除好友</string>
+    <string name="ac_contact_nick_name">昵称:</string>
+    <string name="ac_contact_account">PuChat号:</string>
+    <string name="ac_search_no_result_pre">没有搜到</string>
+    <string name="ac_search_no_result_suffix">相关的信息</string>
+
+    <string name="peck_nomal_to_lucky">当前为普通红包，改为拼手气红包</string>
+    <string name="peck_lucky_to_nomal">当前为拼手气红包，改为普通红包</string>
+    <string name="peck_bottom_tip">24小时内未被领取的红包将退回个人账户</string>
+    <string name="group_number">本群共%d人</string>
+    <string name="balance_amount">(剩余￥%s)</string>
+    <string name="single_red_peak_tip">单个红包金额不能超过200元</string>
+    <string name="single_pay_tip">单次支付总额不可超过20000元</string>
+    <string name="red_peak_num_limit_tip">一次最多可发送100个红包</string>
+    <string name="red_peak_num_zero_tip">显示至少需要设置一个红包</string>
+
+
+    <string name="agreed_friend">已同意好友关系</string>
+    <string name="agree">接&#160;&#160;&#160;受</string>
+    <string name="request">已请求</string>
+    <string name="ignore">已忽略</string>
+    <string name="added">已添加</string>
+    <string name="deleted">已删除</string>
+</resources>

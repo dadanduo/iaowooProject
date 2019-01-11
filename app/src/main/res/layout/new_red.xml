@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:id="@+id/new_all"
+    android:layout_height="wrap_content"
+    >
+
+    <ImageView
+        android:id="@+id/new_light_s"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/light_img"
+        android:layout_gravity="center_horizontal"
+        />
+
+    <RelativeLayout
+        android:id="@+id/bg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@mipmap/obtain_img">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/dp_30"
+            android:layout_height="@dimen/dp_50">
+            <RelativeLayout
+                android:id="@+id/close_red"
+                android:layout_width="@dimen/dp_50"
+                android:layout_marginRight="@dimen/dp_30"
+                android:layout_gravity="right"
+                android:layout_height="match_parent">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@mipmap/black_close_icon"
+                />
+            </RelativeLayout>
+        </FrameLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/open_re_layout"
+            android:layout_width="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/open_red"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_150"
+            android:background="@mipmap/icon_open_red_packet1"
+            />
+        </RelativeLayout>
+
+
+
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/red_layout_h"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_gravity="bottom"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:orientation="vertical">
+        <TextView
+            android:id="@+id/red_money"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="@dimen/dp_33"
+            android:textSize="@dimen/dp_33"/>
+
+    <ImageView
+        android:id="@+id/use"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dp_33"
+        android:src="@mipmap/immediate_use_img"/>
+        </LinearLayout>
+    </RelativeLayout>
+
+</FrameLayout>

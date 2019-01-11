@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:id="@+id/click_more"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="@dimen/dp_39"
+        android:layout_marginBottom="@dimen/dp_39"
+        android:layout_marginLeft="@dimen/dp_29"
+        android:layout_marginRight="@dimen/dp_29"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/view_more_icon"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="查看更多"
+            android:textColor="#a8a8a8"
+            android:layout_marginTop="@dimen/dp_7"
+            android:textSize="12sp"
+            />
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_marginLeft="@dimen/dp_16"
+    android:layout_marginRight="@dimen/dp_16"
+    android:layout_marginTop="10dp"
+    android:id="@+id/use_it"
+    android:background="@mipmap/order_choose_coupon_bg">
+
+
+    <RelativeLayout
+        android:id="@+id/layout_shi_fo"
+        android:layout_width="122dp"
+        android:layout_height="@dimen/dp_97"
+        >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:text="￥"/>
+
+                <TextView
+                    android:id="@+id/price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:textSize="40sp"
+                    />
+
+            </LinearLayout>
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:textColor="#fffeff"
+                android:textSize="12sp"
+                />
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp_10"
+        android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_5"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:id="@+id/youhuiquan_show"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/youhui_adapter_ok_all">
+            <TextView
+                android:id="@+id/text_show"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="10sp"
+                android:textColor="@color/white"
+                android:layout_margin="3dp"
+                android:text="优惠券"
+                />
+        </RelativeLayout>
+        <TextView
+            android:id="@+id/miaoshu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#333333"
+            android:layout_marginLeft="@dimen/dp_6"
+            android:layout_gravity="center_vertical"
+            android:textSize="10sp"
+            />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/keyiganma"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_9"
+        android:textColor="#999999"
+        android:textSize="12sp"
+        />
+
+        <TextView
+            android:id="@+id/date_riqi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2018.04.07-2018.04.14"
+            android:textColor="#a4a4a4"
+            android:layout_marginTop="@dimen/dp_24"
+            android:textSize="12sp"
+            />
+    </LinearLayout>
+</LinearLayout>

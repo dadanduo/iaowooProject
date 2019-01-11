@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/hui"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/earth_top"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_52"
+            android:visibility="gone"
+            >
+
+            <RelativeLayout
+                android:id="@+id/search_item_earth"
+                android:layout_width="match_parent"
+                android:layout_marginLeft="@dimen/dp_15"
+                android:layout_marginRight="@dimen/dp_15"
+                android:layout_marginTop="@dimen/dp_11"
+                android:layout_marginBottom="@dimen/dp_11"
+                android:alpha="0.9"
+                android:background="@drawable/search_new"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="12sp"
+                        android:layout_marginLeft="@dimen/dp_25"
+                        android:layout_gravity="center_vertical"
+                        android:text="请输入搜索的商品"/>
+
+
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="@dimen/dp_15"
+                    android:layout_height="@dimen/dp_15"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/dp_12"
+                    android:src="@mipmap/search_icon"/>
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:orientation="vertical">
+            <!-- 选项卡区域 -->
+            <!--设置TabLayout的模式 app:tabMode 默认是fixed：固定的，标签很多时候会被挤压，不能滑动。-->
+            <!--设置整个TabLayout的颜色 app:tabBackground-->
+            <!--设置选中字体的颜色 app:tabSelectedTextColor-->
+            <!--设置未选中字体的颜色 app:tabTextColor-->
+            <!--设置指示器下标的颜色 app:tabIndicatorColor-->
+            <!--设置指示器下标的高度 app:tabIndicatorHeight，如果设置的是0.0dp，则代表没有下划线-->
+            <!--设置内容的显示模式 app:tabGravity，center : 居中，如果是fill，则是充满-->
+            <android.support.design.widget.TabLayout
+                android:id="@+id/tl_top"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_50"
+                app:tabBackground="@color/andoridMain"
+                android:visibility="gone"
+                app:tabMode="scrollable"
+                app:tabSelectedTextColor="#FFEA00"
+                android:background="@color/andoridMain"
+                app:tabTextColor="@color/white"
+                app:tabIndicatorColor="#FFEA00"
+                app:tabIndicatorHeight="2dp"
+                app:tabGravity="center"
+                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_45"
+                    android:background="@color/white"
+                    android:orientation="horizontal">
+                    <RelativeLayout
+                        android:id="@+id/zh"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+                        <TextView
+                            android:id="@+id/zhtxt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:textColor="@color/txt_666666"
+                            android:text="综合"/>
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:id="@+id/xl"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+                        <TextView
+                            android:id="@+id/xltxt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:textColor="@color/txt_666666"
+                            android:text="销量"/>
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:id="@+id/xp"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+                        <TextView
+                            android:id="@+id/xptxt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:textColor="@color/txt_666666"
+                            android:text="新品"/>
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:id="@+id/jg"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+                        <TextView
+                            android:id="@+id/jgtxt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:textColor="@color/txt_666666"
+                            android:text="价格"/>
+
+                        <ImageView
+                            android:id="@+id/jgimg"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginRight="8dp"
+                            android:layout_centerVertical="true"
+                            android:src="@mipmap/price_default"/>
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:id="@+id/hs"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+                        <ImageView
+                            android:id="@+id/imge_c"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:src="@mipmap/gray_list_block_icon"/>
+                    </RelativeLayout>
+
+
+
+                </LinearLayout>
+
+
+
+                <!-- viewpager区域 -->
+                <!--<com.iaowoo.mobile.Ui.classification.View.viewpager.MyCustomViewPager-->
+                <!--android:id="@+id/viewpager"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+                <!--/>-->
+                <!--<android.support.v4.widget.SwipeRefreshLayout-->
+                <!--android:id="@+id/earth_swiperefreshlayout"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_marginBottom="@dimen/dp_50"-->
+                <!--android:layout_height="wrap_content">-->
+
+                <com.scwang.smartrefresh.layout.SmartRefreshLayout
+                    android:id="@+id/list_swiperefreshlayout"
+                    android:layout_width="match_parent"
+                    android:background="@color/white"
+                    app:srlAccentColor="@color/white"
+                    app:srlPrimaryColor="@color/hui"
+                    app:srlClassicsSpinnerStyle="Translate"
+                    app:srlEnablePreviewInEditMode="true"
+                    android:layout_height="match_parent">
+
+                    <com.scwang.smartrefresh.layout.header.ClassicsHeader
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:srlPrimaryColor="@color/colorPrimary"
+                        app:srlAccentColor="@color/hui"
+                        app:srlDrawableSize="@dimen/dp_30"
+                        app:srlDrawableProgress="@drawable/animation_loading_frame"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="#f5f5f5"
+                        android:orientation="vertical">
+
+                        <com.iaowoo.mobile.Ui.classification.View.recyclerview.WRecyclerView
+                            android:id="@+id/earth_recycler_view_f"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:cacheColorHint="#00000000"
+                            android:divider="@null"
+                            android:listSelector="#00000000"
+                            android:scrollbarThumbVertical="@drawable/scrollbar_vertical_thumb"
+
+                            />
+                    </LinearLayout>
+                </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
+            </LinearLayout>
+            <!--</android.support.v4.widget.SwipeRefreshLayout>-->
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</FrameLayout>
