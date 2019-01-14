@@ -159,7 +159,7 @@ public class TopRecycleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
                 }
             }
 //            if(shops.get(position-1).getType()==1||shops.get(position-1).getType()==3){
-                ((ContentViewHolder) holder).show_shop_name.setText(Html.fromHtml(SingleOverAll.getInstance().descString(shops.get(position-1).getProductInfo().getName()), SingleOverAll.getInstance().getImageGetterInstance(), null));
+            ((ContentViewHolder) holder).show_shop_name.setText(Html.fromHtml(SingleOverAll.getInstance().descString(shops.get(position-1).getProductInfo().getName()), SingleOverAll.getInstance().getImageGetterInstance(), null));
 //            }else if(shops.get(position-1).getType()==5){
 //                ((ContentViewHolder) holder).show_shop_name.setText(Html.fromHtml(SingleOverAll.getInstance().descString2(shops.get(position-1).getProductInfo().getName()), SingleOverAll.getInstance().getImageGetterInstance(), null));
 //            }
@@ -586,6 +586,7 @@ public class TopRecycleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
                     msg_Text.startFlipping();
                 }
 
+
                 ClassInfoRecycleAdapter classInfoRecycleAdapter = new ClassInfoRecycleAdapter(true, list, mContext, new OnclicKRecycleAdapter() {
                     @Override
                     public void onItemClick(int position) {
@@ -596,49 +597,55 @@ public class TopRecycleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
                     }
                 });
                 cusom_swipe_view.setAdapter(classInfoRecycleAdapter);
-                cusom_swipe_view.addOnScrollListener(new RecyclerView.OnScrollListener() {
-                    /**
-                     * Callback method to be invoked when the RecyclerView has been scrolled. This will be
-                     * called after the scroll has completed.
-                     * This callback will also be called if visible item range changes after a layout
-                     * calculation. In that case, dx and dy will be 0.
-                     * @param recyclerView The RecyclerView which scrolled.
-                     * @param dx           The amount of horizontal scroll.
-                     * @param dy           The amount of vertical scroll.
-                     */
-                    @Override
-                    public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
-                        super.onScrolled(recyclerView, dx, dy);
-                        x_margin+=dx;
-                        LogPrint.printError("横向距离："+x_margin);
-                        if(x_margin>80){
-                            line_magin_left.setVisibility(View.GONE);
-                            line_magin_right.setVisibility(View.VISIBLE);
-                        }else{
-                            line_magin_left.setVisibility(View.VISIBLE);
-                            line_magin_right.setVisibility(View.GONE);
-                        }
-                        RecyclerView.LayoutManager manager = recyclerView.getLayoutManager();//获取LayoutManager
-                        //经过测试LinearLayoutManager和GridLayoutManager有以下的方法,这里只针对LinearLayoutManager
-                        if (manager instanceof LinearLayoutManager) {
-                            //经测试第一个完整的可见的item位置，若为0则是最上方那个;在item超过屏幕高度的时候只有第一个item出现的时候为0 ，其他时候会是一个负的值
-                            //此方法常用作判断是否能下拉刷新，来解决滑动冲突
-                            int findFirstCompletelyVisibleItemPosition = ((LinearLayoutManager) manager).findFirstCompletelyVisibleItemPosition();
-                            //最后一个完整的可见的item位置
-                            int findLastCompletelyVisibleItemPosition = ((LinearLayoutManager) manager).findLastCompletelyVisibleItemPosition();
-                            //第一个可见的位置
-                            int findFirstVisibleItemPosition = ((LinearLayoutManager) manager).findFirstVisibleItemPosition();
-                            //最后一个可见的位置
-                            int findLastVisibleItemPosition = ((LinearLayoutManager) manager).findLastVisibleItemPosition();
-                            //如果有滑动冲突--可以用以下方法解决(如果可见位置是position==0的话才能有下拉刷新否则禁掉)
-//                            mSwipeRefreshLayout.setEnabled(findFirstCompletelyVisibleItemPosition == 0);
-                            //在网上还看到一种解决滑动冲突的方法
-                            int topPosition = (recyclerView == null || recyclerView.getChildCount() == 0) ? 0 : recyclerView.getChildAt(0).getTop();
-                        }
-                    }
-                });
 
-            }
+                //不满5个就不显示导航线
+                if(list.size()<=5){
+                    line_magin_left.setVisibility(View.GONE);
+                    line_magin_right.setVisibility(View.GONE);
+                }else{
+                    cusom_swipe_view.addOnScrollListener(new RecyclerView.OnScrollListener() {
+                        /**
+                         * Callback method to be invoked when the RecyclerView has been scrolled. This will be
+                         * called after the scroll has completed.
+                         * This callback will also be called if visible item range changes after a layout
+                         * calculation. In that case, dx and dy will be 0.
+                         * @param recyclerView The RecyclerView which scrolled.
+                         * @param dx           The amount of horizontal scroll.
+                         * @param dy           The amount of vertical scroll.
+                         */
+                        @Override
+                        public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                            super.onScrolled(recyclerView, dx, dy);
+                            x_margin+=dx;
+                            LogPrint.printError("横向距离："+x_margin);
+                            if(x_margin>80){
+                                line_magin_left.setVisibility(View.GONE);
+                                line_magin_right.setVisibility(View.VISIBLE);
+                            }else{
+                                line_magin_left.setVisibility(View.VISIBLE);
+                                line_magin_right.setVisibility(View.GONE);
+                            }
+                            RecyclerView.LayoutManager manager = recyclerView.getLayoutManager();//获取LayoutManager
+                            //经过测试LinearLayoutManager和GridLayoutManager有以下的方法,这里只针对LinearLayoutManager
+                            if (manager instanceof LinearLayoutManager) {
+                                //经测试第一个完整的可见的item位置，若为0则是最上方那个;在item超过屏幕高度的时候只有第一个item出现的时候为0 ，其他时候会是一个负的值
+                                //此方法常用作判断是否能下拉刷新，来解决滑动冲突
+                                int findFirstCompletelyVisibleItemPosition = ((LinearLayoutManager) manager).findFirstCompletelyVisibleItemPosition();
+                                //最后一个完整的可见的item位置
+                                int findLastCompletelyVisibleItemPosition = ((LinearLayoutManager) manager).findLastCompletelyVisibleItemPosition();
+                                //第一个可见的位置
+                                int findFirstVisibleItemPosition = ((LinearLayoutManager) manager).findFirstVisibleItemPosition();
+                                //最后一个可见的位置
+                                int findLastVisibleItemPosition = ((LinearLayoutManager) manager).findLastVisibleItemPosition();
+                                //如果有滑动冲突--可以用以下方法解决(如果可见位置是position==0的话才能有下拉刷新否则禁掉)
+//                            mSwipeRefreshLayout.setEnabled(findFirstCompletelyVisibleItemPosition == 0);
+                                //在网上还看到一种解决滑动冲突的方法
+                                int topPosition = (recyclerView == null || recyclerView.getChildCount() == 0) ? 0 : recyclerView.getChildAt(0).getTop();
+                            }
+                        }
+                    });
+
+                }}
         }
     }
 

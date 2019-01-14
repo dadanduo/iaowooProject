@@ -166,7 +166,7 @@ public class messageFragment  extends  BaseBufferFragment implements  MesssagePr
         super.initData();
     }
 
-    @OnClick({R.id.button_backward,R.id.g_g,R.id.x_t,R.id.j_y,R.id.d_d,R.id.k_f})
+    @OnClick({R.id.button_backward,R.id.g_g,R.id.x_t,R.id.j_y,R.id.d_d_click,R.id.k_f})
     public void onclick(View view){
         switch (view.getId()){
             case R.id.button_backward:
@@ -217,7 +217,7 @@ public class messageFragment  extends  BaseBufferFragment implements  MesssagePr
                 }
                 messageM(3);
                 break;
-            case R.id.d_d:
+            case R.id.d_d_click:
                 messsageProsenter.Clear_message_number("30000");
                 if(!TextUtils.isEmpty(PrefManager.getInstance().getToken())){
                     UtilsAll.GoWeexAll(getActivity(),ConfigH5Url.MeassgeUrlWeex("30000",""),"","");

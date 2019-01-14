@@ -172,7 +172,6 @@ public class ClassificationFragment extends  BaseBufferFragment implements Class
                         }
                     });
                     classInfoProsenter.GetActivityListForUser();
-
                 }
                 for(int i=0;i<size;i++){
                     if(classInfoName.get(position).endsWith(fenLei.getBody().getContent().get(i).getName())){

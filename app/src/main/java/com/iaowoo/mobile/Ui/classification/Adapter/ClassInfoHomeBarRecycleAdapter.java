@@ -1,6 +1,7 @@
 package com.iaowoo.mobile.Ui.classification.Adapter;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -48,10 +49,14 @@ public class ClassInfoHomeBarRecycleAdapter extends BaseSoEasyAdapter{
         if(CHOOS_POSITION==position){
             holder.oneClickBackgroud.setBackgroundColor(context.getResources().getColor(R.color.white));
             holder.choos_ok.setVisibility(View.VISIBLE);
+            holder.classinfo_Name.setTextSize(14);
+            holder.classinfo_Name.setTextColor(Color.parseColor("#333333"));
         }else{
             holder.oneClickBackgroud.setBackgroundColor(context.getResources().getColor(R.color.huiclassinfo));
             holder.choos_ok.setVisibility(View.GONE);
-        }
+            holder.classinfo_Name.setTextSize(12);
+            holder.classinfo_Name.setTextColor(Color.GRAY);
+            }
         holder.classinfo_Name.setText(classinfos.get(position));
     }
 
