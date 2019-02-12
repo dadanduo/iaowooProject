@@ -295,7 +295,10 @@ public class UtilsOkHttpAll {
      * 每日推荐   爱拼团
      */
     public static final String GET_SEEARCHPAGE_TEMPLATELIST = "/product_center/searchPagedHundredCityTemplateList";
-
+    /**
+     * 查询商品pv与积分的换算比例
+     */
+    public static final String QUERY_INTEGRAL_RATIO = "/order_center/profit/query_integral_ratio";
 
     // 融云IM相关接口api
     public static final String GET_IM_TOKEN = "/im_center/user/getImToken"; // loginToken
