@@ -864,14 +864,14 @@ public class Webset implements MyWebviewClientCallBack,LocationApiUtils.Location
      * @param context
      */
     public  void intoQiyu(Context context,long groupId){
-        String title = "铺连铺客服";
+        String title = context.getResources().getString(R.string.app_name)+"客服";
         /**
          * 设置访客来源，标识访客是从哪个页面发起咨询的，用于客服了解用户是从什么页面进入。
          * 三个参数分别为：来源页面的url，来源页面标题，来源页面额外信息（保留字段，暂时无用）。
          * 设置来源后，在客服会话界面的"用户资料"栏的页面项，可以看到这里设置的值。
          */
         String sourceUrl="https://pulpu.qiyukf.com";
-        String sourceTitle="铺连铺";
+        String sourceTitle=context.getResources().getString(R.string.app_name);
         String custom="custom information string";
         ConsultSource source = new ConsultSource(sourceUrl, sourceTitle, custom);
         source.groupId=groupId;

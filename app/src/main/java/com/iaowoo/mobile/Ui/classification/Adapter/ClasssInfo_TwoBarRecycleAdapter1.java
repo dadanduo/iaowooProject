@@ -179,7 +179,7 @@ public class ClasssInfo_TwoBarRecycleAdapter1 extends RecyclerView.Adapter<Recyc
             super(itemView);
             fenlei_two=itemView.findViewById(R.id.fenlei_two);
             if(classInfoProsenter!=null) {
-                classInfoProsenter.getSlideShowData(categroy);
+                classInfoProsenter.getSlideShowData1();
                 classInfoProsenter.setCallBack(this);
             }
         }

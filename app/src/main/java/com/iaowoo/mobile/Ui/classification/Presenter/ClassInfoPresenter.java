@@ -115,6 +115,37 @@ public class ClassInfoPresenter {
         });
     }
     /**
+     * 获得bannar所有的数据
+     */
+    public void getSlideShowData1(){
+        HashMap<String, Object> paramsMap = new HashMap<>();
+        paramsMap.put("pageNum",1);
+        paramsMap.put("pageSize",100);
+        paramsMap.put("location","22");
+
+        OkhttpManager.getInstance(ZApplication.getContext()).requestPostByAsyn(true,UtilsOkHttpAll.BANNER,"getSlideShowData",-1, paramsMap,new OkhttpManager.ReCallBack<Object>() {
+            @Override
+            public void onReqSuccess(Object result) {
+                if(!TextUtils.isEmpty(result.toString())) {
+                    Banner banner= JSON.parseObject(result.toString(),Banner.class);
+                    if (banner.getCode().equals(OkhttpManager.SUCESS)) {
+                        if(banner.getBody().getContent().getList()!=null) {
+                            if(banner.getBody().getContent().getList().size()>0){
+                                classInfoCallBack.getSlideShow(banner);
+                            }else{
+                                classInfoCallBack.nohaveData();
+                            }
+                        }}
+                }
+            }
+            @Override
+            public void onReqFailed(String errorMsg) {
+                ToastUtilsAll.getInstance().showNetEoor();
+                classInfoCallBack.nohaveData();
+            }
+        });
+    }
+    /**
      * 热门推荐
      */
     public void GetActivityListForUser(){

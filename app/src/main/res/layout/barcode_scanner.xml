@@ -17,7 +17,7 @@
         android:background="@color/zxing_transparent"
         android:layout_marginTop="160dp"
         android:text="@string/zxing_msg_default_status"
-        android:textColor="@color/andoridMain"/>
+        android:textColor="@color/iaowooMain"/>
 
     <com.iaowoo.mobile.Ui.classification.View.CustomViewfinderView
         android:layout_width="match_parent"

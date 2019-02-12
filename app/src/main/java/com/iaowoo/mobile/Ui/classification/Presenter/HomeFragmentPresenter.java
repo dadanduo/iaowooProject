@@ -6,6 +6,7 @@ import android.text.TextUtils;
 import com.alibaba.fastjson.JSON;
 import com.iaowoo.mobile.Application.ZApplication;
 import com.iaowoo.mobile.Controller.Single.PrefManager;
+import com.iaowoo.mobile.Ui.classification.Model.IntegralRatio;
 import com.iaowoo.mobile.Utils.LogPrint;
 import com.iaowoo.mobile.Utils.ToastUtilsAll;
 import com.iaowoo.mobile.Application.ZApplication;
@@ -288,6 +289,7 @@ public class HomeFragmentPresenter {
         HashMap<String, Object> paramsMap = new HashMap<>();
         paramsMap.put("pageNum",1);
         paramsMap.put("pageSize",100);
+        paramsMap.put("environment",3);
         OkhttpManager.getInstance(ZApplication.getContext()).requestPostByAsyn(true,UtilsOkHttpAll.CONFIGURATION,"getConfiguration", -1,paramsMap,new OkhttpManager.ReCallBack<Object>() {
             @Override
             public void onReqSuccess(Object result) {
@@ -307,6 +309,32 @@ public class HomeFragmentPresenter {
 
         });
     }
+    /**
+     *查询商品pv与积分的换算比例
+     */
+    public void getQureryIntegralRatio(){
+        HashMap<String, Object> paramsMap = new HashMap<>();
+        OkhttpManager.getInstance(ZApplication.getContext()).requestPostByAsyn(true,UtilsOkHttpAll.QUERY_INTEGRAL_RATIO,"QUERY_INTEGRAL_RATIO", -1,paramsMap,new OkhttpManager.ReCallBack<Object>() {
+            @Override
+            public void onReqSuccess(Object result) {
+                if(!TextUtils.isEmpty(result.toString())) {
+                    IntegralRatio  integralRatio=JSON.parseObject(result.toString(),IntegralRatio.class);
+                    if(integralRatio.getCode().endsWith(OkhttpManager.SUCESS)){
+                        //保存积分换算比例到本地
+                        PrefManager.getInstance().setIntegralRatio((float) integralRatio.getBody().getContent().getIntegralRatio());
+                    }
+                   LogPrint.printError(">>>>>>>>>>>>>>>>>>"+result.toString());
+                }
+            }
+            @Override
+            public void onReqFailed(String errorMsg) {
+                ToastUtilsAll.getInstance().showNetEoor();
+            }
+
+        });
+    }
+
+
 //    /**
 //     * 中国好物
 //     */

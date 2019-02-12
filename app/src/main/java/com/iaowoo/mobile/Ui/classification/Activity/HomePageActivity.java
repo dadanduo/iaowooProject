@@ -217,8 +217,8 @@ public class HomePageActivity extends BaseBufferActivity  implements HomeFragmen
         this.allState();
         //注册evenbus
         EventBus.getDefault().register(this);
-        String token = "IoIFr/VnmRNxr9JlC5GhXiLCvTnwWjULx1BHZ6nQAaCBKQtdWKGNO764VCSa70ANZgf7upLxqLmZm8YFg9fNfw==";
-        connect(token);
+//        String token = "IoIFr/VnmRNxr9JlC5GhXiLCvTnwWjULx1BHZ6nQAaCBKQtdWKGNO764VCSa70ANZgf7upLxqLmZm8YFg9fNfw==";
+//        connect(token);
     }
 
     /**
@@ -292,6 +292,7 @@ public class HomePageActivity extends BaseBufferActivity  implements HomeFragmen
         homeFragmentProsenter=new HomeFragmentPresenter(this);
         homeFragmentProsenter.setHomeMainCallBack(this);
         homeFragmentProsenter.getStartPage();
+        homeFragmentProsenter.getQureryIntegralRatio();
         //获取购物车
         homeFragmentProsenter.getShopCar(PrefManager.getInstance().getToken()==null?"":PrefManager.getInstance().getToken());
         replaceFragment(0);
@@ -310,26 +311,26 @@ public class HomePageActivity extends BaseBufferActivity  implements HomeFragmen
             messsageProsenter.Get_message_number();
         }
 
-        List<City> personList=new ArrayList<>();
-        int testMaxCount=2;//测试的最大数据条数
-        //添加测试数据
-        for(int i=0;i<testMaxCount;i++){
-            City city=new City();
-            city.setName("唐人街");
-            city.setPinyi("tangrenjie");
-            personList.add(city);
-        }
+//        List<City> personList=new ArrayList<>();
+//        int testMaxCount=2;//测试的最大数据条数
+//        //添加测试数据
+//        for(int i=0;i<testMaxCount;i++){
+//            City city=new City();
+//            city.setName("唐人街");
+//            city.setPinyi("tangrenjie");
+//            personList.add(city);
+//        }
         //FastJson生成json数据
 
-        String jsonData= ZApplication.gson.toJson(personList);
-        LogPrint.printError("加密前"+jsonData);
-        LogPrint.printError("加密前长度"+jsonData.length());
-
-        KeyPair keyPair=RSA.generateRSAKeyPair(RSA.DEFAULT_KEY_SIZE);
-        // 公钥
-        RSAPublicKey publicKey = (RSAPublicKey) keyPair.getPublic();
-        // 私钥
-        RSAPrivateKey privateKey = (RSAPrivateKey) keyPair.getPrivate();
+//        String jsonData= ZApplication.gson.toJson(personList);
+//        LogPrint.printError("加密前"+jsonData);
+//        LogPrint.printError("加密前长度"+jsonData.length());
+//
+//        KeyPair keyPair=RSA.generateRSAKeyPair(RSA.DEFAULT_KEY_SIZE);
+//        // 公钥
+//        RSAPublicKey publicKey = (RSAPublicKey) keyPair.getPublic();
+//        // 私钥
+//        RSAPrivateKey privateKey = (RSAPrivateKey) keyPair.getPrivate();
 
 
         //公钥加密

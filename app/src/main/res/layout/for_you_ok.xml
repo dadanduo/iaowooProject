@@ -27,6 +27,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_marginTop="@dimen/dp_7"
+        android:layout_marginBottom="@dimen/dp_12"
         android:layout_height="wrap_content">
         <TextView
             android:id="@+id/price_ok"
@@ -37,8 +38,33 @@
             android:layout_marginLeft="@dimen/dp_12"
             android:textSize="13sp"
             />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:gravity="center_vertical"
+            android:layout_marginRight="@dimen/dp_12"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:src="@mipmap/integral_icon" />
+
+            <TextView
+                android:id="@+id/integral_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/dp_3"
+                android:layout_marginRight="@dimen/dp_3"
+                android:textColor="@color/colortabletxt"
+                android:textSize="12sp" />
+        </LinearLayout>
         <TextView
             android:id="@+id/ok_ok"
+            android:visibility="gone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="@dimen/dp_12"

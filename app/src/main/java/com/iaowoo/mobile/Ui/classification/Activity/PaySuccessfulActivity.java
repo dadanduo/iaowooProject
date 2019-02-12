@@ -130,6 +130,7 @@ public class PaySuccessfulActivity extends  BaseUpDownActivity  implements HomeF
                 finish();
                 break;
             case R.id.fenxianghongbao:
+                Defaultcontent.code_url="page/pagesGoods/shareRedPacket/index?orderId="+orderID;
                 if (dialogUtilsSoftReference.get() != null) {
                     dialogUtilsSoftReference.get().Share(this);
                 } else {

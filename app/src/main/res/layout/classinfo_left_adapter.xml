@@ -2,13 +2,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginTop="20dp"
     android:background="@color/white">
 
     <RelativeLayout
         android:id="@+id/oneClickBackgroud"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_40"
-        android:background="@color/huiclassinfo">
+        android:background="@color/bg_iaowoo">
         <View
             android:id="@+id/choos_ok"
             android:layout_width="3dp"

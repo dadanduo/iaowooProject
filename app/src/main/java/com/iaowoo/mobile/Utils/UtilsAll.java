@@ -501,6 +501,27 @@ public class UtilsAll {
     }
 
 
+    /***
+     * 获取url 指定name的value;
+     * @param url
+     * @param name
+     * @return
+     */
+    public static String getValueByName(String url, String name) {
+        String result = "";
+        int index = url.indexOf("?");
+        String temp = url.substring(index + 1);
+        String[] keyValue = temp.split("&");
+        for (String str : keyValue) {
+            if (str.contains(name)) {
+                result = str.replace(name + "=", "");
+                break;
+            }
+        }
+        return result;
+    }
+
+
     /**
      * 通过url获取键值对
      *
@@ -508,7 +529,7 @@ public class UtilsAll {
      * @return
      */
     public static HashMap<String, String> getUrlParameter(String url) {
-        if(!TextUtils.isEmpty(url)) {
+        if (!TextUtils.isEmpty(url)) {
             HashMap<String, String> hashMap = new HashMap<>();
             if (url.contains("?")) {
                 String url1 = url.substring(url.indexOf("?") + 1, url.length());
@@ -519,7 +540,7 @@ public class UtilsAll {
                         LogPrint.printError("url3" + url3);
                         String url4 = url3.substring(0, url3.indexOf("="));
                         LogPrint.printError("url4" + url4);
-                        String url5 = url3.substring(url3.indexOf("="), url3.length());
+                        String url5 = url3.substring(url3.indexOf("=") + 1, url3.length());
                         LogPrint.printError("url5" + url5);
                         hashMap.put(url4, url5);
                     }
@@ -544,7 +565,7 @@ public class UtilsAll {
 
     private static long lastClickTime;
     private final static int SPACE_TIME = 1000;
-    private final  static int SPACE_TIME_ONE=500;
+    private final static int SPACE_TIME_ONE = 500;
 
     public static void initLastClickTime() {
         lastClickTime = 0;
@@ -561,6 +582,7 @@ public class UtilsAll {
         lastClickTime = currentTime;
         return isClick2;
     }
+
     public synchronized static boolean isDoubleClick1() {
         long currentTime = System.currentTimeMillis();
         boolean isClick2;
@@ -575,6 +597,7 @@ public class UtilsAll {
 
     /**
      * 不带定位webview的跳转
+     *
      * @param context
      * @param URL
      */
@@ -590,31 +613,33 @@ public class UtilsAll {
 
     /**
      * 跳转到weex页面
+     *
      * @param context
      * @param URL
      */
-    public static void GoWeexAll(Context context, String URL,String color,String statusBar) {
+    public static void GoWeexAll(Context context, String URL, String color, String statusBar) {
         if (!isDoubleClick()) {
             LogPrint.printError("跳转：" + URL);
             Intent mintent = new Intent(context, WeexActicity.class);
             mintent.putExtra("weexUrl", URL);
-            mintent.putExtra("titleColor",color);
-            mintent.putExtra("statusBar",statusBar);
+            mintent.putExtra("titleColor", color);
+            mintent.putExtra("statusBar", statusBar);
             context.startActivity(mintent);
         }
     }
 
     /**
      * 跳转到weex页面  销毁当前页面
+     *
      * @param activity
      * @param URL
      */
-    public static void GoWeexAllDestoryThis(Activity activity, String URL,String color) {
+    public static void GoWeexAllDestoryThis(Activity activity, String URL, String color) {
         if (!isDoubleClick()) {
             LogPrint.printError("跳转：" + URL);
             Intent mintent = new Intent(activity, WeexActicity.class);
             mintent.putExtra("weexUrl", URL);
-            mintent.putExtra("titleColor",color);
+            mintent.putExtra("titleColor", color);
             activity.startActivity(mintent);
             activity.finish();
         }
@@ -622,19 +647,21 @@ public class UtilsAll {
 
     /**
      * 跳原生商品详情页面
+     *
      * @param context
      * @param goodsId
      */
-    public static void GoNativeGoodsDetails(Context context, String goodsId,String activityId,String invate) {
+    public static void GoNativeGoodsDetails(Context context, String goodsId, String activityId, String invate) {
         Intent mintent = new Intent(context, GoodsDetailsActivity.class);
         mintent.putExtra("goodsId", goodsId);
-        mintent.putExtra("activityId","0");
-        mintent.putExtra("tagNoReturn","ok");
+        mintent.putExtra("activityId", "0");
+        mintent.putExtra("tagNoReturn", "ok");
         context.startActivity(mintent);
     }
 
     /**
      * 带定位
+     *
      * @param context
      * @param URL
      */
@@ -650,58 +677,60 @@ public class UtilsAll {
 
     /**
      * 整数相除 保留一位小数
+     *
      * @param a
      * @param b
      * @return
      */
-    public static String division(int a ,int b){
+    public static String division(int a, int b) {
         String result = "";
-        float num =(float)a/b;
+        float num = (float) a / b;
         DecimalFormat df = new DecimalFormat("0.0");
         result = df.format(num);
         return result;
     }
 
-    public static  String setMoney(float a){
-        DecimalFormat   fnum   =   new   DecimalFormat("##0.00");
-        String   dd=fnum.format(a);
+    public static String setMoney(float a) {
+        DecimalFormat fnum = new DecimalFormat("##0.00");
+        String dd = fnum.format(a);
         return dd;
     }
 
     /**
      * 添加修改数据
-     * @param isBD    是否为切换新账号入口
+     *
+     * @param isBD         是否为切换新账号入口
      * @param mobileNo
      * @param password
      * @param HeadImageUrl
      */
-    public static void addLoginInfo(boolean isBD,String mobileNo,String password,String HeadImageUrl){
+    public static void addLoginInfo(boolean isBD, String mobileNo, String password, String HeadImageUrl) {
         //表里没有数据
-        if(XutilsDBManage.getInstance().loadTableAllSize(LoginInfo.class)==0){
+        if (XutilsDBManage.getInstance().loadTableAllSize(LoginInfo.class) == 0) {
             //组id设置为0
             PrefManager.getInstance().setGroudId(0);
         }
         //表里已经有数据
-        LoginInfo loginInfoSearch= (LoginInfo) XutilsDBManage.getInstance().searchName(mobileNo,LoginInfo.class);
-        if(loginInfoSearch!=null){
+        LoginInfo loginInfoSearch = (LoginInfo) XutilsDBManage.getInstance().searchName(mobileNo, LoginInfo.class);
+        if (loginInfoSearch != null) {
             //修改该账号为
-            if(isBD){
-                LoginInfo d=new LoginInfo();
+            if (isBD) {
+                LoginInfo d = new LoginInfo();
                 d.setId(loginInfoSearch.getId());
                 d.setGroudId(PrefManager.getInstance().getGroudId());
                 d.setHeadImage(loginInfoSearch.getHeadImage());
                 d.setPassWord(loginInfoSearch.getPassWord());
                 d.setName(loginInfoSearch.getName());
-                if(XutilsDBManage.getInstance().saveOrUpdate(d)){
+                if (XutilsDBManage.getInstance().saveOrUpdate(d)) {
                     LogPrint.printError("修改成功");
                 }
-            }else {
+            } else {
                 //直接拉过来
                 int groudId = loginInfoSearch.getGroudId();
                 PrefManager.getInstance().setGroudId(groudId);
             }
-        }else{
-            if(!isBD) {
+        } else {
+            if (!isBD) {
                 // 表里面没有数据新建分组
                 //新建分组
                 int groudIds = PrefManager.getInstance().getGroudId();
@@ -724,10 +753,9 @@ public class UtilsAll {
     /**
      * 删除账号数据表
      */
-    public static  boolean DeletLoginInfo(int id){
-        return XutilsDBManage.getInstance().deleteById(id,LoginInfo.class);
+    public static boolean DeletLoginInfo(int id) {
+        return XutilsDBManage.getInstance().deleteById(id, LoginInfo.class);
     }
-
 
 
     /**
@@ -754,6 +782,7 @@ public class UtilsAll {
         // 字符串截断
         return result.substring(0, inde + 3);
     }
+
     /**
      * 查找字符串pattern在str中第一次出现的位置
      *
@@ -776,24 +805,26 @@ public class UtilsAll {
     }
 
 
-    public static  String DoubleTo_2(double a){
-        String c=String.format("%.2f", a);
+    public static String DoubleTo_2(double a) {
+        String c = String.format("%.2f", a);
 //        DecimalFormat   df  = new DecimalFormat("#.00");
 //        String str = df.format(a);
         return c;
     }
+
     /**
      * 处理显示金额
+     *
      * @param a
      * @return
      */
-    public static String Chuli1(double a){
+    public static String Chuli1(double a) {
         //如果小数点后面的为零直接去掉不然保留
-        if(a%1==0){
-            int tmp = (int)a;
-            return tmp+"";
-        }else{
-            return a+"";
+        if (a % 1 == 0) {
+            int tmp = (int) a;
+            return tmp + "";
+        } else {
+            return a + "";
         }
     }
 }

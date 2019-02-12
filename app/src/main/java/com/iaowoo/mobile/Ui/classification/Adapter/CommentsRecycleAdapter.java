@@ -13,11 +13,13 @@ import android.widget.TextView;
 
 import com.iaowoo.mobile.Controller.Single.PrefManager;
 import com.iaowoo.mobile.Ui.classification.Activity.LoginActivity;
+import com.iaowoo.mobile.Ui.classification.Model.Configtion;
 import com.iaowoo.mobile.Utils.DialogUtils;
 import com.iaowoo.mobile.Utils.Glide.GlideUtils;
 import com.iaowoo.mobile.Utils.LogPrint;
 import com.iaowoo.mobile.Utils.MockData;
 import com.iaowoo.mobile.Utils.UtilsAll;
+import com.iaowoo.mobile.common.ConfigH5Url;
 import com.iaowoo.mobile.interfaceCallback.alertCallBack;
 import com.iaowoo.mobile.Controller.Single.PrefManager;
 import com.iaowoo.mobile.R;
@@ -176,6 +178,64 @@ public class CommentsRecycleAdapter extends BaseSoEasyAdapter{
                                 });
                             }
 
+                        }else{
+                            SoftReference<DialogUtils> dialogSoftReference=new SoftReference<>(new DialogUtils());
+                            if(dialogSoftReference.get()!=null){
+                                dialogSoftReference.get().AlertDilog(context,  "", "举报该用户","确定", "取消", new alertCallBack() {
+                                    @Override
+                                    public void OnOk() {
+                                        UtilsAll.GoWeexAll(context,ConfigH5Url.JuBao(listBeans.get(position).getCommentId()),"","");
+                                    }
+                                    @Override
+                                    public void OnNo() {
+
+                                    }
+                                });
+                            }else{
+                                SoftReference<DialogUtils> dialogSoftReference1=new SoftReference<>(new DialogUtils());
+                                dialogSoftReference1.get().AlertDilog(context, "", "举报该用户", "确定", "取消", new alertCallBack() {
+                                    @Override
+                                    public void OnOk() {
+                                        LogPrint.printError("确定");
+                                        UtilsAll.GoWeexAll(context, ConfigH5Url.JuBao(listBeans.get(position).getCommentId()),"","");
+
+                                    }
+                                    @Override
+                                    public void OnNo() {
+
+                                    }
+                                });
+                            }
+                        }
+                    }else{
+                        SoftReference<DialogUtils> dialogSoftReference=new SoftReference<>(new DialogUtils());
+                        if(dialogSoftReference.get()!=null){
+                            dialogSoftReference.get().AlertDilog(context,  "温馨提示", "举报该用户","确定", "取消", new alertCallBack() {
+                                @Override
+                                public void OnOk() {
+                                    LogPrint.printError("确定");
+                                    UtilsAll.GoWeexAll(context,ConfigH5Url.JuBao(listBeans.get(position).getCommentId()),"","");
+
+                                }
+                                @Override
+                                public void OnNo() {
+
+                                }
+                            });
+                        }else{
+                            SoftReference<DialogUtils> dialogSoftReference1=new SoftReference<>(new DialogUtils());
+                            dialogSoftReference1.get().AlertDilog(context, "举报该用户", "温馨提示", "确定", "取消", new alertCallBack() {
+                                @Override
+                                public void OnOk() {
+                                    LogPrint.printError("确定");
+                                    UtilsAll.GoWeexAll(context,ConfigH5Url.JuBao(listBeans.get(position).getCommentId()),"","");
+
+                                }
+                                @Override
+                                public void OnNo() {
+
+                                }
+                            });
                         }
                     }
                 }

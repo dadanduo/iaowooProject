@@ -23,14 +23,46 @@
         android:singleLine="true"
         android:layout_marginTop="@dimen/dp_10"
         android:textColor="@color/marge_3333"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
     <TextView
         android:id="@+id/price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:maxEms="6"
         android:singleLine="true"
-        android:layout_marginTop="@dimen/dp_4"
+        android:layout_gravity="center_vertical"
         android:textColor="#d43228"
         android:textSize="11sp"
         />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_alignParentRight="true"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:src="@mipmap/integral_icon"/>
+            <TextView
+                android:id="@+id/integral_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colortabletxt"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/dp_3"
+                android:layout_marginRight="@dimen/dp_3"
+                android:textSize="12sp"/>
+        </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
 </LinearLayout>

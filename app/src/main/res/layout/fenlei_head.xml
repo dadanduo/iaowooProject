@@ -5,8 +5,9 @@
     <com.bigkoo.convenientbanner.ConvenientBanner
         android:id="@+id/fenlei_two"
         android:layout_width="match_parent"
+        android:layout_margin="@dimen/dp_5"
         android:visibility="gone"
-        android:layout_height="@dimen/dp_150">
+        android:layout_height="107.5dp">
 
     </com.bigkoo.convenientbanner.ConvenientBanner>
 </LinearLayout>

@@ -4,15 +4,18 @@ import android.content.Context;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Html;
+import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bigkoo.convenientbanner.ConvenientBanner;
 import com.bigkoo.convenientbanner.holder.CBViewHolderCreator;
+import com.iaowoo.mobile.Controller.Single.PrefManager;
 import com.iaowoo.mobile.Controller.Single.SingleOverAll;
 import com.iaowoo.mobile.R;
 import com.iaowoo.mobile.Ui.classification.Model.Banner;
@@ -124,7 +127,7 @@ public class BigRecycleAdapter   extends RecyclerView.Adapter<RecyclerView.ViewH
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         if (viewType ==ITEM_TYPE_HEADER) {
-            return new HeaderViewHolder(mLayoutInflater.inflate(R.layout.fenlei_head, parent, false));
+            return new HeaderViewHolder(mLayoutInflater.inflate(R.layout.fenlei_head1, parent, false));
         } else if (viewType == ITEM_TYPE_CONTENT) {
             return new ContentViewHolder(mLayoutInflater.inflate(R.layout.p_g_gride_adpter, parent, false));
         }
@@ -166,6 +169,14 @@ public class BigRecycleAdapter   extends RecyclerView.Adapter<RecyclerView.ViewH
                     }
                 }
             });
+            if(PrefManager.getInstance().getIntegralRatio()!=0){
+                if(shops.get(position-1).getSubTemplateInfoList().get(0)!=null) {
+                    Float pv = (float) shops.get(position-1).getSubTemplateInfoList().get(0).getPv();
+                    Float integral = PrefManager.getInstance().getIntegralRatio();
+                    ((ContentViewHolder) holder).integral_text.setText(UtilsAll.DoubleTo_2(pv / integral) + "");
+                }
+            }
+
         }
     }
 
@@ -173,7 +184,7 @@ public class BigRecycleAdapter   extends RecyclerView.Adapter<RecyclerView.ViewH
     public  class ContentViewHolder extends RecyclerView.ViewHolder {
         public ImageView image_shop;
         public TextView showshop;
-        public TextView price,much;
+        public TextView price,much,integral_text;
         public LinearLayout item_click;
         public ContentViewHolder(View itemView) {
             super(itemView);
@@ -181,7 +192,19 @@ public class BigRecycleAdapter   extends RecyclerView.Adapter<RecyclerView.ViewH
             showshop=itemView.findViewById(R.id.showshop);
             price=itemView.findViewById(R.id.price);
             much=itemView.findViewById(R.id.much);
+            integral_text=itemView.findViewById(R.id.integral_text);
             item_click=itemView.findViewById(R.id.item_click);
+
+            ViewGroup.LayoutParams para;
+            para =  image_shop.getLayoutParams();
+            WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
+            DisplayMetrics dm = new DisplayMetrics();
+            wm.getDefaultDisplay().getMetrics(dm);
+            int width = dm.widthPixels;// 屏幕宽度（像素）
+
+            para.height = (width-22)/2;
+            para.width =(width-22)/2;
+            image_shop.setLayoutParams(para);
         }
     }
     //头部 ViewHolder

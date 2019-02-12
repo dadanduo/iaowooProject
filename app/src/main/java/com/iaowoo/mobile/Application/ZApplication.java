@@ -9,7 +9,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.multidex.MultiDex;
 import android.text.TextUtils;
-import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.iaowoo.mobile.Controller.Single.PrefManager;
@@ -20,6 +19,7 @@ import com.iaowoo.mobile.Utils.LogPrint;
 import com.iaowoo.mobile.Utils.ToastUtilsAll;
 import com.iaowoo.mobile.Utils.UtilsAll;
 import com.iaowoo.mobile.Utils.XutilsHttp;
+import com.iaowoo.mobile.Weex.GifImage;
 import com.iaowoo.mobile.Weex.ImageAdapter;
 import com.iaowoo.mobile.Weex.extend.compontent.PPHudModule;
 import com.iaowoo.mobile.Weex.extend.module.PPPoPViewModule;
@@ -220,6 +220,7 @@ public class ZApplication extends Application {
             WXSDKEngine.registerModule("PPHudModule", PPHudModule.class);
             WXSDKEngine.registerModule("PPPopViewModule", PPPoPViewModule.class);
             WXSDKEngine.registerModule("dateTimePicker", dateTimePicker.class);
+            WXSDKEngine.registerComponent("gifimage", GifImage.class, false);//注册我们写的gif动图组件
         } catch (WXException e) {
             e.printStackTrace();
         }
@@ -441,7 +442,7 @@ public class ZApplication extends Application {
 
                     break;
                 case KICKED_OFFLINE_BY_OTHER_CLIENT://用户账户在其他设备登录，本机会被踢掉线
-                    Toast.makeText(getApplicationContext(), "被踢出了", Toast.LENGTH_LONG).show();
+//                    Toast.makeText(getApplicationContext(), "被踢出了", Toast.LENGTH_LONG).show();
                     break;
             }
         }

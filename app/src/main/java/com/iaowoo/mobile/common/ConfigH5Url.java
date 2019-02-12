@@ -20,7 +20,6 @@ public class ConfigH5Url {
      * h5页面服务器域名
      */
     public static String HTTP_H5 = UtilsOkHttpAll.HTTP_H5;
-
     /*static {
         String[] URLS = {
                 "http://192.168.1.114:3000",
@@ -43,8 +42,9 @@ public class ConfigH5Url {
 
     /*static {
         String[] URLS = {
-                "https://test-files.shbs008.com/static/weex",
+                "https://test-files.iaowoo.com/front-page/weex",
                 "https://ihw-files-test.oss-cn-hangzhou.aliyuncs.com/front-page/weex",
+                "https://files.iaowoo.com/front-page/weex",
                 "http://192.168.1.254:8081/static/weex",//乐彪本地
                 "http://192.168.1.126:8081/static/weex"//小红本地
         };
@@ -102,7 +102,7 @@ public class ConfigH5Url {
      * 实名认证
      */
     public static String verifiedWeex() {
-        return WEEX_HTTP + "/views/personal/verified+" + "&from=App";
+        return WEEX_HTTP + "/views/personal/verified.js";
     }
 
     /**
@@ -178,6 +178,15 @@ public class ConfigH5Url {
     }
 
     /**
+     * 视频举报
+     *
+     * @return
+     */
+    public static String JuBao(String commentId) {
+        return WEEX_HTTP + "/views/video/complaint.js?commentId=" + commentId;
+    }
+
+    /**
      * 商家详情
      *
      * @param recommendId
@@ -210,6 +219,15 @@ public class ConfigH5Url {
         return HTTP_H5 + GoodsUrl + "&from=App";
     }
 
+    /**
+     * 填写推荐人url
+     *
+     * @param inviteCode
+     * @return
+     */
+    public static String setYaoQinUrl(String inviteCode) {
+        return WEEX_HTTP + "/views/personal/refree.js?inviteCode=" + inviteCode;
+    }
 
     /**
      * 获得路由地址

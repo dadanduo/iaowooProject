@@ -52,11 +52,11 @@ public class ClassInfoHomeBarRecycleAdapter extends BaseSoEasyAdapter{
             holder.classinfo_Name.setTextSize(14);
             holder.classinfo_Name.setTextColor(Color.parseColor("#333333"));
         }else{
-            holder.oneClickBackgroud.setBackgroundColor(context.getResources().getColor(R.color.huiclassinfo));
+            holder.oneClickBackgroud.setBackgroundColor(context.getResources().getColor(R.color.bg_iaowoo));
             holder.choos_ok.setVisibility(View.GONE);
             holder.classinfo_Name.setTextSize(12);
             holder.classinfo_Name.setTextColor(Color.GRAY);
-            }
+        }
         holder.classinfo_Name.setText(classinfos.get(position));
     }
 

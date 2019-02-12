@@ -195,6 +195,8 @@ public class HomeFragment extends BaseFragment implements HomeFragmentPresenter.
             }
             @Override
             public void Mymessage(MYMESSAGE mymessage) {
+                //保存用户是否被人邀请过了
+                PrefManager.getInstance().setUserYaoQing(mymessage.getBody().getContent().getInviteStatus());
                 //保存用戶的id
                 PrefManager.getInstance().setUserId(mymessage.getBody().getContent().getUserId()+"");
                 //保存用戶的支付密碼

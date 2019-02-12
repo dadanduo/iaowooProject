@@ -194,9 +194,7 @@ public class GoodsDetailsActivity extends BaseBufferActivity  implements GoodsFr
 
         //绑定
         tablayout.setupWithViewPager(viewpager);
-
     }
-
     @Override
     protected void initData() {
         super.initData();
@@ -233,6 +231,7 @@ public class GoodsDetailsActivity extends BaseBufferActivity  implements GoodsFr
                 break;
             //分享
             case R.id.goods_share:
+                Defaultcontent.code_url="page/pagesGoods/goods/goodDetail?goodsId="+goodsId+"&inviteCode="+PrefManager.getInstance().getInvite()+"&form=share";
                 if (dialogUtilsSoftReference.get() != null) {
                     dialogUtilsSoftReference.get().Share(this);
                 } else {

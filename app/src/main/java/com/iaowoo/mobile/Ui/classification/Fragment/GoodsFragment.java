@@ -29,6 +29,7 @@ import com.iaowoo.mobile.Controller.Single.PrefManager;
 import com.iaowoo.mobile.Controller.Single.SingleOverAll;
 import com.iaowoo.mobile.H5toAndroid.H5CallBack;
 import com.iaowoo.mobile.H5toAndroid.Webset;
+import com.iaowoo.mobile.Ui.classification.Adapter.SearchRecycleAdapter;
 import com.iaowoo.mobile.Ui.classification.Presenter.Goods_DetailsPresenter;
 import com.iaowoo.mobile.Ui.classification.Presenter.ShopGoodsDialogPresenters;
 import com.iaowoo.mobile.Utils.DialogUtils;
@@ -130,6 +131,8 @@ public class GoodsFragment extends BaseBufferFragment implements TBLayout.OnPull
     RecyclerView for_you;
     @BindView(R.id.two_page_show)
     RelativeLayout two_page_show;
+    @BindView(R.id.integral_text)
+    TextView integral_text;
 
     private LinearLayout mHeaderContent, mFooterContent;
     private SoftReference<DialogUtils> dialogUtilsSoftReference;
@@ -514,6 +517,14 @@ public class GoodsFragment extends BaseBufferFragment implements TBLayout.OnPull
         price_two.getPaint().setFlags(Paint.STRIKE_THRU_TEXT_FLAG);
         price_two.setText("￥" + UtilsAll.DoubleTo_2(contentBeanAll.getMinOriginalPrice()));
         send_number.setText("销量" + contentBeanAll.getSales() + "件");
+        if(PrefManager.getInstance().getIntegralRatio()!=0){
+            if( contentBeanAll.getSubTemplateInfoList().get(0)!=null) {
+                Float pv = (float)  contentBeanAll.getSubTemplateInfoList().get(0).getPv();
+                Float integral = PrefManager.getInstance().getIntegralRatio();
+              integral_text.setText(UtilsAll.DoubleTo_2(pv / integral) + "");
+            }
+        }
+
         miaoshu = contentBeanAll.getProductInfo().getName();
         describe_goods.setText((Html.fromHtml(SingleOverAll.getInstance().descString(miaoshu), SingleOverAll.getInstance().getImageGetterInstance(), null)));
         StringBuffer stringBuffer = new StringBuffer();

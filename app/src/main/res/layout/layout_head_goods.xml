@@ -57,8 +57,36 @@
         android:textColor="#333333"
         android:layout_marginLeft="@dimen/dp_16"
         android:layout_marginRight="@dimen/dp_16"
+        android:layout_marginTop="@dimen/dp_5"
         android:textSize="13sp"
         />
+
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp_16"
+        android:layout_marginTop="@dimen/dp_5"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:src="@mipmap/integral_icon"/>
+        <TextView
+            android:id="@+id/integral_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colortabletxt"
+            android:text="1000000"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/dp_3"
+            android:layout_marginRight="@dimen/dp_3"
+            android:textSize="12sp"/>
+    </LinearLayout>
+
+
     <View
         android:layout_width="match_parent"
         android:layout_height="0.5dp"

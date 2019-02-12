@@ -100,8 +100,7 @@ public class CodeDetailsActivity  extends  TitleActivity implements ClickCallBac
         log_shop=view.findViewById(R.id.log_shop);
         address_details=view.findViewById(R.id.address_details);
         shop_name_details=view.findViewById(R.id.shop_name_details);
-        if(!TextUtils.isEmpty(shopdetails.getMerchantName())&&!TextUtils.isEmpty(shopdetails.getMainImg())&&!TextUtils.isEmpty(shopdetails.getMerchantName())&&!TextUtils.isEmpty(shopdetails.getDetailAddress()))
-        {
+        if(!TextUtils.isEmpty(shopdetails.getMerchantName())&&!TextUtils.isEmpty(shopdetails.getMainImg())&&!TextUtils.isEmpty(shopdetails.getMerchantName())&&!TextUtils.isEmpty(shopdetails.getDetailAddress())) {
             shop_name_details.setText(shopdetails.getMerchantName()+"");
             address_details.setText(shopdetails.getDetailAddress()+"");
             Glide.with(CodeDetailsActivity.this).load(shopdetails.getRqCode()).into(code_image);

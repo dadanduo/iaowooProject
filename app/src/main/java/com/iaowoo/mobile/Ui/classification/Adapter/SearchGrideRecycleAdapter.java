@@ -3,13 +3,16 @@ package com.iaowoo.mobile.Ui.classification.Adapter;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.text.Html;
+import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.iaowoo.mobile.Controller.Single.PrefManager;
 import com.iaowoo.mobile.Controller.Single.SingleOverAll;
 import com.iaowoo.mobile.Utils.Glide.GlideUtils;
 import com.iaowoo.mobile.Utils.UtilsAll;
@@ -71,6 +74,13 @@ public class SearchGrideRecycleAdapter extends RecyclerView.Adapter{
 //                UtilsAll.GoWebviewAll(context, ConfigH5Url.setGoodsDetails(shops.get(position).getType(),shops.get(position).getTemplateId()));
             }
         });
+        if(PrefManager.getInstance().getIntegralRatio()!=0){
+            if(shops.get(position).getSubTemplateInfoList().get(0)!=null) {
+                Float pv = (float) shops.get(position).getSubTemplateInfoList().get(0).getPv();
+                Float integral = PrefManager.getInstance().getIntegralRatio();
+                holder.integral_text.setText(UtilsAll.DoubleTo_2(pv / integral) + "");
+            }
+        }
     }
 
     @Override
@@ -86,7 +96,7 @@ public class SearchGrideRecycleAdapter extends RecyclerView.Adapter{
 
         public ImageView image_shop;
         public TextView showshop;
-        public TextView price,much;
+        public TextView price,much,integral_text;
         public LinearLayout item_click;
         public PersonViewHolder(View itemView) {
             super(itemView);
@@ -94,7 +104,18 @@ public class SearchGrideRecycleAdapter extends RecyclerView.Adapter{
             showshop=itemView.findViewById(R.id.showshop);
             price=itemView.findViewById(R.id.price);
             much=itemView.findViewById(R.id.much);
+            integral_text=itemView.findViewById(R.id.integral_text);
             item_click=itemView.findViewById(R.id.item_click);
+            ViewGroup.LayoutParams para;
+            para =  image_shop.getLayoutParams();
+            WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
+            DisplayMetrics dm = new DisplayMetrics();
+            wm.getDefaultDisplay().getMetrics(dm);
+            int width = dm.widthPixels;// 屏幕宽度（像素）
+
+            para.height = (width-22)/2;
+            para.width =(width-22)/2;
+            image_shop.setLayoutParams(para);
         }
 
 

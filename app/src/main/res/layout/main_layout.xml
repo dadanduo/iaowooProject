@@ -5,8 +5,8 @@
     >
     <FrameLayout
         android:id="@+id/main_fragment"
-        android:visibility="gone"
         android:layout_width="match_parent"
+        android:visibility="gone"
         android:layout_height="match_parent">
         <RelativeLayout
             android:layout_width="match_parent"
@@ -14,16 +14,19 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:orientation="vertical">
+
                 <include layout="@layout/immersionandroid"/>
+
                 <include layout="@layout/im_conversaton_list_title"/>
 
                 <FrameLayout
                     android:id="@+id/main_frame_layout"
                     android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:layout_marginBottom="@dimen/dp_50"
-                    android:layout_height="match_parent">
+                    >
 
                 </FrameLayout>
             </LinearLayout>
@@ -101,34 +104,6 @@
 
                     </RelativeLayout>
                     <RelativeLayout
-                        android:id="@+id/earth_inone"
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:layout_height="match_parent">
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerInParent="true"
-                            android:orientation="vertical">
-                            <ImageView
-                                android:id="@+id/earth_inone_img"
-                                android:layout_width="wrap_content"
-                                android:layout_marginTop="@dimen/dp_2"
-                                android:layout_gravity="center_horizontal"
-                                android:layout_height="wrap_content" />
-                            <TextView
-                                android:id="@+id/earth_inone_text"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center_horizontal"
-                                android:layout_marginTop="@dimen/dp_5"
-                                android:textSize="10sp"
-                                android:text="消息"/>
-
-                        </LinearLayout>
-
-                    </RelativeLayout>
-                    <RelativeLayout
                         android:id="@+id/show_add"
                         android:layout_width="0dp"
                         android:layout_weight="1"
@@ -153,6 +128,34 @@
                                 android:textSize="10sp"
                                 android:text="@string/pp_show"
                                 />
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:id="@+id/earth_inone"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent">
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:orientation="vertical">
+                            <ImageView
+                                android:id="@+id/earth_inone_img"
+                                android:layout_width="wrap_content"
+                                android:layout_marginTop="@dimen/dp_2"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_height="wrap_content" />
+                            <TextView
+                                android:id="@+id/earth_inone_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginTop="@dimen/dp_5"
+                                android:textSize="10sp"
+                                android:text="好物聊"/>
 
                         </LinearLayout>
 

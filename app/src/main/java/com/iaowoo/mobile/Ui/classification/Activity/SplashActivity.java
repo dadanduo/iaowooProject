@@ -42,7 +42,7 @@ public class SplashActivity extends BaseActivity {
         //全屏
         allState();
         alphaAnimation=new AlphaAnimation(0.5f,1f);
-        alphaAnimation.setDuration(1000);//设置动画播放时长1000毫秒（1秒）
+        alphaAnimation.setDuration(500);//设置动画播放时长1000毫秒（1秒）
         layoutSplash.startAnimation(alphaAnimation);
         //设置动画监听
         alphaAnimation.setAnimationListener(new Animation.AnimationListener() {

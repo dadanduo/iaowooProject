@@ -9,15 +9,6 @@ import android.text.TextUtils;
 import android.view.KeyEvent;
 
 import com.iaowoo.mobile.Controller.Single.PrefManager;
-import com.iaowoo.mobile.Utils.CaptureManager;
-import com.iaowoo.mobile.Utils.DialogUtils;
-import com.iaowoo.mobile.Utils.LogPrint;
-import com.iaowoo.mobile.Utils.PressionUtils.PermissionListener;
-import com.iaowoo.mobile.Utils.PressionUtils.PermissionsUtil;
-import com.iaowoo.mobile.Utils.ToastUtilsAll;
-import com.iaowoo.mobile.interfaceCallback.ClickCallBack;
-import com.journeyapps.barcodescanner.DecoratedBarcodeView;
-import com.iaowoo.mobile.Controller.Single.PrefManager;
 import com.iaowoo.mobile.R;
 import com.iaowoo.mobile.Utils.CaptureManager;
 import com.iaowoo.mobile.Utils.DialogUtils;
@@ -25,7 +16,10 @@ import com.iaowoo.mobile.Utils.LogPrint;
 import com.iaowoo.mobile.Utils.PressionUtils.PermissionListener;
 import com.iaowoo.mobile.Utils.PressionUtils.PermissionsUtil;
 import com.iaowoo.mobile.Utils.ToastUtilsAll;
+import com.iaowoo.mobile.Utils.UtilsAll;
+import com.iaowoo.mobile.common.ConfigH5Url;
 import com.iaowoo.mobile.interfaceCallback.ClickCallBack;
+import com.journeyapps.barcodescanner.DecoratedBarcodeView;
 
 import java.lang.ref.SoftReference;
 
@@ -83,18 +77,25 @@ public class ScanActicvity extends TitleActivity implements CaptureManager.Zxing
     @Override
     public void getCode_msm(String msm) {
         //二维码推荐码
-        if(msm.contains("https://micro.shbs008.com/#/openWX/")){
+        if(msm.contains("micro.iaowoo.com")){
             if(TextUtils.isEmpty(PrefManager.getInstance().getToken())){
-                Intent mintent=new Intent(this,SingupActivity.class);
-                String invet=msm.substring(msm.lastIndexOf("/")+1);
-                LogPrint.printError("邀请码为："+invet);
-                mintent.putExtra("invate",invet);
+                Intent mintent = new Intent(this, SingupActivity.class);
+                String invet = msm.substring(msm.lastIndexOf("/") + 1);
+                LogPrint.printError("邀请码为：" + invet);
+                mintent.putExtra("invate", invet.replace(" ",""));
                 startActivity(mintent);
             }else{
-                ToastUtilsAll.getInstance().showShortToast("该设备已经登录账号");
+                String invet = msm.substring(msm.lastIndexOf("/") + 1);
+                LogPrint.printError("邀请码为：" + invet);
+                if(PrefManager.getInstance().getUserYaoQing().endsWith("1")){
+                    ToastUtilsAll.getInstance().showShortToast("您已经有推荐人了");
+                }else {
+                    UtilsAll.GoWeexAll(this, ConfigH5Url.setYaoQinUrl(invet.replace(" ","")),"","");
+                }
             }
             finish();
-        }else{//二维码付款
+        }else{
+            //二维码付款
             //没有登录
             if(TextUtils.isEmpty(PrefManager.getInstance().getToken())){
                 if(dialogUtilsSoftReference.get()!=null) {

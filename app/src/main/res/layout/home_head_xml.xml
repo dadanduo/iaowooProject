@@ -5,30 +5,33 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/white"
     android:orientation="vertical">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
     <com.bigkoo.convenientbanner.ConvenientBanner
         android:id="@+id/mcb"
         android:layout_width="match_parent"
+        android:background="@drawable/hudu"
         android:layout_height="@dimen/dp_163">
-
     </com.bigkoo.convenientbanner.ConvenientBanner>
 
-    <View
-        android:layout_width="match_parent"
-        android:background="@color/qianhuise"
-        android:layout_height="0.5dp"/>
+        <ImageView
+            android:id="@+id/show_or_hidden"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:scaleType="fitXY"
+            android:src="@mipmap/home_banner_radian_bg"
+            android:layout_gravity="bottom"/>
+        <com.iaowoo.mobile.Ui.classification.View.ArcImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#00000000"
+            android:visibility="gone"
+            app:arcHeight="14dp" />
 
-    <ImageView
-        android:id="@+id/imge_z_q_1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-        />
-    <View
-        android:id="@+id/view_z_q_1"
-        android:layout_width="match_parent"
-        android:background="@color/qianhuise"
-        android:visibility="gone"
-        android:layout_height="@dimen/dp_10"/>
+    </FrameLayout>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -42,20 +45,35 @@
             app:PagingRows="1" />
     </RelativeLayout>
 
+    <ImageView
+        android:id="@+id/imge_z_q_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        />
+    <View
+        android:id="@+id/view_z_q_1"
+        android:layout_width="match_parent"
+        android:background="@color/qianhuise"
+        android:visibility="gone"
+        android:layout_height="@dimen/dp_10"/>
+
     <RelativeLayout
         android:id="@+id/line_magin_left"
         android:layout_width="match_parent"
+        android:visibility="gone"
+        android:background="@drawable/tag_home"
         android:layout_height="@dimen/dp_10">
 
         <RelativeLayout
-            android:layout_width="@dimen/dp_77"
+            android:layout_width="@dimen/dp_32"
             android:background="#C2C0C0"
             android:layout_centerInParent="true"
-            android:layout_height="3dp">
+            android:layout_height="4dp">
             <View
-                android:layout_width="@dimen/dp_38"
+                android:layout_width="@dimen/dp_16"
                 android:layout_height="match_parent"
-                android:background="#FDD22B"/>
+                android:background="@color/iaowooMain"/>
 
         </RelativeLayout>
     </RelativeLayout>
@@ -63,18 +81,19 @@
         android:id="@+id/line_magin_right"
         android:layout_width="match_parent"
         android:visibility="gone"
+        android:background="@drawable/tag_home"
         android:layout_height="@dimen/dp_10">
 
         <RelativeLayout
-            android:layout_width="@dimen/dp_77"
+            android:layout_width="@dimen/dp_32"
             android:background="#C2C0C0"
             android:layout_centerInParent="true"
-            android:layout_height="3dp">
+            android:layout_height="4dp">
             <View
-                android:layout_width="@dimen/dp_38"
+                android:layout_width="@dimen/dp_16"
                 android:layout_height="match_parent"
                 android:layout_alignParentRight="true"
-                android:background="#FDD22B"/>
+                android:background="@color/iaowooMain"/>
 
         </RelativeLayout>
     </RelativeLayout>
@@ -82,6 +101,7 @@
     <View
         android:layout_width="match_parent"
         android:background="@color/qianhuise"
+        android:visibility="gone"
         android:layout_height="0.5dp"/>
     <FrameLayout
         android:layout_width="match_parent"
@@ -94,13 +114,11 @@
             android:layout_height="match_parent"
             android:visibility="gone"
             android:orientation="vertical">
-
             <RelativeLayout
                 android:id="@+id/five_click"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="4">
-
             </RelativeLayout>
 
             <LinearLayout
@@ -150,7 +168,6 @@
                         android:layout_weight="1"
                         android:orientation="horizontal"
                         >
-
                     </LinearLayout>
                     <LinearLayout
                         android:id="@+id/wang_hong_jie"
@@ -159,7 +176,6 @@
                         android:layout_weight="1"
                         android:orientation="horizontal"
                         >
-
                     </LinearLayout>
 
                 </LinearLayout>
@@ -227,6 +243,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/dp_4"
                 android:textColor="#333333"
+                android:layout_marginTop="@dimen/dp_4"
                 android:textSize="18sp"
                 android:text="每日推荐"/>
 
@@ -318,7 +335,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/dp_12"
+                    android:layout_marginLeft="@dimen/dp_16"
                     android:orientation="horizontal">
 
                     <ImageView
@@ -333,6 +350,8 @@
                         android:layout_height="wrap_content"
                         android:text="爱拼团"
                         android:textColor="#333333"
+                        android:layout_marginTop="@dimen/dp_4"
+                        android:layout_marginLeft="@dimen/dp_4"
                         android:textSize="18sp"
                         />
                 </LinearLayout>
@@ -469,15 +488,10 @@
             </RelativeLayout>
         </FrameLayout>
 
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="3dp"
-            android:background="#f6f6f6"/>
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp_50"
-            android:background="@color/white"
+            android:background="@color/bg_iaowoo"
             >
             <TextView
                 android:layout_width="wrap_content"

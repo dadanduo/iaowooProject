@@ -8,9 +8,11 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Html;
 import android.text.TextUtils;
+import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -19,6 +21,7 @@ import android.widget.TextView;
 
 import com.bigkoo.convenientbanner.ConvenientBanner;
 import com.bigkoo.convenientbanner.holder.CBViewHolderCreator;
+import com.iaowoo.mobile.Controller.Single.PrefManager;
 import com.iaowoo.mobile.Controller.Single.SingleOverAll;
 import com.iaowoo.mobile.EvenBus.EventBusMessageHomeTag;
 import com.iaowoo.mobile.Ui.classification.Presenter.HomeFragmentPresenter;
@@ -174,6 +177,15 @@ public class TopRecycleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
                 ((ContentViewHolder) holder).price.setText("¥" +price);
             }
 
+            //设置积分
+            if(PrefManager.getInstance().getIntegralRatio()!=0){
+                if(shops.get(position-1).getSubTemplateInfoList().get(0)!=null) {
+                    Float pv = (float) shops.get(position - 1).getSubTemplateInfoList().get(0).getPv();
+                    Float integral = PrefManager.getInstance().getIntegralRatio();
+                    ((ContentViewHolder) holder).integral_text.setText(UtilsAll.DoubleTo_2(pv / integral) + "");
+                }
+            }
+
             ((ContentViewHolder) holder).seld.setText("销量" + shops.get(position-1).getSales() + "件");
             if (shops.get(position-1).getProductInfo().getHomeImage() != null) {
                 glideUtils.glides(mContext, shops.get(position-1).getProductInfo().getMainImage(), ((ContentViewHolder) holder).image_home);
@@ -203,7 +215,7 @@ public class TopRecycleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         private ImageView image_home;
         private TextView show_shop_name;
         private TextView price;
-        private TextView seld;
+        private TextView seld,integral_text;
         //        private LinearLayout pg_view;
 //        private TextView person_num;
         private LinearLayout home_item;
@@ -217,6 +229,19 @@ public class TopRecycleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
 //            person_num=itemView.findViewById(R.id.person_num);
 //            pg_view=itemView.findViewById(R.id.pg_view);
             home_item=itemView.findViewById(R.id.home_item);
+            integral_text=itemView.findViewById(R.id.integral_text);
+
+            ViewGroup.LayoutParams para;
+            para =  image_home.getLayoutParams();
+            WindowManager wm = (WindowManager) mContext.getSystemService(Context.WINDOW_SERVICE);
+            DisplayMetrics dm = new DisplayMetrics();
+            wm.getDefaultDisplay().getMetrics(dm);
+            int width = dm.widthPixels;// 屏幕宽度（像素）
+
+            para.height = (width-22)/2;
+            para.width =(width-22)/2;
+            image_home.setLayoutParams(para);
+
         }
     }
     //头部 ViewHolder
@@ -233,6 +258,7 @@ public class TopRecycleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         ImageView china_goods,quan_qiu,back_imge;
         FrameLayout earth_all_frame,china_goods_frame;
         RelativeLayout line_magin_left,line_magin_right;
+        ImageView show_or_hidden;
 
         /**
          * @param itemView
@@ -268,6 +294,7 @@ public class TopRecycleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
             backgroud_two=itemView.findViewById(R.id.backgroud_two);
             five_click=itemView.findViewById(R.id.five_click);
             back_imge=itemView.findViewById(R.id.back_imge);
+            show_or_hidden=itemView.findViewById(R.id.show_or_hidden);
             /******************数据加载******************/
             //获取banner数据
             homeFragmentProsenter.getSlideShowData();
@@ -482,11 +509,10 @@ public class TopRecycleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
                         SingleOverAll.getInstance().bannerClick(mContext,zq1_banner);
                     }
                 });
+                show_or_hidden.setVisibility(View.VISIBLE);
                 lunBo(mcb,LurC,banners);
                 lunBo(mcb2,LurC2,banners2);
-
                 final String[] finalAll = all;
-
                 chi_huo_jie.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -499,7 +525,6 @@ public class TopRecycleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
                     public void onClick(View v) {
                         LogPrint.printError("粮店");
                         UtilsAll.GoWeexAll(mContext,finalAll[1],"","");
-
                     }
                 });
                 gu_wan_cheng.setOnClickListener(new View.OnClickListener() {
@@ -685,6 +710,7 @@ public class TopRecycleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     }
 
     public void lunBo(ConvenientBanner mcb, List<String> L, final List<Banner.BodyBean.ContentBean.ListBean>  list){
+
         if(L.size()>1){
             //轮播图配置
             mcb.setPages(new CBViewHolderCreator<ImageViewHolder>() {
@@ -711,7 +737,6 @@ public class TopRecycleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
             @Override
             public void onItemClick(int position) {
                 SingleOverAll.getInstance().bannerClick(mContext,list.get(position));
-
             }
         });
     }

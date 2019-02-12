@@ -54,7 +54,6 @@ public class GlideUtils {
         if(context!=null) {
                 if (url.contains(".gif")) {
                     if (context != null) {
-
                         glidesGif(context, url, imageView);
                     }
                 } else {

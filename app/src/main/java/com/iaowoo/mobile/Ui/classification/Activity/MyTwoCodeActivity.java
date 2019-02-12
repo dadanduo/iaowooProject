@@ -246,13 +246,13 @@ public class MyTwoCodeActivity  extends BaseBufferActivity{
      * */
 
     public  Bitmap getViewBitmap(View view) {
-        int measuredWidth = View.MeasureSpec.makeMeasureSpec(SingleOverAll.getInstance().deviceWidth(this), View.MeasureSpec.EXACTLY);
-        int measuredHeight = View.MeasureSpec.makeMeasureSpec(SingleOverAll.getInstance().deviceHeight(this), View.MeasureSpec.AT_MOST);
+        int measuredWidth = View.MeasureSpec.makeMeasureSpec(view.getWidth(), View.MeasureSpec.EXACTLY);
+        int measuredHeight = View.MeasureSpec.makeMeasureSpec(view.getHeight(), View.MeasureSpec.AT_MOST);
         /** 当然，measure完后，并不会实际改变View的尺寸，需要调用View.layout方法去进行布局。
          * 按示例调用layout函数后，View的大小将会变成你想要设置成的大小。
          */
         view.measure(measuredWidth, measuredHeight);
-        view.layout(0 ,0, view.getMeasuredWidth(), view.getMeasuredHeight());
+        view.layout(0,0, view.getMeasuredWidth(), view.getMeasuredHeight());
         view.buildDrawingCache();
         Bitmap bitmap = view.getDrawingCache();
         return bitmap;
@@ -268,13 +268,13 @@ public class MyTwoCodeActivity  extends BaseBufferActivity{
             //分享到朋友圈
             case  R.id.peng_you_quan:
                 bitmap=getViewBitmap(show_view);
-                ShareUtils.shareWeb(this, Defaultcontent.url, Defaultcontent.title, Defaultcontent.text,"",R.mipmap.logo_main , SHARE_MEDIA.WEIXIN_CIRCLE,bitmap);
+                ShareUtils.shareWeb(this, Defaultcontent.url, Defaultcontent.title, Defaultcontent.text,"",R.mipmap.logo, SHARE_MEDIA.WEIXIN_CIRCLE,bitmap);
                 break;
             //分享到微信
             case R.id.wechat:
                 bitmap=getViewBitmap(show_view);
                 //微信好友的分享
-                ShareUtils.shareWeb(this, Defaultcontent.url, Defaultcontent.title, Defaultcontent.text, Defaultcontent.imageurl, R.mipmap.logo_main, SHARE_MEDIA.WEIXIN,bitmap);
+                ShareUtils.shareWeb(this, Defaultcontent.url, Defaultcontent.title, Defaultcontent.text, Defaultcontent.imageurl, R.mipmap.logo, SHARE_MEDIA.WEIXIN,bitmap);
                 break;
                 //保存
             case R.id.save:

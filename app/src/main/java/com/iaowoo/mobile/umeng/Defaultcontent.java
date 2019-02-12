@@ -14,7 +14,7 @@ public class Defaultcontent {
     public static String imageurl = "https://ihw-files.oss-cn-hangzhou.aliyuncs.com/app-icon/app/app_logo.png";
     public static String videourl = "http://video.sina.com.cn/p/sports/cba/v/2013-10-22/144463050817.html";
     public static String musicurl = "http://music.huoxing.com/upload/20130330/1364651263157_1085.mp3";
-    public static String  code_url="pages/index";
+    public static String  code_url="page/pagesGoods/goods/goodDetail";
 
 
     /**

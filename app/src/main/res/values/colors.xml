@@ -67,10 +67,12 @@
     <color name="white">#FFFFFF</color>
     <color name="ok_btm">#F4AF4E</color>
     <color name="black">#000000</color>
+    <color name="iaowooMain">#fdd22b</color>
 
     <color name="huiclassinfo">#f2f2f2</color>
 
     <color name="font_gray_b">#d4d4d3</color>
+    <color name="bg_iaowoo">#f0eff4</color>
 
     <color name="font_tab_1">#42369a</color>
     <color name="font_tab_0">#b1b1b1</color>

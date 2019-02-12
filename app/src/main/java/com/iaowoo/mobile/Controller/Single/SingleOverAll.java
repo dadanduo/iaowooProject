@@ -33,10 +33,7 @@ import android.webkit.WebView;
 import android.widget.AdapterView;
 
 import com.iaowoo.mobile.Application.ZApplication;
-import com.iaowoo.mobile.interfaceCallback.alertCallBack;
-import com.iaowoo.mobile.Application.ZApplication;
 import com.iaowoo.mobile.DB.MessageNumber;
-import com.iaowoo.mobile.R;
 import com.iaowoo.mobile.Ui.classification.Activity.UseguideActivity;
 import com.iaowoo.mobile.Ui.classification.Model.Banner;
 import com.iaowoo.mobile.Utils.DialogUtils;
@@ -722,30 +719,34 @@ public class SingleOverAll {
         LogPrint.printError("type++++++"+banner.getType());
         //跳转H5头部
         if(banner.getType()==1){
-            //跳商品详情
-            if(banner.getBusinessType()==1||banner.getBusinessType()==3){
+            //跳H5商品详情
+            if(banner.getBusinessType()==1){
                 UtilsAll.GoWebviewAll(mContext,ConfigH5Url.setGoodsDetails(banner.getBusinessType(),banner.getBusinessId()));
             }else {
-                if (!TextUtils.isEmpty(banner.getJumpUrl())) {
-                    if (banner.getJumpUrl().contains("?"))
-                        UtilsAll.GoWebviewAll(mContext, banner.getJumpUrl().trim() + "&t=" + banner.getTitle() + "&from=App"+"&bannerId="+banner.getBannerId()+"&");
-                    else
-                        UtilsAll.GoWebviewAll(mContext, banner.getJumpUrl().trim() + "?t=" + banner.getTitle() + "&from=App"+"&bannerId="+banner.getBannerId());
-                }
+                /*if (!TextUtils.isEmpty(banner.getJumpUrl())) {
+//                    if (banner.getJumpUrl().contains("?"))
+//                        UtilsAll.GoWebviewAll(mContext, banner.getJumpUrl().trim() + "&t=" + banner.getTitle() + "&from=App"+"&bannerId="+banner.getBannerId()+"&");
+//                    else
+//                        UtilsAll.GoWebviewAll(mContext, banner.getJumpUrl().trim() + "?t=" + banner.getTitle() + "&from=App"+"&bannerId="+banner.getBannerId());
+                }*/
+                //跳转到原生页面
+                UtilsAll.GoNativeGoodsDetails(mContext,banner.getBusinessId(),"",PrefManager.getInstance().getInvite());
             }
         }else if(banner.getType()==2){
             //安卓头部
-            //跳商品详情
-            if(banner.getBusinessType()==1||banner.getBusinessType()==3){
-                UtilsAll.GoWebviewAll(mContext,ConfigH5Url.setGoodsDetails(banner.getBusinessType(),banner.getBusinessId()));
-            }else {
-                if (!TextUtils.isEmpty(banner.getJumpUrl())) {
-                    if (banner.getJumpUrl().contains("?"))
-                        GoBannerDetailsAndroidTitle(mContext, banner.getJumpUrl().trim() + "&t=" + banner.getTitle() + "&from=App"+"&bannerId="+banner.getBannerId(),banner.getTitle()+"");
-                    else
-                        GoBannerDetailsAndroidTitle(mContext, banner.getJumpUrl().trim() + "?t=" + banner.getTitle() + "&from=App"+"&bannerId="+banner.getBannerId(),banner.getTitle()+"");
+            if (!TextUtils.isEmpty(banner.getJumpUrl())) {
+                if (banner.getJumpUrl().contains("iaowoo.com")) {
+                    UtilsAll.GoWebviewAll(mContext,ConfigH5Url.setGoodsDetails(banner.getBusinessType(),banner.getBusinessId()));
+                }else {
+                    GoBannerDetailsAndroidTitle(mContext, banner.getJumpUrl().trim() + "?t=" + banner.getTitle() + "&from=App" + "&bannerId=" + banner.getBannerId(), banner.getTitle() + "");
                 }
             }
+        }else{
+            //weex
+            if (!TextUtils.isEmpty(banner.getJumpUrl())) {
+                UtilsAll.GoWeexAll(mContext, banner.getJumpUrl(), "", "");
+            }
+
         }
     }
 }

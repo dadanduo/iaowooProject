@@ -5,6 +5,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/white"
     android:orientation="vertical">
+
+
     <include layout="@layout/immersionandroid"/>
 
     <LinearLayout
@@ -66,6 +68,7 @@
         <android.support.v7.widget.RecyclerView
             android:id="@+id/left_recycle"
             android:layout_width="@dimen/dp_82"
+            android:background="@color/bg_iaowoo"
             android:layout_height="match_parent">
 
         </android.support.v7.widget.RecyclerView>
@@ -77,12 +80,12 @@
             <com.scwang.smartrefresh.layout.SmartRefreshLayout
                 android:id="@+id/list_swiperefreshlayout"
                 android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:background="@color/white"
                 app:srlAccentColor="@color/andoridMain"
                 app:srlPrimaryColor="@color/hui"
-                app:srlClassicsSpinnerStyle="Translate"
-                app:srlEnablePreviewInEditMode="true"
-                android:layout_height="match_parent">
+                app:srlEnableAutoLoadMore="false"
+               >
 
             <com.scwang.smartrefresh.layout.header.ClassicsHeader
                 android:layout_width="match_parent"
@@ -95,6 +98,7 @@
         <android.support.v7.widget.RecyclerView
             android:id="@+id/right_recycle"
             android:layout_width="match_parent"
+            android:overScrollMode="never"
             android:layout_height="match_parent">
 
         </android.support.v7.widget.RecyclerView>

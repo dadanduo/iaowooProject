@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.iaowoo.mobile.Controller.Single.PrefManager;
 import com.iaowoo.mobile.Ui.classification.Activity.GoodsDetailsActivity;
 import com.iaowoo.mobile.Utils.Glide.GlideUtils;
 import com.iaowoo.mobile.Utils.LogPrint;
@@ -72,6 +73,15 @@ public class for_you_RecycleAdapter extends BaseSoEasyAdapter{
         if(!TextUtils.isEmpty(recommendListBeans.get(position).getSales()+"")){
             holder.ok_ok.setText("已售"+recommendListBeans.get(position).getSales()+"件");
         }
+        //设置积分
+        if(PrefManager.getInstance().getIntegralRatio()!=0){
+            if(recommendListBeans.get(position).getSubTemplateInfoList().get(0)!=null) {
+                Float pv = (float) recommendListBeans.get(position).getSubTemplateInfoList().get(0).getPv();
+                Float integral = PrefManager.getInstance().getIntegralRatio();
+                holder.integral_text.setText(UtilsAll.DoubleTo_2(pv / integral) + "");
+            }
+        }
+
         //item点击
         holder.for_you_click.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -98,7 +108,7 @@ public class for_you_RecycleAdapter extends BaseSoEasyAdapter{
 
     class PersonViewHolder extends RecyclerView.ViewHolder  {
         public ImageView image_main;
-        public TextView descridb_ok,price_ok,ok_ok;
+        public TextView descridb_ok,price_ok,ok_ok,integral_text;
         public LinearLayout for_you_click;
         public PersonViewHolder(View itemView) {
             super(itemView);
@@ -106,6 +116,7 @@ public class for_you_RecycleAdapter extends BaseSoEasyAdapter{
             descridb_ok=itemView.findViewById(R.id.descridb_ok);
             price_ok=itemView.findViewById(R.id.price_ok);
             ok_ok=itemView.findViewById(R.id.ok_ok);
+            integral_text=itemView.findViewById(R.id.integral_text);
             for_you_click=itemView.findViewById(R.id.for_you_click);
         }
     }

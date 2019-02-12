@@ -32,10 +32,13 @@ import com.iaowoo.mobile.Utils.LocationApiUtils;
 import com.iaowoo.mobile.Utils.LogPrint;
 import com.iaowoo.mobile.Utils.PressionUtils.PermissionListener;
 import com.iaowoo.mobile.Utils.PressionUtils.PermissionsUtil;
+import com.iaowoo.mobile.Utils.UtilsAll;
+import com.iaowoo.mobile.common.ConfigH5Url;
 import com.qiyukf.unicorn.api.Unicorn;
 import com.qiyukf.unicorn.api.UnreadCountChangeListener;
 
 import java.lang.ref.SoftReference;
+import java.util.HashMap;
 
 /**
  * 分享之深度链接唤醒界面(H5 唤醒 App跳转到此界面)
@@ -121,6 +124,21 @@ public class WBCallAppActivity extends BaseActivity implements H5CallBack,Locati
         String data = uri.toString();
         final String url = data.substring(data.indexOf("url") + "url=".length());
         LogPrint.printError("key=" + key + ",url=" + url);
+
+        HashMap<String, String> hashMap = UtilsAll.getUrlParameter(url);
+        //跳转到商品页面
+        if(url.contains("templateId")&&url.contains("inviteCode")){
+            LogPrint.printError("type"+UtilsAll.getValueByName(url,"type"));
+            if((UtilsAll.getValueByName(url,"type").endsWith("1"))){
+                UtilsAll.GoWebviewAll(this, ConfigH5Url.setGoodsDetails(Integer.parseInt(hashMap.get("type")), hashMap.get("templateId")));
+            }else {
+                UtilsAll.GoNativeGoodsDetails(this, hashMap.get("templateId"), "", hashMap.get("inviteCode"));
+            }
+            finish();
+        }else{
+            UtilsAll.GoWebviewAll(this,url);
+            finish();
+        }
         locationApiUtils = new SoftReference<>(new LocationApiUtils());
         locationApiUtils.get().setInterface(this);
         //需要定位
@@ -221,8 +239,8 @@ public class WBCallAppActivity extends BaseActivity implements H5CallBack,Locati
                 switch (tag) {
                     case "sendBack":
                         onBackPressed();
-                          break;
-                        //登陆成功
+                        break;
+                    //登陆成功
                     case "login":
                         LogPrint.printError("登陆成功" + data);
                         webset.loginSuceess();
@@ -298,7 +316,7 @@ public class WBCallAppActivity extends BaseActivity implements H5CallBack,Locati
         });
     }
     public void closeD(){
-      stopLoading();
+        stopLoading();
     }
 
     /**

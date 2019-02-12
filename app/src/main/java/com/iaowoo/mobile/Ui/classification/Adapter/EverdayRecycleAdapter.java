@@ -12,6 +12,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.hedgehog.ratingbar.RatingBar;
+import com.iaowoo.mobile.Controller.Single.PrefManager;
 import com.iaowoo.mobile.Utils.Glide.GlideUtils;
 import com.iaowoo.mobile.Controller.Single.SingleOverAll;
 import com.iaowoo.mobile.R;
@@ -19,6 +20,7 @@ import com.iaowoo.mobile.Ui.classification.Model.DIFFRENT;
 import com.iaowoo.mobile.Ui.classification.Model.Shop;
 import com.iaowoo.mobile.Utils.Glide.GlideUtils;
 import com.iaowoo.mobile.Utils.ToastUtilsAll;
+import com.iaowoo.mobile.Utils.UtilsAll;
 
 import java.util.List;
 
@@ -70,6 +72,15 @@ public class EverdayRecycleAdapter extends RecyclerView.Adapter{
         if(shops.get(position).getProductInfo().getMainImage()!=null) {
             glideUtils.glides(context, shops.get(position).getProductInfo().getMainImage(),holder.image_shop);
         }
+
+        if(PrefManager.getInstance().getIntegralRatio()!=0){
+            if(shops.get(position).getSubTemplateInfoList().get(0)!=null) {
+                Float pv = (float) shops.get(position).getSubTemplateInfoList().get(0).getPv();
+                Float integral = PrefManager.getInstance().getIntegralRatio();
+                holder.integral_text.setText(UtilsAll.DoubleTo_2(pv / integral) + "");
+            }
+        }
+
     }
 
     @Override
@@ -84,7 +95,7 @@ public class EverdayRecycleAdapter extends RecyclerView.Adapter{
 
         public ImageView image_shop;
         public TextView showshop;
-        public TextView price;
+        public TextView price,integral_text;
         public LinearLayout item_click;
         public PersonViewHolder(View itemView) {
             super(itemView);
@@ -92,6 +103,7 @@ public class EverdayRecycleAdapter extends RecyclerView.Adapter{
             showshop=itemView.findViewById(R.id.showshop);
             price=itemView.findViewById(R.id.price);
             item_click=itemView.findViewById(R.id.item_click);
+            integral_text=itemView.findViewById(R.id.integral_text);
             item_click.setOnClickListener(this);
             item_click.setOnLongClickListener(this);
         }

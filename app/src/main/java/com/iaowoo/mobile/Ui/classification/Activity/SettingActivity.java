@@ -213,9 +213,9 @@ public class SettingActivity extends TitleActivity {
      * @param view
      */
     public void share(View view) {
-        Defaultcontent.title="铺连铺";
-        Defaultcontent.text="我发现了一款囊括共享衣、食、住、行等多项生活用途的App，赶快来下载试试吧！！！";
-        Defaultcontent.imageurl="https://files.shzhuoji.com/images/appLogo/app_logo_icon.png";
+        Defaultcontent.title=this.getResources().getString(R.string.app_name);
+        Defaultcontent.text="我发现了一款年轻化、时尚化和生活化，具有高性价比商品的APP，赶快来下载试试吧！";
+        Defaultcontent.imageurl="https://ihw-files.oss-cn-hangzhou.aliyuncs.com/app-icon/app/app_logo.png";
         Defaultcontent.url=ConfigH5Url.HTTP_H5+"/#/down";
         DialogUtils dialogUtils=new DialogUtils();
         dialogUtils.Share(SettingActivity.this);

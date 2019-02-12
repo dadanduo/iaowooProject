@@ -98,7 +98,6 @@ public class PrefManager {
      * @return
      */
     private boolean putInt(String key, int value) {
-
         editor.putInt(key, value);
         return editor.commit();
     }
@@ -183,6 +182,23 @@ public class PrefManager {
 
 
     /**
+     * 保存IntegralRatio
+     * @param
+     */
+    public void  setIntegralRatio(Float IntegralRatio){
+        putFloat("IntegralRatio",IntegralRatio);
+    }
+
+    /**
+     * 获取IntegralRatio
+     * @return
+     */
+    public Float getIntegralRatio(){
+        return  getFloat("IntegralRatio");
+    }
+
+
+    /**
      * 保存groudId
      * @param
      */
@@ -197,6 +213,7 @@ public class PrefManager {
     public int getGroudId(){
         return  getInt("groudId");
     }
+
 
 
     /**
@@ -344,6 +361,21 @@ public class PrefManager {
     }
 
 
+    /**
+     * 保存用戶是否被邀请过的状态
+     * @param userMsg
+     */
+    public  void setUserYaoQing(String userMsg) {
+        putString("userYaoQ",userMsg);
+    }
+
+    /**
+     * 获取用戶是否被邀请过的状态
+     * @return
+     */
+    public String getUserYaoQing() {
+        return getString("userYaoQ");
+    }
     /**
      * 保存用戶的所有信息
      * @param userMsg

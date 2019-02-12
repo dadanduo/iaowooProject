@@ -636,7 +636,7 @@ public class DialogUtils {
             @Override
             public void onClick(View v) {
                 //微信好友的分享
-                ShareUtils.shareWeb((Activity) context, Defaultcontent.url, Defaultcontent.title, Defaultcontent.text, Defaultcontent.imageurl, R.mipmap.logo_main, SHARE_MEDIA.WEIXIN,null);
+                ShareUtils.shareWeb((Activity) context, Defaultcontent.url, Defaultcontent.title, Defaultcontent.text, Defaultcontent.imageurl, R.mipmap.logo, SHARE_MEDIA.WEIXIN,null);
                 loadingDialog.cancel();
             }
         });
@@ -644,7 +644,7 @@ public class DialogUtils {
         qq_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ShareUtils.shareWeb((Activity) context, Defaultcontent.url, Defaultcontent.title, Defaultcontent.text, Defaultcontent.imageurl, R.mipmap.logo_main, SHARE_MEDIA.QQ,null);
+                ShareUtils.shareWeb((Activity) context, Defaultcontent.url, Defaultcontent.title, Defaultcontent.text, Defaultcontent.imageurl, R.mipmap.logo, SHARE_MEDIA.QQ,null);
                 loadingDialog.cancel();
             }
         });
@@ -652,7 +652,7 @@ public class DialogUtils {
         weibo_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ShareUtils.shareWeb((Activity) context, Defaultcontent.url, Defaultcontent.title, Defaultcontent.text, Defaultcontent.imageurl, R.mipmap.logo_main, SHARE_MEDIA.SINA,null);
+                ShareUtils.shareWeb((Activity) context, Defaultcontent.url, Defaultcontent.title, Defaultcontent.text, Defaultcontent.imageurl, R.mipmap.logo, SHARE_MEDIA.SINA,null);
                 loadingDialog.cancel();
 
             }
@@ -661,7 +661,7 @@ public class DialogUtils {
         kongjian.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ShareUtils.shareWeb((Activity) context, Defaultcontent.url, Defaultcontent.title, Defaultcontent.text, Defaultcontent.imageurl, R.mipmap.logo_main, SHARE_MEDIA.QZONE,null);
+                ShareUtils.shareWeb((Activity) context, Defaultcontent.url, Defaultcontent.title, Defaultcontent.text, Defaultcontent.imageurl, R.mipmap.logo, SHARE_MEDIA.QZONE,null);
                 loadingDialog.cancel();
             }
         });
@@ -669,7 +669,7 @@ public class DialogUtils {
         wetcat_pengyou.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ShareUtils.shareWeb((Activity) context, Defaultcontent.url, Defaultcontent.title, Defaultcontent.text, Defaultcontent.imageurl, R.mipmap.logo_main, SHARE_MEDIA.WEIXIN_CIRCLE,null);
+                ShareUtils.shareWeb((Activity) context, Defaultcontent.url, Defaultcontent.title, Defaultcontent.text, Defaultcontent.imageurl, R.mipmap.logo, SHARE_MEDIA.WEIXIN_CIRCLE,null);
                 loadingDialog.cancel();
             }
         });
@@ -678,7 +678,7 @@ public class DialogUtils {
             @Override
             public void onClick(View v) {
                 //小程序的分享
-                ShareUtils.shareSmallPc((Activity) context, Defaultcontent.url, Defaultcontent.title, Defaultcontent.text, Defaultcontent.imageurl, R.mipmap.logo_main,Defaultcontent.small_id,Defaultcontent.code_url, SHARE_MEDIA.WEIXIN,null);
+                ShareUtils.shareSmallPc((Activity) context, Defaultcontent.url, Defaultcontent.title, Defaultcontent.text, Defaultcontent.imageurl, R.mipmap.logo,Defaultcontent.small_id,Defaultcontent.code_url, SHARE_MEDIA.WEIXIN,null);
                 loadingDialog.cancel();
 
             }
@@ -723,7 +723,7 @@ public class DialogUtils {
             @Override
             public void onClick(View v) {
                 //微信好友的分享
-                ShareUtils.shareWeb((Activity) context, Defaultcontent.url, Defaultcontent.title, Defaultcontent.text, Defaultcontent.imageurl, R.mipmap.logo_main, SHARE_MEDIA.WEIXIN,null);
+                ShareUtils.shareWeb((Activity) context, Defaultcontent.url, Defaultcontent.title, Defaultcontent.text, Defaultcontent.imageurl, R.mipmap.logo, SHARE_MEDIA.WEIXIN,null);
                 loadingDialog.cancel();
             }
         });
@@ -731,7 +731,7 @@ public class DialogUtils {
         qq_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ShareUtils.shareWeb((Activity) context, Defaultcontent.url, Defaultcontent.title, Defaultcontent.text, Defaultcontent.imageurl, R.mipmap.logo_main, SHARE_MEDIA.QQ,null );
+                ShareUtils.shareWeb((Activity) context, Defaultcontent.url, Defaultcontent.title, Defaultcontent.text, Defaultcontent.imageurl, R.mipmap.logo, SHARE_MEDIA.QQ,null );
                 loadingDialog.cancel();
             }
         });
@@ -739,7 +739,7 @@ public class DialogUtils {
         weibo_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ShareUtils.shareWeb((Activity) context, Defaultcontent.url, Defaultcontent.title, Defaultcontent.text, Defaultcontent.imageurl, R.mipmap.logo_main, SHARE_MEDIA.SINA,null );
+                ShareUtils.shareWeb((Activity) context, Defaultcontent.url, Defaultcontent.title, Defaultcontent.text, Defaultcontent.imageurl, R.mipmap.logo, SHARE_MEDIA.SINA,null );
                 loadingDialog.cancel();
 
             }
@@ -748,7 +748,7 @@ public class DialogUtils {
         kongjian.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ShareUtils.shareWeb((Activity) context, Defaultcontent.url, Defaultcontent.title, Defaultcontent.text, Defaultcontent.imageurl, R.mipmap.logo_main, SHARE_MEDIA.QZONE,null);
+                ShareUtils.shareWeb((Activity) context, Defaultcontent.url, Defaultcontent.title, Defaultcontent.text, Defaultcontent.imageurl, R.mipmap.logo, SHARE_MEDIA.QZONE,null);
                 loadingDialog.cancel();
             }
         });
@@ -756,7 +756,7 @@ public class DialogUtils {
         wetcat_pengyou.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ShareUtils.shareWeb((Activity) context, Defaultcontent.url, Defaultcontent.title, Defaultcontent.text, Defaultcontent.imageurl, R.mipmap.logo_main, SHARE_MEDIA.WEIXIN_CIRCLE,null);
+                ShareUtils.shareWeb((Activity) context, Defaultcontent.url, Defaultcontent.title, Defaultcontent.text, Defaultcontent.imageurl, R.mipmap.logo, SHARE_MEDIA.WEIXIN_CIRCLE,null);
                 loadingDialog.cancel();
             }
         });
@@ -765,7 +765,7 @@ public class DialogUtils {
             @Override
             public void onClick(View v) {
                 //小程序的分享
-                ShareUtils.shareSmallPc((Activity) context, Defaultcontent.url, Defaultcontent.title, Defaultcontent.text, Defaultcontent.imageurl, R.mipmap.logo_main,Defaultcontent.small_id,Defaultcontent.code_url, SHARE_MEDIA.WEIXIN,null);
+                ShareUtils.shareSmallPc((Activity) context, Defaultcontent.url, Defaultcontent.title, Defaultcontent.text, Defaultcontent.imageurl, R.mipmap.logo,Defaultcontent.small_id,Defaultcontent.code_url, SHARE_MEDIA.WEIXIN,null);
                 loadingDialog.cancel();
 
             }

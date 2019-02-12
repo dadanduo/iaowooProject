@@ -163,7 +163,7 @@ public class ClassificationFragment extends  BaseBufferFragment implements Class
                             if(contentBean!=null) {
                                 if (contentBean.getList().size() > 0) {
                                     //===================网络请求获取列表=====================
-                                    GridLayoutManager manager = new GridLayoutManager(getActivity(), 2, LinearLayoutManager.VERTICAL, false);
+                                    GridLayoutManager manager = new GridLayoutManager(getActivity(), 3, LinearLayoutManager.VERTICAL, false);
                                     right_recycle.setLayoutManager(manager);
                                     ClasssInfo_TwoBarRecycleAdapter1 classInfo_twoBarRecycleAdapter = new ClasssInfo_TwoBarRecycleAdapter1(getActivity(), contentBean.getList(), classInfoProsenter, ThisCaterary);
                                     right_recycle.setAdapter(classInfo_twoBarRecycleAdapter);
@@ -202,7 +202,7 @@ public class ClassificationFragment extends  BaseBufferFragment implements Class
         if(contentBean!=null) {
             if (contentBean.getList().size() > 0) {
                 //===================网络请求获取列表=====================
-                GridLayoutManager manager = new GridLayoutManager(getActivity(), 2, LinearLayoutManager.VERTICAL, false);
+                GridLayoutManager manager = new GridLayoutManager(getActivity(), 3, LinearLayoutManager.VERTICAL, false);
                 right_recycle.setLayoutManager(manager);
                 ClasssInfo_TwoBarRecycleAdapter1 classInfo_twoBarRecycleAdapter = new ClasssInfo_TwoBarRecycleAdapter1(getActivity(), contentBean.getList(), classInfoProsenter, ThisCaterary);
                 right_recycle.setAdapter(classInfo_twoBarRecycleAdapter);
@@ -216,13 +216,7 @@ public class ClassificationFragment extends  BaseBufferFragment implements Class
      */
     private void OneClassClick(final List<FenLei.BodyBean.ContentBean.ChildProductCategoryInfosBean> datas){
         //===================网络请求获取列表=====================
-        GridLayoutManager manager = new GridLayoutManager(getActivity(),2, LinearLayoutManager.VERTICAL,false);
-//        manager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
-//            @Override
-//            public int getSpanSize(int position) {
-//                return Bigeall.get(position);
-//            }
-//        });
+        GridLayoutManager manager = new GridLayoutManager(getActivity(),3, LinearLayoutManager.VERTICAL,false);
         right_recycle.setLayoutManager(manager);
         classInfo_twoBarRecycleAdapter=new ClassInfo_TwoBarRecycleAdapter(getActivity(),datas,classInfoProsenter,ThisCaterary);
         right_recycle.setAdapter( classInfo_twoBarRecycleAdapter);
