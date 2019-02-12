@@ -45,5 +45,9 @@ public interface LoginCallBack {
      */
     void AppConfig(int status,String h5_URL);
 
-
+    /**
+     * 连接融云IM
+     * @param loginToken
+     */
+    void connetRongIM(String loginToken);
 }

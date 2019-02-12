@@ -1,14 +1,10 @@
 package com.iaowoo.mobile.Ui.classification.Activity;
 
-import android.app.ActivityManager;
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.os.Process;
 import android.support.v4.app.Fragment;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
@@ -34,7 +30,6 @@ import com.iaowoo.mobile.Ui.classification.Fragment.VideoFragment;
 import com.iaowoo.mobile.Ui.classification.Fragment.ViewPagerFragment;
 import com.iaowoo.mobile.Ui.classification.Fragment.messageFragment;
 import com.iaowoo.mobile.Ui.classification.Model.Banner;
-import com.iaowoo.mobile.Ui.classification.Model.City;
 import com.iaowoo.mobile.Ui.classification.Model.MsgModel;
 import com.iaowoo.mobile.Ui.classification.Model.StartPage;
 import com.iaowoo.mobile.Ui.classification.Model.VERSION;
@@ -54,28 +49,19 @@ import com.iaowoo.mobile.Utils.UtilsAll;
 import com.iaowoo.mobile.Utils.UtilsTimer;
 import com.iaowoo.mobile.Utils.XutilsHttp;
 import com.iaowoo.mobile.common.ConfigH5Url;
+import com.iaowoo.mobile.im.RongIMUtils;
 import com.iaowoo.mobile.interfaceCallback.OkhttpCallBack;
 import com.plp.underlying.networkframwork.OkhttpManager;
-import com.plp.underlying.networkframwork.RSA;
 import com.qiyukf.unicorn.api.Unicorn;
 import com.qiyukf.unicorn.api.UnreadCountChangeListener;
-
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
-
 import java.io.File;
 import java.lang.ref.SoftReference;
-import java.security.KeyPair;
-import java.security.interfaces.RSAPrivateKey;
-import java.security.interfaces.RSAPublicKey;
-import java.util.ArrayList;
-import java.util.List;
 
 import butterknife.BindView;
 import butterknife.OnClick;
-import io.rong.imkit.RongIM;
-import io.rong.imlib.RongIMClient;
 
 /**
  * ////////////////////////
@@ -217,42 +203,8 @@ public class HomePageActivity extends BaseBufferActivity  implements HomeFragmen
         this.allState();
         //注册evenbus
         EventBus.getDefault().register(this);
-//        String token = "IoIFr/VnmRNxr9JlC5GhXiLCvTnwWjULx1BHZ6nQAaCBKQtdWKGNO764VCSa70ANZgf7upLxqLmZm8YFg9fNfw==";
-//        connect(token);
-    }
-
-    /**
-     *融云聊天服务连接
-     * @param token
-     */
-    private void connect(String token) {
-        if (getApplicationInfo().packageName.equals(getCurProcessName(getApplicationContext()))) {
-            RongIM.connect(token, new RongIMClient.ConnectCallback() {
-                @Override
-                public void onTokenIncorrect() {
-
-                }
-                @Override
-                public void onSuccess(String userid) {
-                    Log.d("HomePageActivity", "--onSuccess" + userid);
-                }
-                @Override
-                public void onError(RongIMClient.ErrorCode errorCode) {
-
-                }
-            });
-        }
-    }
-
-    public static String getCurProcessName(Context context) {
-        int pid = Process.myPid();
-        ActivityManager activityManager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
-        for (ActivityManager.RunningAppProcessInfo appProcess : activityManager.getRunningAppProcesses()) {
-            if (appProcess.pid == pid) {
-                return appProcess.processName;
-            }
-        }
-        return null;
+        // 融云IM连接
+//        RongIMUtils.connect(this);
     }
 
     // 退出界面时，必须撤销，以免造成资源泄露

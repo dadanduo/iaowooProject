@@ -26,6 +26,7 @@ import com.iaowoo.mobile.Ui.classification.View.EditText_Phone;
 import com.iaowoo.mobile.Utils.LogPrint;
 import com.iaowoo.mobile.Utils.TranslateUtils;
 import com.iaowoo.mobile.Utils.UtilsAll;
+import com.iaowoo.mobile.im.RongIMUtils;
 import com.iaowoo.mobile.interfaceCallback.ClickCallBack;
 import com.iaowoo.mobile.interfaceCallback.LoginCallBack;
 
@@ -351,6 +352,11 @@ public class LoginActivity extends TitleActivity implements ClickCallBack,LoginC
             the_third_party.setVisibility(View.GONE);
         }
         this.url_h5=h5_URL;
+    }
+
+    @Override
+    public void connetRongIM(String loginToken) {
+        RongIMUtils.connect(this, loginToken);
     }
 
     /**
