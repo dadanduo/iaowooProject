@@ -17,22 +17,12 @@ import android.widget.TextView;
 
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.iaowoo.mobile.Controller.Single.PrefManager;
-import com.iaowoo.mobile.Ui.classification.Activity.LoginActivity;
-import com.iaowoo.mobile.Ui.classification.Activity.UseguideActivity;
-import com.iaowoo.mobile.Utils.DialogUtils;
-import com.iaowoo.mobile.Utils.Glide.GlideUtils;
-import com.iaowoo.mobile.Utils.LogPrint;
-import com.iaowoo.mobile.Utils.MockData;
-import com.iaowoo.mobile.Utils.ToastUtilsAll;
-import com.iaowoo.mobile.Utils.UtilsAll;
-import com.iaowoo.mobile.common.ConfigH5Url;
-import com.iaowoo.mobile.umeng.Defaultcontent;
-import com.iaowoo.mobile.Controller.Single.PrefManager;
 import com.iaowoo.mobile.R;
 import com.iaowoo.mobile.Ui.classification.Activity.LoginActivity;
 import com.iaowoo.mobile.Ui.classification.Activity.UseguideActivity;
 import com.iaowoo.mobile.Ui.classification.Model.CommentsOk;
 import com.iaowoo.mobile.Ui.classification.Model.VideoEntity;
+import com.iaowoo.mobile.Ui.classification.View.DouYinMusic.MusicalNoteLayout;
 import com.iaowoo.mobile.Ui.classification.View.Love;
 import com.iaowoo.mobile.Ui.classification.View.listvideo.ListVideoView;
 import com.iaowoo.mobile.Ui.classification.View.recyclerview.WRecyclerView;
@@ -140,9 +130,9 @@ public class VideoAdapter extends WRecyclerView.Adapter {
 
         if(listBeans.getVideo()!=null) {
             //设置点赞数量
-           integers.add(position, listBeans.getVideo().getPraiseNum());
+            integers.add(position, listBeans.getVideo().getPraiseNum());
             //设置评论数量
-           commentsIntegar.add(position,listBeans.getStatistics().getCommentNum());
+            commentsIntegar.add(position,listBeans.getStatistics().getCommentNum());
             //设置封面
             if (!TextUtils.isEmpty(listBeans.getVideo().getOriginCover())) {
                 viewHolder.sdvCover.setImageURI(listBeans.getVideo().getOriginCover() + "");
@@ -616,14 +606,11 @@ public class VideoAdapter extends WRecyclerView.Adapter {
         public RelativeLayout say;
 
         public RelativeLayout buy_go_on,search_items;
-
         /**
          * 跑马灯
          */
         public TextBannerView tv_banner;
-
-
-
+        public MusicalNoteLayout music_note_layout;
         public VideoViewHolder(View itemView) {
             super(itemView);
             videoView = itemView.findViewById(R.id.videoView);
@@ -645,6 +632,7 @@ public class VideoAdapter extends WRecyclerView.Adapter {
             search_items=itemView.findViewById(R.id.search_items);
             buy_go_on=itemView.findViewById(R.id.buy_go_on);
             tv_banner=itemView.findViewById(R.id.tv_banner);
+            music_note_layout=itemView.findViewById(R.id.music_note_layout);
         }
     }
 

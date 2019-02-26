@@ -33,7 +33,7 @@ import java.util.List;
 public class TextBannerView extends RelativeLayout {
     private ViewFlipper mViewFlipper;
     private int mInterval = 0;/**文字切换时间间隔,默认3s*/
-    private boolean isSingleLine = false;/**文字是否为单行,默认false*/
+    private boolean isSingleLine = true;/**文字是否为单行,默认false*/
     private int mTextColor = 0xff000000;/**设置文字颜色,默认黑色*/
     private int mTextSize = 13; /**设置文字尺寸,默认16px*/
     private int mGravity = Gravity.LEFT | Gravity.CENTER_VERTICAL;/**文字显示位置,默认左边居中*/
@@ -61,13 +61,10 @@ public class TextBannerView extends RelativeLayout {
     private static final int TYPE_BOLD = 1;
     private static final int TYPE_ITALIC = 2;
     private static final int TYPE_ITALIC_BOLD = 3;
-
     private List<String> mDatas;
     private ITextBannerItemClickListener mListener;
     private boolean isStarted;
     private boolean isDetachedFromWindow;
-
-
     public TextBannerView(Context context) {
         this(context,null);
     }
@@ -207,8 +204,6 @@ public class TextBannerView extends RelativeLayout {
 
         }
     }
-
-
     /**
      * 设置进入动画和离开动画
      *
@@ -235,7 +230,6 @@ public class TextBannerView extends RelativeLayout {
             for (int i = 0; i < mDatas.size(); i++) {
                 TextView textView = new TextView(getContext());
                 setTextView(textView,i);
-
                 mViewFlipper.addView(textView,i);//添加子view,并标识子view位置
             }
         }
@@ -296,26 +290,20 @@ public class TextBannerView extends RelativeLayout {
         textView.getPaint().setFlags(mFlags);//字体划线
         textView.setTypeface(null, mTypeface);//字体样式
     }
-
-
     /**设置点击监听事件回调*/
     public void setItemOnClickListener(ITextBannerItemClickListener listener){
         this.mListener = listener;
     }
-
-
     @Override
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
         isDetachedFromWindow=true;
         stopViewAnimator();
     }
-
     @Override
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
         isDetachedFromWindow=false;
         startViewAnimator();
-
     }
 }

@@ -7,4 +7,5 @@
     <item name="banner_title" type="id" />
     <item name="header" type="id" />
     <item name="footer" type="id" />
+    <item name="music_view_id" type="id" />
 </resources>

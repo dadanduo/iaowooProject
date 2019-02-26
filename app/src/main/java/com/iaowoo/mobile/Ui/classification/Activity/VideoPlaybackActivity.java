@@ -1,6 +1,5 @@
 package com.iaowoo.mobile.Ui.classification.Activity;
 
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
@@ -11,23 +10,15 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.LinearInterpolator;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 
 import com.facebook.drawee.backends.pipeline.Fresco;
-import com.iaowoo.mobile.Application.ZApplication;
-import com.iaowoo.mobile.Controller.Single.PrefManager;
-import com.iaowoo.mobile.Controller.Single.SingleOverAll;
-import com.iaowoo.mobile.Utils.LogPrint;
-import com.iaowoo.mobile.Utils.MockData;
-import com.iaowoo.mobile.Utils.ScreenAdaptationUtils;
-import com.iaowoo.mobile.Utils.ToastUtilsAll;
-import com.iaowoo.mobile.Utils.UtilsAll;
 import com.iaowoo.mobile.Application.ZApplication;
 import com.iaowoo.mobile.Controller.Single.PrefManager;
 import com.iaowoo.mobile.Controller.Single.SingleOverAll;
 import com.iaowoo.mobile.R;
 import com.iaowoo.mobile.Ui.classification.Adapter.VideoAdapter;
 import com.iaowoo.mobile.Ui.classification.Model.VideoEntity;
+import com.iaowoo.mobile.Ui.classification.View.DouYinMusic.MusicalNoteLayout;
 import com.iaowoo.mobile.Ui.classification.View.pagerlayoutmanager.OnViewPagerListener;
 import com.iaowoo.mobile.Ui.classification.View.pagerlayoutmanager.ViewPagerLayoutManager;
 import com.iaowoo.mobile.Ui.classification.View.recyclerview.WRecyclerView;
@@ -44,6 +35,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import de.hdodenhof.circleimageview.CircleImageView;
 import tv.danmaku.ijk.media.player.IMediaPlayer;
 import tv.danmaku.ijk.media.player.IjkMediaPlayer;
 
@@ -113,27 +105,22 @@ public class VideoPlaybackActivity extends BaseUpDownActivity implements OnViewP
      * 传递过来需要播放的视频的位置
      */
     private int tag;
-
     /**
      * 用来接收传递过来的数据
      */
     private List<VideoEntity.BodyBean.ContentBean.ListBean> listBeansAll=null;
-
     /**
      * 接收列表页面传递过来的加载页数
      */
     private int pageNum;
-
     /**
      * 数据加载
      */
     private MockData mockData=null;
-
     /**
      * 动画
      */
     private Animation animation=null;
-
     @Override
     public int getLayoutResId() {
         return R.layout.video_activity;
@@ -193,7 +180,6 @@ public class VideoPlaybackActivity extends BaseUpDownActivity implements OnViewP
                     default:
                         break;
                 }
-
                 return false;
             }
         });
@@ -215,27 +201,22 @@ public class VideoPlaybackActivity extends BaseUpDownActivity implements OnViewP
         videoAdapter.notifyDataSetChanged();
     }
 
-
     @Override
     public void onInitComplete() {
         playVideo(tag);
         positionTag=tag;
     }
-
     @Override
     public void onPageSelected(int position, boolean isBottom) {
         LogPrint.printError("刷新"+position);
         positionTag = position;
         playVideo(position);
-
     }
-
     @Override
     public void onPageRelease(boolean isNext, int position) {
         LogPrint.printError(""+position);
         releaseVideo(position);
     }
-
     /**
      * prepare后在回调中调用start开始播放
      *
@@ -262,6 +243,13 @@ public class VideoPlaybackActivity extends BaseUpDownActivity implements OnViewP
                             datasmusic.add("" + videoEntity.getMusic().getTitle());
                             datasmusic.add("" + videoEntity.getMusic().getTitle());
                             datasmusic.add("" + videoEntity.getMusic().getTitle());
+                            viewHolder.tv_banner.setDatas(datasmusic);
+                            viewHolder.tv_banner.startViewAnimator();
+                        }else{
+                            List<String> datasmusic = new ArrayList<>();
+                            datasmusic.add("");
+                            datasmusic.add("");
+                            datasmusic.add("");
                             viewHolder.tv_banner.setDatas(datasmusic);
                             viewHolder.tv_banner.startViewAnimator();
                         }
@@ -307,7 +295,7 @@ public class VideoPlaybackActivity extends BaseUpDownActivity implements OnViewP
                         viewHolder.background_image.setVisibility(View.GONE);
                         viewHolder.sdvCover.setVisibility(View.VISIBLE);
                         viewHolder.videoView.setVisibility(View.VISIBLE);
-                        PlayVideo(viewHolder.music_play_pause);
+                        PlayVideo(viewHolder.music_note_layout,viewHolder.music_image);
                         //循环播放
                         viewHolder.videoView.setLooping(true);
                         viewHolder.videoView.prepareAsync();
@@ -329,7 +317,7 @@ public class VideoPlaybackActivity extends BaseUpDownActivity implements OnViewP
                 viewHolder.videoView.stopPlayback();
                 viewHolder.tv_banner.stopViewAnimator();
                 viewHolder.sdvCover.setVisibility(View.VISIBLE);
-                StopPlay(viewHolder.music_play_pause);
+                StopPlay(viewHolder.music_note_layout,viewHolder.music_image);
             }
         }
     }
@@ -346,7 +334,7 @@ public class VideoPlaybackActivity extends BaseUpDownActivity implements OnViewP
             if (viewHolder != null) {
                 viewHolder.videoView.pause();
                 viewHolder.tv_banner.stopViewAnimator();
-                StopPlay(viewHolder.music_play_pause);
+                StopPlay(viewHolder.music_note_layout,viewHolder.music_image);
             }
         }
     }
@@ -362,7 +350,7 @@ public class VideoPlaybackActivity extends BaseUpDownActivity implements OnViewP
             if (viewHolder != null) {
                 viewHolder.videoView.start();
                 viewHolder.tv_banner.startViewAnimator();
-                PlayVideo(viewHolder.music_play_pause);
+                PlayVideo(viewHolder.music_note_layout,viewHolder.music_image);
             }
         }
     }
@@ -441,7 +429,6 @@ public class VideoPlaybackActivity extends BaseUpDownActivity implements OnViewP
         if(videoAdapter!=null) {
             video_recycler_view.setAdapter(videoAdapter);
         }
-
     }
 
     /**
@@ -470,23 +457,25 @@ public class VideoPlaybackActivity extends BaseUpDownActivity implements OnViewP
 
     /**
      * 继续转动
-     * @param imageView
+     * @param musicalNoteLayout
      */
-    private void  PlayVideo(RelativeLayout imageView){
+    private void  PlayVideo(MusicalNoteLayout musicalNoteLayout, CircleImageView music_image){
         //动画
         animation = AnimationUtils.loadAnimation(mContext, R.anim.rotate_image);
         LinearInterpolator lin = new LinearInterpolator();//设置动画匀速运动
         animation.setInterpolator(lin);
-        imageView.startAnimation(animation);
+        music_image.startAnimation(animation);
         animation.cancel();
+        musicalNoteLayout.start(true);
     }
 
     /**
      * 停止转动
-     * @param imageView
+     * @param musicalNoteLayout
      */
-    private void StopPlay(RelativeLayout imageView){
-        imageView.clearAnimation();
+    private void StopPlay(MusicalNoteLayout musicalNoteLayout, CircleImageView music_image){
+        musicalNoteLayout.start(false);
+        music_image.clearAnimation();
     }
 
     @Override

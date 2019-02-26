@@ -47,33 +47,28 @@ public class IMSearchActivity extends AppCompatActivity {
     EditText etSearch;
     @BindView(R.id.ac_iv_search_loading)
     ImageView ivSearchLoading;
-
     @BindView(R.id.ac_lv_filtered_friends_list)
     NestedListView mFriendListView;
     @BindView(R.id.ac_ll_more_friends)
     LinearLayout llMoreFriends;
     @BindView(R.id.ac_ll_filtered_friend_list)
     LinearLayout llFilteredFriendList;
-
     @BindView(R.id.ac_lv_filtered_groups_list)
     NestedListView mGroupsListView;
     @BindView(R.id.ac_ll_more_groups)
     LinearLayout llMoreGroups;
     @BindView(R.id.ac_ll_filtered_group_list)
     LinearLayout llFilteredGroupList;
-
     @BindView(R.id.ac_lv_filtered_chatting_records_list)
     NestedListView mChattingRecordsListView;
     @BindView(R.id.ac_ll_more_chatting_records)
     LinearLayout llMoreChattingRecords;
     @BindView(R.id.ac_ll_filtered_chatting_records_list)
     LinearLayout llFilteredChattingRecordsList;
-
     @BindView(R.id.ac_tv_search_no_results)
     TextView tvSearchNoResults;
     @BindView(R.id.ac_ll_filter_view)
     LinearLayout llFilterView;
-
     private ArrayList<String> mFilterGroupId;
     private ArrayList<Friend> mFilterFriendList;
     private List<SearchConversationResult> mSearchConversationResultsList;
@@ -85,7 +80,6 @@ public class IMSearchActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_im_search);
         ButterKnife.bind(this);
-
         initView();
         initListener();
         initData();
@@ -144,10 +138,10 @@ public class IMSearchActivity extends AppCompatActivity {
 
     private void initData() {
         mFilterFriendList = new ArrayList<>();
-        for (int i=0; i<20;i++) {
+        for (int i = 0; i < 20; i++) {
             Friend friend = new Friend();
-            friend.setName("name"+ i);
-            friend.setUserId("userId"+i);
+            friend.setName("name" + i);
+            friend.setUserId("userId" + i);
             mFilterFriendList.add(friend);
         }
         llFilteredFriendList.setVisibility(View.VISIBLE);
@@ -187,7 +181,7 @@ public class IMSearchActivity extends AppCompatActivity {
 
     @OnClick({R.id.ac_iv_press_back, R.id.ac_ll_more_friends})
     public void onViewClicked(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.ac_iv_press_back:
                 finish();
                 break;
@@ -200,13 +194,11 @@ public class IMSearchActivity extends AppCompatActivity {
         RongIMClient.getInstance().searchConversations(mFilterString,
                 new Conversation.ConversationType[]{Conversation.ConversationType.PRIVATE, Conversation.ConversationType.GROUP},
                 new String[]{"RC:TxtMsg", "RC:ImgTextMsg", "RC:FileMsg"},
-                new RongIMClient.ResultCallback<List<SearchConversationResult>>(){
-
+                new RongIMClient.ResultCallback<List<SearchConversationResult>>() {
                     @Override
                     public void onSuccess(List<SearchConversationResult> searchConversationResults) {
                         mSearchConversationResultsList = searchConversationResults;
                         mSearchConversationResultsArrayList = new ArrayList<>();
-
                         for (SearchConversationResult result : searchConversationResults) {
                             mSearchConversationResultsArrayList.add(result);
                         }
@@ -224,7 +216,6 @@ public class IMSearchActivity extends AppCompatActivity {
                             llFilteredChattingRecordsList.setVisibility(View.GONE);
                             llMoreChattingRecords.setVisibility(View.GONE);
                         }
-
                         if (mFilterFriendList.size() == 0 && mFilterGroupId.size() == 0 && mSearchConversationResultsList.size() == 0) {
                             if (mFilterString.equals("")) {
                                 tvSearchNoResults.setVisibility(View.GONE);
@@ -271,16 +262,16 @@ public class IMSearchActivity extends AppCompatActivity {
                 });
     }
 
-
-
+    /**
+     * @param filterStr
+     * @return
+     */
     private synchronized SearchResult filterInfo(String filterStr) {
-
         List<Friend> filterFriendList = new ArrayList<>();
         List<String> filterGroupId = new ArrayList<>();
         Map<String, List<GroupMember>> filterGroupNameListMap = new HashMap<>();
         Map<String, List<GroupMember>> filterGroupMemberNameListMap = new HashMap<>();
         SearchResult searchResult = new SearchResult();
-
         if (filterStr.equals("")) {
             SearchResult result = new SearchResult();
             result.setFilterStr("");

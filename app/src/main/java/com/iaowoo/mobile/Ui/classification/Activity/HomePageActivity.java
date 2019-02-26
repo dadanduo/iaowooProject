@@ -3,6 +3,7 @@ package com.iaowoo.mobile.Ui.classification.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v4.app.Fragment;
 import android.text.TextUtils;
 import android.view.KeyEvent;
@@ -28,6 +29,7 @@ import com.iaowoo.mobile.Ui.classification.Fragment.ClassificationFragment;
 import com.iaowoo.mobile.Ui.classification.Fragment.MyFragment;
 import com.iaowoo.mobile.Ui.classification.Fragment.VideoFragment;
 import com.iaowoo.mobile.Ui.classification.Fragment.ViewPagerFragment;
+import com.iaowoo.mobile.Ui.classification.Fragment.im.ConversationListFragmentEx;
 import com.iaowoo.mobile.Ui.classification.Fragment.messageFragment;
 import com.iaowoo.mobile.Ui.classification.Model.Banner;
 import com.iaowoo.mobile.Ui.classification.Model.MsgModel;
@@ -62,6 +64,7 @@ import java.lang.ref.SoftReference;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import io.rong.imlib.model.Conversation;
 
 /**
  * ////////////////////////
@@ -526,22 +529,23 @@ public class HomePageActivity extends BaseBufferActivity  implements HomeFragmen
                     tagThis=1;
                     break;
                 case 2:
-//                    this.initState(R.id.ll_bar);
+                    this.initState(R.id.ll_bar);
                     //消息页面fragment
-                    currentFragment = new messageFragment();
+//                    currentFragment = new messageFragment();
+
                     //爱好物聊天系统入口暂时屏蔽二期开发
-//                    ConversationListFragmentEx conversationListFragment = new ConversationListFragmentEx();
-//                    Uri uri = Uri.parse("rong://" + getApplicationInfo().packageName).buildUpon()
-//                            .appendPath("conversationlist")
-//                            .appendQueryParameter(Conversation.ConversationType.PRIVATE.getName(), "true") //设置私聊会话是否聚合显示
-//                            .appendQueryParameter(Conversation.ConversationType.GROUP.getName(), "true")//群组
-//                            .appendQueryParameter(Conversation.ConversationType.PUBLIC_SERVICE.getName(), "false")//公共服务号
-//                            .appendQueryParameter(Conversation.ConversationType.APP_PUBLIC_SERVICE.getName(), "false")//订阅号
-//                            .appendQueryParameter(Conversation.ConversationType.SYSTEM.getName(), "false")//系统
-//                            .appendQueryParameter(Conversation.ConversationType.DISCUSSION.getName(), "false")
-//                            .build();
-//                    conversationListFragment.setUri(uri);
-//                    currentFragment = conversationListFragment;
+                    ConversationListFragmentEx conversationListFragment = new ConversationListFragmentEx();
+                    Uri uri = Uri.parse("rong://" + getApplicationInfo().packageName).buildUpon()
+                            .appendPath("conversationlist")
+                            .appendQueryParameter(Conversation.ConversationType.PRIVATE.getName(), "true") //设置私聊会话是否聚合显示
+                            .appendQueryParameter(Conversation.ConversationType.GROUP.getName(), "true")//群组
+                            .appendQueryParameter(Conversation.ConversationType.PUBLIC_SERVICE.getName(), "false")//公共服务号
+                            .appendQueryParameter(Conversation.ConversationType.APP_PUBLIC_SERVICE.getName(), "false")//订阅号
+                            .appendQueryParameter(Conversation.ConversationType.SYSTEM.getName(), "false")//系统
+                            .appendQueryParameter(Conversation.ConversationType.DISCUSSION.getName(), "false")
+                            .build();
+                    conversationListFragment.setUri(uri);
+                    currentFragment = conversationListFragment;
 
 
                     activity_image.setVisibility(View.GONE);

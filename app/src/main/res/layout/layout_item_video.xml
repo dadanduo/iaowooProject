@@ -4,6 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
     <ImageView
         android:id="@+id/background_image"
         android:layout_width="match_parent"
@@ -21,7 +22,7 @@
         android:id="@+id/videoView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-         />
+        />
 
     <com.facebook.drawee.view.SimpleDraweeView
         android:id="@+id/sdv_cover"
@@ -41,13 +42,13 @@
 
         <RelativeLayout
             android:layout_above="@+id/bottom_vedio"
-            android:layout_width="wrap_content"
+            android:layout_width="@dimen/dp_100"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/dp_61"
             android:layout_gravity="right"
             >
             <LinearLayout
-                android:layout_width="@dimen/dp_50"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:layout_alignParentBottom="true"
@@ -108,6 +109,27 @@
                     android:textSize="@dimen/dp_12"
                     android:layout_gravity="center_horizontal"
                     />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_100">
+                    <com.iaowoo.mobile.Ui.classification.View.DouYinMusic.MusicalNoteLayout
+                        android:id="@+id/music_note_layout"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        app:circle_music_view_res="@mipmap/music_plays_turntable_icon">
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/music_image"
+                            android:layout_width="@dimen/dp_24"
+                            android:layout_height="@dimen/dp_24"
+                            app:civ_border_color="#F3F3F3"
+                            android:layout_centerInParent="true"
+                            app:civ_border_width="0dp"/>
+                    </com.iaowoo.mobile.Ui.classification.View.DouYinMusic.MusicalNoteLayout>
+                </RelativeLayout>
+
                 <RelativeLayout
                     android:id="@+id/music_play_pause"
                     android:layout_width="@dimen/dp_44"
@@ -115,11 +137,12 @@
                     android:layout_marginTop="@dimen/dp_35"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
+                    android:visibility="gone"
                     android:layout_marginRight="@dimen/dp_10"
                     android:background="@mipmap/music_plays_turntable_icon">
 
                     <de.hdodenhof.circleimageview.CircleImageView
-                        android:id="@+id/music_image"
+                        android:id="@+id/music_image_1"
                         android:layout_width="@dimen/dp_24"
                         android:layout_height="@dimen/dp_24"
                         android:layout_centerInParent="true"
@@ -131,170 +154,172 @@
             </LinearLayout>
         </RelativeLayout>
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        >
-
         <RelativeLayout
-            android:id="@+id/bottom_vedio"
             android:layout_width="match_parent"
-            android:layout_alignParentBottom="true"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            >
 
-            <LinearLayout
+            <RelativeLayout
+                android:id="@+id/bottom_vedio"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_alignParentBottom="true"
+                android:layout_height="wrap_content">
 
-                <RelativeLayout
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-                    <LinearLayout
-                        android:id="@+id/left_botoo"
-                        android:layout_marginLeft="@dimen/dp_10"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-                        <TextView
-                            android:id="@+id/from_name"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:maxLines="1"
-                            android:maxEms="16"
-                            android:textColor="@color/white"
-                            android:textSize="15sp"
-                            />
-                        <TextView
-                            android:id="@+id/from_describe"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textColor="@color/white"
-                            android:textSize="13sp"
-                            android:layout_marginRight="@dimen/dp_50"
-                            android:layout_marginTop="@dimen/dp_12"
-                            />
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/dp_9"
-                            android:orientation="horizontal">
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:src="@mipmap/music_symbol_icon"/>
-                            <com.superluo.textbannerlibrary.TextBannerView
-                                android:id="@+id/tv_banner"
-                                android:layout_width="@dimen/dp_155"
-                                android:layout_height="38dp"
-                                android:background="#00000000"
-                                app:setGravity="left"
-                                app:setTextColor="#fff"/>
-                        </LinearLayout>
+                    android:orientation="vertical">
 
-                    </LinearLayout>
-
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:id="@+id/buy_go_on"
-                    android:layout_width="match_parent"
-                    android:layout_marginLeft="@dimen/dp_12"
-                    android:visibility="gone"
-                    android:layout_height="@dimen/dp_30"
-                    >
                     <RelativeLayout
-                        android:layout_width="@dimen/dp_230"
-                        android:layout_height="@dimen/dp_30"
-                        android:layout_centerVertical="true"
-                        android:background="@drawable/buy_video">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textSize="@dimen/dp_12"
-                            android:layout_centerInParent="true"
-                            android:textColor="@color/white"
-                            android:text="立即购买"/>
-
-                    </RelativeLayout>
-
-                </RelativeLayout>
-                <RelativeLayout
-                    android:id="@+id/search_items"
-                    android:visibility="gone"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/dp_30"
-                    android:layout_marginLeft="@dimen/dp_12"
-                    >
-                    <RelativeLayout
-                        android:layout_width="@dimen/dp_230"
-                        android:layout_height="@dimen/dp_30"
-                        android:layout_centerVertical="true"
-                        android:background="@drawable/buy_video">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textSize="@dimen/dp_12"
-                            android:layout_centerInParent="true"
-                            android:textColor="@color/white"
-                            android:text="查看详情"/>
-
-                    </RelativeLayout>
-
-                </RelativeLayout>
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="0.5dp"
-                    android:alpha="0.2"
-                    android:layout_marginTop="13dp"
-                    android:background="@color/white"/>
-                <RelativeLayout
-                    android:id="@+id/say"
-                    android:layout_width="match_parent"
-                    android:background="@color/black"
-                    android:layout_height="wrap_content">
-                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="bottom"
-                        android:background="@drawable/shape_liu_xia"
-                        android:orientation="vertical">
+                        android:orientation="horizontal">
+                        <LinearLayout
+                            android:id="@+id/left_botoo"
+                            android:layout_marginLeft="@dimen/dp_10"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+                            <TextView
+                                android:id="@+id/from_name"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:maxLines="1"
+                                android:maxEms="16"
+                                android:textColor="@color/white"
+                                android:textSize="15sp"
+                                />
+                            <TextView
+                                android:id="@+id/from_describe"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/white"
+                                android:textSize="13sp"
+                                android:layout_marginRight="@dimen/dp_50"
+                                android:layout_marginTop="@dimen/dp_12"
+                                />
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/dp_9"
+                                android:orientation="horizontal">
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:src="@mipmap/music_symbol_icon"/>
+                                <com.superluo.textbannerlibrary.TextBannerView
+                                    android:id="@+id/tv_banner"
+                                    android:layout_width="@dimen/dp_155"
+                                    android:layout_height="38dp"
+                                    android:background="#00000000"
+                                    app:setGravity="left"
+                                    app:setTextColor="#fff"/>
+                            </LinearLayout>
 
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/buy_go_on"
+                        android:layout_width="match_parent"
+                        android:layout_marginLeft="@dimen/dp_12"
+                        android:visibility="gone"
+                        android:layout_height="@dimen/dp_30"
+                        >
                         <RelativeLayout
-                            android:id="@+id/comments_go"
-                            android:layout_width="match_parent"
-                            android:layout_height="@dimen/dp_42">
-
+                            android:layout_width="@dimen/dp_230"
+                            android:layout_height="@dimen/dp_30"
+                            android:layout_centerVertical="true"
+                            android:background="@drawable/buy_video">
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="有爱评论，说点好听的~"
-                                android:textSize="13sp"
-                                android:layout_marginLeft="@dimen/dp_16"
-                                android:layout_centerVertical="true"
-                                android:textColor="#747480"/>
-                            <ImageView
-                                android:id="@+id/send"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:src="@mipmap/black_send_icon"
-                                android:layout_centerVertical="true"
-                                android:layout_marginRight="@dimen/dp_14"
-                                android:layout_alignParentRight="true"
-                                />
+                                android:textSize="@dimen/dp_12"
+                                android:layout_centerInParent="true"
+                                android:textColor="@color/white"
+                                android:text="立即购买"/>
 
                         </RelativeLayout>
-                    </LinearLayout>
-                </RelativeLayout>
-            </LinearLayout>
+
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:id="@+id/search_items"
+                        android:visibility="gone"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp_30"
+                        android:layout_marginLeft="@dimen/dp_12"
+                        >
+                        <RelativeLayout
+                            android:layout_width="@dimen/dp_230"
+                            android:layout_height="@dimen/dp_30"
+                            android:layout_centerVertical="true"
+                            android:background="@drawable/buy_video">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="@dimen/dp_12"
+                                android:layout_centerInParent="true"
+                                android:textColor="@color/white"
+                                android:text="查看详情"/>
+
+                        </RelativeLayout>
+
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:alpha="0.2"
+                        android:layout_marginTop="13dp"
+                        android:background="@color/white"/>
+                    <RelativeLayout
+                        android:id="@+id/say"
+                        android:layout_width="match_parent"
+                        android:background="@color/black"
+                        android:layout_height="wrap_content">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom"
+                            android:background="@drawable/shape_liu_xia"
+                            android:orientation="vertical">
+
+                            <RelativeLayout
+                                android:id="@+id/comments_go"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/dp_42">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="有爱评论，说点好听的~"
+                                    android:textSize="13sp"
+                                    android:layout_marginLeft="@dimen/dp_16"
+                                    android:layout_centerVertical="true"
+                                    android:textColor="#747480"/>
+                                <ImageView
+                                    android:id="@+id/send"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:src="@mipmap/black_send_icon"
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginRight="@dimen/dp_14"
+                                    android:layout_alignParentRight="true"
+                                    />
+
+                            </RelativeLayout>
+                        </LinearLayout>
+                    </RelativeLayout>
+                </LinearLayout>
+
+            </RelativeLayout>
+
 
         </RelativeLayout>
-
-    </RelativeLayout>
     </FrameLayout>
+
 
     <com.iaowoo.mobile.Ui.classification.View.Love
         android:id="@+id/give_two_love"

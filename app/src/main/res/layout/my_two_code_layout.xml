@@ -3,18 +3,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#000000">
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/show_time_new"
+        />
     <LinearLayout
         android:id="@+id/tops"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="#000000"
         android:orientation="vertical">
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp_45">
-
             <RelativeLayout
                 android:id="@+id/code_return"
                 android:layout_width="@dimen/dp_50"
@@ -49,16 +53,14 @@
                 />
 
         </RelativeLayout>
+
         <FrameLayout
             android:id="@+id/show_time"
             android:layout_width="match_parent"
             android:layout_marginLeft="@dimen/dp_23"
             android:layout_marginRight="@dimen/dp_23"
             android:layout_marginTop="39dp"
-            android:layout_height="wrap_content">
-
-
-        </FrameLayout>
+            android:layout_height="wrap_content"/>
     </LinearLayout>
 
     <LinearLayout
@@ -68,61 +70,58 @@
         android:layout_marginBottom="@dimen/dp_34"
         android:orientation="horizontal">
 
-    <RelativeLayout
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1">
-
-        <LinearLayout
-            android:id="@+id/peng_you_quan"
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:orientation="vertical">
-            <ImageView
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:id="@+id/peng_you_quan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@mipmap/code_friends_icon"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="朋友圈"
-                android:layout_gravity="center_horizontal"
-                android:textColor="#ffffff"
-                android:textSize="14sp"
-                />
+                android:layout_centerInParent="true"
+                android:orientation="vertical">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/code_friends_icon"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="朋友圈"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="#ffffff"
+                    android:textSize="14sp"
+                    />
 
-        </LinearLayout>
+            </LinearLayout>
 
 
-    </RelativeLayout>
-    <RelativeLayout
-        android:id="@+id/wechat"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1">
-        <LinearLayout
-            android:layout_width="wrap_content"
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/wechat"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:orientation="vertical">
-            <ImageView
+            android:layout_weight="1">
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@mipmap/code_wechat_icon"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="微信"
-                android:layout_gravity="center_horizontal"
-                android:textColor="#ffffff"
-                android:textSize="14sp"
-                />
-
-        </LinearLayout>
-
-    </RelativeLayout>
-
+                android:layout_centerInParent="true"
+                android:orientation="vertical">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/code_wechat_icon"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="微信"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="#ffffff"
+                    android:textSize="14sp"
+                    />
+            </LinearLayout>
+        </RelativeLayout>
     </LinearLayout>
 
 </FrameLayout>

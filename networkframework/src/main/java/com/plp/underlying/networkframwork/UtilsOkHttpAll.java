@@ -6,7 +6,7 @@ package com.plp.underlying.networkframwork;
 
 public class UtilsOkHttpAll {
     // 环境配置
-    public final static int ENV_TYPE = 1; // 环境配置参数 0:开发，1：测试，2：生产
+    public final static int ENV_TYPE = 2; // 环境配置参数 0:开发，1：测试，2：生产
     /**
      * 服务器路径接口
      */

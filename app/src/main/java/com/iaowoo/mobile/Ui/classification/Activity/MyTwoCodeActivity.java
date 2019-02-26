@@ -1,10 +1,7 @@
 package com.iaowoo.mobile.Ui.classification.Activity;
 
-import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.text.TextUtils;
@@ -67,19 +64,19 @@ public class MyTwoCodeActivity  extends BaseBufferActivity{
     @BindView(R.id.show_time)
     FrameLayout show_time;
 
+    @BindView(R.id.show_time_new)
+    FrameLayout show_time_new;
+
     private View show_view;
 
     private Bitmap bitmap;
 
     @BindView(R.id.tops)
     LinearLayout tops;
-
-
     @Override
     public int getLayoutResId() {
         return R.layout.my_two_code_layout;
     }
-
     /**
      * 个人信息
      */
@@ -90,9 +87,11 @@ public class MyTwoCodeActivity  extends BaseBufferActivity{
         super.initView();
         this.allState();
         this.setViewMarginTop(tops);
+        this.setViewMarginTop(show_time_new);
         mymessage= (MYMESSAGE) getIntent().getSerializableExtra("myMsg");
-        show_view=addView();
-        show_time.addView(show_view);
+        show_view=addViewShare();
+        show_time_new.addView(show_view);
+        show_time.addView(addView());
     }
     @Override
     protected void initData() {
@@ -107,6 +106,7 @@ public class MyTwoCodeActivity  extends BaseBufferActivity{
         ImageView code_two_image;
         TextView name_code;
         CircleImageView Top_headIcon;
+        LinearLayout layout_magin;
         // TODO 动态添加布局(xml方式)
         LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
         LayoutInflater inflater3 = LayoutInflater.from(this);
@@ -115,8 +115,7 @@ public class MyTwoCodeActivity  extends BaseBufferActivity{
         code_two_image=view.findViewById(R.id.code_two_image);
         name_code=view.findViewById(R.id. name_code);
         Top_headIcon=view.findViewById(R.id.Top_headIcon);
-
-
+        layout_magin=view.findViewById(R.id.layout_magin);
         //添加数据
         if(mymessage!=null) {
             if (!TextUtils.isEmpty(mymessage.getBody().getContent().getQrCodeImg())) {
@@ -181,8 +180,54 @@ public class MyTwoCodeActivity  extends BaseBufferActivity{
                 glideUtils.glideRound(mContext, mymessage.getBody().getContent().getHeadImgUrl() + "", Top_headIcon);
             }
         }
+        view.setLayoutParams(lp);
+        return view;
+    }
 
 
+    private View addViewShare() {
+        //二维码显示图片
+        ImageView code_image_new,bg_image;
+        TextView text_name;
+        CircleImageView Top_headIcon;
+        // TODO 动态添加布局(xml方式)
+        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
+        LayoutInflater inflater3 = LayoutInflater.from(this);
+        View view =  inflater3.inflate(R.layout.layout_share_new, null,false);
+        code_image_new=view.findViewById(R.id.code_image_new);
+        text_name=view.findViewById(R.id.text_name);
+        bg_image=view.findViewById(R.id.bg_image);
+        glideUtils.glides(MyTwoCodeActivity.this,"https://files.iaowoo.com/app-icon/app/promotion_code_bg.png", bg_image);
+        //添加数据
+        if(mymessage!=null) {
+            if (!TextUtils.isEmpty(mymessage.getBody().getContent().getQrCodeImg())) {
+                glideUtils.glides(MyTwoCodeActivity.this, mymessage.getBody().getContent().getQrCodeImg(), code_image_new);
+            }
+            if (!TextUtils.isEmpty(mymessage.getBody().getContent().getNickname())) {
+                text_name.setText("" + mymessage.getBody().getContent().getNickname());
+            } else {
+                if (!TextUtils.isEmpty(mymessage.getBody().getContent().getName())) {
+                    text_name.setText("" + mymessage.getBody().getContent().getName());
+                } else {
+                    if (!TextUtils.isEmpty(mymessage.getBody().getContent().getMobileNo())) {
+                        text_name.setText("" + mymessage.getBody().getContent().getMobileNo());
+                    }
+                }
+            }
+            //账号不为空
+            if (!TextUtils.isEmpty(PrefManager.getInstance().getMobile())) {
+                LoginInfo loginInfo = (LoginInfo) XutilsDBManage.getInstance().searchName(PrefManager.getInstance().getMobile(), LoginInfo.class);
+                if (loginInfo != null) {
+                    LoginInfo d = new LoginInfo();
+                    d.setName(loginInfo.getName());
+                    d.setPassWord(loginInfo.getPassWord());
+                    d.setId(loginInfo.getId());
+                    d.setGroudId(loginInfo.getGroudId());
+                    if (XutilsDBManage.getInstance().saveOrUpdate(d)) {
+                    }
+                }
+            }
+        }
         view.setLayoutParams(lp);
         return view;
     }
@@ -276,7 +321,7 @@ public class MyTwoCodeActivity  extends BaseBufferActivity{
                 //微信好友的分享
                 ShareUtils.shareWeb(this, Defaultcontent.url, Defaultcontent.title, Defaultcontent.text, Defaultcontent.imageurl, R.mipmap.logo, SHARE_MEDIA.WEIXIN,bitmap);
                 break;
-                //保存
+            //保存
             case R.id.save:
                 bitmap=getViewBitmap(show_view);
                 String urls1=saveBitmap(this,bitmap,true);
