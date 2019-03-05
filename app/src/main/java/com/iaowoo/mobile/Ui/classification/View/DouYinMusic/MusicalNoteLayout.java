@@ -191,7 +191,7 @@ public class MusicalNoteLayout extends RelativeLayout implements WeakWrapperHand
     // 贝塞尔曲线轨迹动画
     private ValueAnimator getBezierValueAnimator(View target) {
         // 中点
-        BezierEvaluator evaluator = new BezierEvaluator(new PointF(0f, mHeight - mHeight / 4),
+        BezierEvaluator evaluator = new BezierEvaluator(new PointF(0f, mHeight - mHeight / 6),
                 new PointF(0f, mHeight - mHeight / 2));
         // 终点在0
         // 起点定在音符的左上角坐标
@@ -200,7 +200,7 @@ public class MusicalNoteLayout extends RelativeLayout implements WeakWrapperHand
                         mMusicView.getBottom()),
                 new PointF(mMusicView.getLeft() / 2, mMusicView.getTop() - mMusicView.getHeight() / 2));
         animator.addUpdateListener(new BezierListener(target));
-        animator.setDuration(4000);
+        animator.setDuration(3000);
         return animator;
     }
 

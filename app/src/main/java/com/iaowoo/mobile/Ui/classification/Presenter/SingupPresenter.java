@@ -99,7 +99,6 @@ public class SingupPresenter {
             @Override
             public void OnSuccess(String json) {
                 if(!TextUtils.isEmpty(json)){
-                    LogPrint.printError("来了老弟"+json);
                     if(!TextUtils.isEmpty(json)) {
                         Response response = JSON.parseObject(json, Response.class);
                         if(response!=null) {
@@ -176,7 +175,6 @@ public class SingupPresenter {
             @Override
             public void onReqSuccess(Object result) {
                 if(!TextUtils.isEmpty(result.toString())){
-                   LogPrint.printError("来了老弟"+result.toString());
                     if(!TextUtils.isEmpty(result.toString())) {
                         Response response = JSON.parseObject(result.toString(), Response.class);
                         if(response!=null) {

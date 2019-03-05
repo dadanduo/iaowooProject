@@ -59,7 +59,7 @@ import butterknife.BindView;
  *
  * @author ${chenda}
  * @version V1.0
- * @Description: ${todo}()
+ * @Description: ${todo}(设置支付密码)
  * @date 2018/12/7
  * @email ${18011009889@163.com}
  */
@@ -151,7 +151,10 @@ public class SettingPayPasswordActivity extends  BaseBufferActivity {
                     ToastUtilsAll.getInstance().showShortToast("亲！您输入的密码不一致哦！");
                 }else if(password_txt.getText().length()<6){
                     ToastUtilsAll.getInstance().showShortToast("支付密码为6-20位");
+                }else if(password_txt.getText().length()>20){
                 }else if(repasswrod_txt.getText().length()<6){
+                    ToastUtilsAll.getInstance().showShortToast("支付密码为6-20位");
+                }else if(repasswrod_txt.getText().length()>20){
                     ToastUtilsAll.getInstance().showShortToast("支付密码为6-20位");
                 }else{
                     createPasswordPayDialog();

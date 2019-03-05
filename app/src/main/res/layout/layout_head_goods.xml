@@ -79,7 +79,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/colortabletxt"
-            android:text="1000000"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="@dimen/dp_3"
             android:layout_marginRight="@dimen/dp_3"

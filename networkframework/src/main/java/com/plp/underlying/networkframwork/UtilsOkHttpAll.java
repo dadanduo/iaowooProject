@@ -42,11 +42,10 @@ public class UtilsOkHttpAll {
                 WEEX_HTTP = "https://ihw-files-test.oss-cn-hangzhou.aliyuncs.com/front-page/weex";
                 GOODES_IMAGE_PAGE = "https://test-sp.iaowoo.com/product_details.html";
                 break;
-
             case 2:
                 HTTP_BASE = "https://api.iaowoo.com";
                 HTTP_H5 = "https://m.iaowoo.com";
-                WEEX_HTTP = "https://ihw-files-test.oss-cn-hangzhou.aliyuncs.com/front-page/weex";
+                WEEX_HTTP ="https://files.iaowoo.com/front-page/weex";
                 GOODES_IMAGE_PAGE = "https://sp.iaowoo.com/product_details.html";
                 break;
         }

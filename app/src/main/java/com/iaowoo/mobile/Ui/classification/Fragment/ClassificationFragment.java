@@ -96,8 +96,10 @@ public class ClassificationFragment extends  BaseBufferFragment implements Class
         list_swiperefreshlayout.setOnRefreshListener(new OnRefreshListener() {
             @Override
             public void onRefresh(RefreshLayout refreshlayout) {
-                refreshlayout.finishRefresh(2000/*,false*/);//传入false表示刷新失败
                 classInfoProsenter.getFenLei();
+                classInfoProsenter.GetActivityListForUser();
+                classInfoHomeBarRecycleAdapter.notifyDataSetChanged();
+                refreshlayout.finishRefresh(2000/*,false*/);//传入false表示刷新失败
             }
         });
 
@@ -184,6 +186,7 @@ public class ClassificationFragment extends  BaseBufferFragment implements Class
                 return false;
             }
         });
+
         left_recycle.setAdapter(classInfoHomeBarRecycleAdapter);
     }
 

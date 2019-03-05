@@ -146,7 +146,9 @@ public class ClasssInfo_TwoBarRecycleAdapter1 extends RecyclerView.Adapter<Recyc
         if (holder instanceof HeaderViewHolder) {
         } else if (holder instanceof ContentViewHolder) {
             if (mData != null) {
-                ((ContentViewHolder)holder).classinfo_two_Name.setText(mData.get(position-1).getTemplateActivityDescribe()+"");
+                if(!TextUtils.isEmpty(mData.get(position-1).getTemplateActivityDescribe())){
+                    ((ContentViewHolder)holder).classinfo_two_Name.setText(mData.get(position-1).getTemplateActivityDescribe()+"");
+                }
                 GlideUtils glideUtils=new GlideUtils();
                 if(!TextUtils.isEmpty(mData.get(position-1).getActivityImageUrl())) {
                     glideUtils.glides(context, mData.get(position-1).getActivityImageUrl(), ((ContentViewHolder)holder).two_class_imge);

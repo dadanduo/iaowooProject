@@ -79,11 +79,14 @@ public class ZApplication extends Application {
         MultiDex.install(this);
         super.attachBaseContext(base);
     }
-
     /**
      * 是否为发布状态  true:发布模式（线上环境）  false:debug模式（测试环境）
      */
     public static boolean isRelease = UtilsOkHttpAll.ENV_TYPE == 2;
+    /**
+     * 控制测试环境控件显示   false:显示  true:不显示
+     */
+    public static boolean isReleaseTag =false;
     /**
      * gson解析
      */

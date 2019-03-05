@@ -89,14 +89,11 @@ public class SettingActivity extends TitleActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-        if(ZApplication.isRelease){
+        if(ZApplication.isReleaseTag){
             goweex_layout.setVisibility(View.GONE);
         }else{
             goweex_layout.setVisibility(View.VISIBLE);
         }
-
-
         if(TextUtils.isEmpty(PrefManager.getInstance().getToken())){
             logout.setVisibility(View.GONE);
             switch_number.setVisibility(View.GONE);
