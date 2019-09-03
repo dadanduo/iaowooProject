@@ -151,10 +151,11 @@ public class UpdateManager {
         public void run() {
             try {
                 URL url = new URL(apkUrl);
-
                 HttpURLConnection conn = (HttpURLConnection)url.openConnection();
                 conn.connect();
                 int length = conn.getContentLength();
+
+
                 InputStream is = conn.getInputStream();
 
                 File file = new File(savePath);

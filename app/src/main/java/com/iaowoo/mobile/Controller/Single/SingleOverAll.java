@@ -34,6 +34,7 @@ import android.widget.AdapterView;
 
 import com.iaowoo.mobile.Application.ZApplication;
 import com.iaowoo.mobile.DB.MessageNumber;
+import com.iaowoo.mobile.R;
 import com.iaowoo.mobile.Ui.classification.Activity.UseguideActivity;
 import com.iaowoo.mobile.Ui.classification.Model.Banner;
 import com.iaowoo.mobile.Utils.DialogUtils;
@@ -652,7 +653,7 @@ public class SingleOverAll {
      */
     //"<img src='" + R.mipmap.mall_proprietary_icon + "'/>"+
     public  String descString(String destr) {
-        //"<img src='" + R.mipmap.mall_proprietary_icon +"'/>  "+destr;
+//        "<img src='" + R.mipmap.mall_proprietary_icon +"'/>  "+destr;
         return destr;
     }
 

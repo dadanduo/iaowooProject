@@ -3,7 +3,6 @@ package com.iaowoo.mobile.Ui.classification.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.net.Uri;
 import android.support.v4.app.Fragment;
 import android.text.TextUtils;
 import android.view.KeyEvent;
@@ -29,7 +28,6 @@ import com.iaowoo.mobile.Ui.classification.Fragment.ClassificationFragment;
 import com.iaowoo.mobile.Ui.classification.Fragment.MyFragment;
 import com.iaowoo.mobile.Ui.classification.Fragment.VideoFragment;
 import com.iaowoo.mobile.Ui.classification.Fragment.ViewPagerFragment;
-import com.iaowoo.mobile.Ui.classification.Fragment.im.ConversationListFragmentEx;
 import com.iaowoo.mobile.Ui.classification.Fragment.messageFragment;
 import com.iaowoo.mobile.Ui.classification.Model.Banner;
 import com.iaowoo.mobile.Ui.classification.Model.MsgModel;
@@ -51,20 +49,20 @@ import com.iaowoo.mobile.Utils.UtilsAll;
 import com.iaowoo.mobile.Utils.UtilsTimer;
 import com.iaowoo.mobile.Utils.XutilsHttp;
 import com.iaowoo.mobile.common.ConfigH5Url;
-import com.iaowoo.mobile.im.RongIMUtils;
 import com.iaowoo.mobile.interfaceCallback.OkhttpCallBack;
 import com.plp.underlying.networkframwork.OkhttpManager;
 import com.qiyukf.unicorn.api.Unicorn;
 import com.qiyukf.unicorn.api.UnreadCountChangeListener;
+
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
+
 import java.io.File;
 import java.lang.ref.SoftReference;
 
 import butterknife.BindView;
 import butterknife.OnClick;
-import io.rong.imlib.model.Conversation;
 
 /**
  * ////////////////////////

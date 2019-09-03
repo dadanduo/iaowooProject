@@ -1,20 +1,9 @@
 package com.iaowoo.mobile.Ui.classification.Fragment;
 
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
-import com.iaowoo.mobile.Application.ZApplication;
-import com.iaowoo.mobile.Controller.Single.SingleOverAll;
-import com.iaowoo.mobile.EvenBus.EventBusMessageRefresh;
-import com.iaowoo.mobile.EvenBus.EventBusMessageShopCar;
-import com.iaowoo.mobile.Ui.classification.BroadcastReceiverClass.BroadcastCallBack;
-import com.iaowoo.mobile.Ui.classification.BroadcastReceiverClass.GlobalBroadcastReceiver;
-import com.iaowoo.mobile.Ui.classification.BroadcastReceiverClass.RdioBroadCast;
-import com.iaowoo.mobile.Ui.classification.Presenter.MyFragmentPresenter;
-import com.iaowoo.mobile.Utils.LogPrint;
-import com.iaowoo.mobile.Utils.UtilsAll;
 import com.iaowoo.mobile.Application.ZApplication;
 import com.iaowoo.mobile.Controller.Single.SingleOverAll;
 import com.iaowoo.mobile.EvenBus.EventBusMessageRefresh;
@@ -34,9 +23,7 @@ import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
-
 import java.util.List;
-
 import butterknife.BindView;
 
 /**
